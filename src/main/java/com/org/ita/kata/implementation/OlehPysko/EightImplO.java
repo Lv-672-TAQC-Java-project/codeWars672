@@ -2,6 +2,7 @@ package com.org.ita.kata.implementation.OlehPysko;
 
 import com.org.ita.kata.Eight;
 
+//test
 public class EightImplO implements Eight {
     @Override
     public int liters(double time) {
