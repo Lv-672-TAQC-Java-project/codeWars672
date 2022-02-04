@@ -2,6 +2,8 @@ package com.org.ita.kata.implementation.PopenkoI;
 
 import com.org.ita.kata.Eight;
 
+import java.util.ArrayList;
+
 public class EightImpl implements Eight {
     @Override
     public int liters(double time) {
@@ -45,6 +47,19 @@ public class EightImpl implements Eight {
 
     @Override
     public int[] divisibleBy(int[] numbers, int divider) {
-        return new int[0];
+        ArrayList<Integer> arrayList = new ArrayList<>();
+
+        for (int number : numbers) {
+            if (number % divider == 0) {
+                arrayList.add(number);
+            }
+        }
+
+        int[] nums = new int[arrayList.size()];
+        for (int i = 0; i < arrayList.size(); i++) {
+            nums[i] = arrayList.get(i);
+        }
+
+        return nums;
     }
 }
