@@ -27,10 +27,11 @@ public class Eightimpl implements Eight {
     public int[] countPositivesSumNegatives(int[] input) {
         return new int[0];
     }
-
+    /*Convert a string to a number*/
     @Override
     public int stringToNumber(String str) {
-        return 0;
+        int number = Integer.parseInt(str);
+        return number;
     }
 
     @Override
