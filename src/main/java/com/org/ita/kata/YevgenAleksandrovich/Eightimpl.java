@@ -7,10 +7,10 @@ public class Eightimpl implements Eight {
     public int liters(double time) {
         return 0;
     }
-
+    /*Volume of a Cuboid Kata*/
     @Override
     public double getVolumeOfCuboid(double length, double width, double height) {
-        return 0;
+        return length * width * height;
     }
 
     @Override
