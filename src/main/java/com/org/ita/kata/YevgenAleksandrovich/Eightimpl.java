@@ -19,7 +19,7 @@ public class Eightimpl implements Eight {
     }
 
     @Override
-    public int[] squareOrSquareRoot(int[] array) {
+   public int[] squareOrSquareRoot(int[] array) {
         return new int[0];
     }
 
