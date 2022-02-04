@@ -37,10 +37,10 @@ public class Eightimpl implements Eight {
     public boolean amIWilson(double n) {
         return false;
     }
-
+   /*Two Decimal Placec*/
     @Override
     public double twoDecimalPlaces(double number) {
-        return 0;
+        return Math.round((number * 100) / 100);
     }
 
     @Override
