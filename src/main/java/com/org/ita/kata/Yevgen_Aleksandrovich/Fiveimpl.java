@@ -1,4 +1,4 @@
-package com.org.ita.kata.YevgenAleksandrovich;
+package com.org.ita.kata.Yevgen_Aleksandrovich;
 
 import com.org.ita.kata.Five;
 
