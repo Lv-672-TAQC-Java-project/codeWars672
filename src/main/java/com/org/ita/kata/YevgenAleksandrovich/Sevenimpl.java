@@ -12,9 +12,20 @@ public class Sevenimpl implements Seven {
     public String seriesSum(int n) {
         return null;
     }
-
+/*Where is Vasya*/
     @Override
     public int whereIsHe(int p, int bef, int aft) {
-        return 0;
+        int position=0;
+        int a,b;
+        for(int i=1;i<=p;i++)
+        {
+            a=i-1;
+            b=p-i;
+            if(a>=bef && b<=aft){
+                position++;
+            }
+        }
+        return position;
     }
 }
+
