@@ -76,7 +76,9 @@ public class EightImplO implements Eight {
 
     @Override
     public double twoDecimalPlaces(double number) {
-        return 0;
+        double scale = Math.pow(10, 2);
+        double result = Math.round(number * scale) / scale;
+        return result;
     }
 
     @Override
