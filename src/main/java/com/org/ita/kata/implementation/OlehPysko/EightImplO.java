@@ -17,8 +17,16 @@ public class EightImplO implements Eight {
 
     @Override
     public float mpgToKPM(float mpg) {
-        return 0;
-    }
+        float convert =  (float)(mpg*1.609344/4.54609188);
+        float scale = (float)(Math.pow(10, 2));
+        float result = (float)(Math.round(convert * scale) / scale);
+
+        //BigDecimal dec = new BigDecimal(convert);
+        //dec = dec.setScale(2, ROUND_HALF_UP);
+        //return dec.floatValue();
+        return result;
+
+            }
 
     @Override
     public int[] squareOrSquareRoot(int[] array) {
