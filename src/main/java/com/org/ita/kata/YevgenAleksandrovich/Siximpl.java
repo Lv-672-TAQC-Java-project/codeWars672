@@ -12,10 +12,11 @@ public class Siximpl implements Six {
     public String balance(String book) {
         return null;
     }
-
+    /*Approximation*/
     @Override
     public double f(double x) {
-        return 0;
+
+        return x / (Math.sqrt(1 + x) + 1);
     }
 
     @Override
