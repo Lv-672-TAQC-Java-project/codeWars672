@@ -6,7 +6,7 @@ import com.org.ita.kata.Eight;
 public class EightImplO implements Eight {
     @Override
     public int liters(double time) {
-        int litters = (int)Math.round(0.5*time);
+        int litters = (int)(0.5*time);
         return litters;
     }
 
