@@ -40,7 +40,7 @@ public class SixImplO implements Six {
         double balance = Double.parseDouble(bookArray[0]);
         for (int i = 0; i < bookArray.length; i++) {
             if (i==0) {
-                str = "Original_Balance:_"+bookArray[i];
+                str = "Original Balance: "+bookArray[i];
                 bookArray [0] = str;
             }
             else {
