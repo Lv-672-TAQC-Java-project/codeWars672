@@ -21,7 +21,19 @@ public class SixImplO implements Six {
 
     @Override
     public String balance(String book) {
-        String [] bookArray = book.split("\n");
+        String aa = book.replace(";", "");
+        String aaa = aa.replace("?", "");
+        String aaaa = aaa.replace("!", "");
+        String aaaa1 = aaaa.replace("=", "");
+        String aaaa2 = aaaa1.replace(":", "");
+        String aaaa3 = aaaa2.replace("+", "");
+        String aaaaa = aaaa3.replace("\\n", "-");
+
+        //System.out.println(aaaaa);
+
+
+        String [] bookArray = aaaaa.split("-");
+
         String str;
         double balance2 = 0.00;
         double last = 0.00;
@@ -34,28 +46,30 @@ public class SixImplO implements Six {
             else {
                 String [] booArray = bookArray[i].split(" ");
                 balance = (balance-Double.parseDouble(booArray[2]));
-                bookArray [i] = booArray[0]+"_"+booArray[1]+"_"+booArray[2]+"_"+"Balance_"+String.format("%.2f",balance);
+                bookArray [i] = booArray[0]+" "+booArray[1]+" "+booArray[2]+" "+"Balance "+String.format("%.2f",balance);
             }
 
         }
         for (int b = 0; b < bookArray.length; b++) {
-            System.out.println(bookArray[b]);
+            //System.out.println(bookArray[b]);
             if (b == 0) {
-                String [] sssss = bookArray[b].split("_");
+                String [] sssss = bookArray[b].split(" ");
                 balance2 = Double.parseDouble(sssss[2]);
             }
-            if (b == bookArray.length) {
-                String [] ssssss = bookArray[b].split("_");
-                last = Double.parseDouble(ssssss[2]);
+            if (b == (bookArray.length-1)){
+                String [] ssssss = bookArray[b].split(" ");
+                last = Double.parseDouble(ssssss[4]);
             }
 
         }
 
         double expen = balance2 - last;
-        double average = expen/(bookArray.length);
+        double average = expen/(bookArray.length-1);
 
-        String retr = String.join("\n", bookArray)+"\n"+"Total_expense_"+String.format("%.2f",expen)+"\n"+"Average_expense_"+String.format("%.2f",average);
+        String retr = String.join("\n ", bookArray)+"\n "+"Total expense "+String.format("%.2f",expen)+"\n"+"Average expense "+String.format("%.2f",average);
         return retr;
+
+    }
     }
 
     @Override
