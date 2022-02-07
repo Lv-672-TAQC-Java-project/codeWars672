@@ -66,7 +66,7 @@ public class SixImplO implements Six {
         double expen = balance2 - last;
         double average = expen/(bookArray.length-1);
 
-        String retr = String.join("\n ", bookArray)+"\n "+"Total expense "+String.format("%.2f",expen)+"\n"+"Average expense "+String.format("%.2f",average);
+        String retr = String.join("\n", bookArray)+"\n"+"Total expense "+String.format("%.2f",expen)+"\n"+"Average expense "+String.format("%.2f",average);
         return retr;
 
     }
