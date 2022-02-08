@@ -19,11 +19,24 @@ public class Fiveimpl implements Five {
     public int zeros(int n) {
         return 0;
     }
-
+/*Perimeter of squares in a rectangle*/
     @Override
     public BigInteger perimeter(BigInteger n) {
-        return null;
+
+            BigInteger first = BigInteger.ZERO;
+            BigInteger second = BigInteger.ONE;
+            BigInteger temp = BigInteger.ONE;
+            BigInteger sum = BigInteger.ZERO;
+            for (long i = 0; i <= n.longValue(); i++) {
+                first = second;
+                second = temp;
+                temp = first.add(second);
+                sum = sum.add(first);
+            }
+            return sum.multiply(BigInteger.valueOf(4));
+        }
     }
+
 
     @Override
     public double solveSum(double m) {
