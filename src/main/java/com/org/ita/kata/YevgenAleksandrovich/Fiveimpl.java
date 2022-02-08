@@ -9,11 +9,31 @@ public class Fiveimpl implements Five {
     public int artificialRain(int[] v) {
         return 0;
     }
-
+/*Gap in Primes*/
     @Override
     public long[] gap(int g, long m, long n) {
-        return new long[0];
+        long a = 0;
+        boolean prime;
+        for (long i = m; i <= n; i++) {
+            if (isPrime(i)) {
+                if (i - a == g) {
+                    return new long[] { a, i };
+                }
+                a = i;
+            }
+        }
+        return null;
     }
+
+    private static boolean isPrime(long i) {
+        for (long j = 2; j < i / 2; j++) {
+            if (i % j == 0) {
+                return false;
+            }
+        }
+        return true;
+    }
+
 
     @Override
     public int zeros(int n) {
