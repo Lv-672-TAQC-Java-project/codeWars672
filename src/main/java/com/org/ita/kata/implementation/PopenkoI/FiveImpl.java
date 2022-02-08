@@ -17,7 +17,22 @@ public class FiveImpl implements Five {
 
     @Override
     public int zeros(int n) {
-        return 0;
+        int count = 0;
+        String[] numbers = factorial(n).toString(10).split("");
+        for (String number : numbers) {
+            if (number.equalsIgnoreCase("0")) {
+                count++;
+            } else {
+                count = 0;
+            }
+        }
+        return count;
+    }
+
+    private static BigInteger factorial(int n) {
+        BigInteger ret = BigInteger.ONE;
+        for (int i = 1; i <= n; ++i) ret = ret.multiply(BigInteger.valueOf(i));
+        return ret;
     }
 
     @Override
