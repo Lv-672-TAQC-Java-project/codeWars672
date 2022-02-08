@@ -3,6 +3,7 @@ package com.org.ita.kata.implementation.PopenkoI;
 import com.org.ita.kata.Six;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 
 public class SixImpl implements Six {
     @Override
@@ -72,6 +73,25 @@ public class SixImpl implements Six {
 
     @Override
     public String stockSummary(String[] lstOfArt, String[] lstOf1stLetter) {
-        return null;
+        int[] quantityOfBooks = new int[lstOf1stLetter.length];
+        boolean[] haveBooksBeenUsed = new boolean[lstOfArt.length];
+        Arrays.fill(haveBooksBeenUsed, false);
+        Arrays.fill(quantityOfBooks, 0);
+
+        for (int i = 0; i < quantityOfBooks.length; i++) {
+            for (int j = 0; j < lstOfArt.length; j++) {
+                String[] litersAndAmount = lstOfArt[j].split(" ");
+                String[] liters = litersAndAmount[0].split("");
+                boolean newLiter = true;
+                for (String liter : liters) {
+                    if (liter.equals(lstOf1stLetter[i]) && newLiter && !haveBooksBeenUsed[j]) {
+                        quantityOfBooks[i] += Integer.parseInt(litersAndAmount[1]);
+                        newLiter = false;
+                        haveBooksBeenUsed[j] = true;
+                    }
+                }
+            }
+        }
+        return String.format("(A : %d) - (B : %d)", quantityOfBooks[0], quantityOfBooks[1]);
     }
 }
