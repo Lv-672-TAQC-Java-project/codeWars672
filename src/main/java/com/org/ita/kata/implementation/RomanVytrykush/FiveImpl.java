@@ -18,9 +18,14 @@ public class FiveImpl implements Five {
 
     @Override
     public int zeros(int n) {
-        return 0;
-    }
+        int zeros = 0;
 
+        while(n / 5 > 0) {
+            zeros += n / 5;
+            n = n / 5;
+        }
+        return zeros;
+    }
     @Override
     public BigInteger perimeter(BigInteger n) {
         return null;
