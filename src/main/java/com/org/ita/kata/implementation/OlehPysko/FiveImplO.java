@@ -12,7 +12,26 @@ public class FiveImplO implements Five {
 
     @Override
     public long[] gap(int g, long m, long n) {
-        return new long[0];
+
+        long var1 = 0;
+        long [] a = {0, 0};
+         for (long i = m+1; i <= n; i++) {
+            if ((i) % m == 0) {
+                for (long b = 2; b < i/2; b++) {
+                    if (i%b != 0){
+                        System.out.println("Nothig");
+                    }
+                    else if (i - var1 == g)
+                    {a[0] = var1;
+                        a[1] = i;}
+                    else{var1 = i;}
+
+                }
+            }
+            else {System.out.println("");}
+        }
+
+        return null;
     }
 
     @Override
