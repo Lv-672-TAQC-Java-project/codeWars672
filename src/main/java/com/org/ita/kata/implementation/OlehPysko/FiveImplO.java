@@ -22,8 +22,9 @@ public class FiveImplO implements Five {
                         System.out.println("Nothig");
                     }
                     else if (i - var1 == g)
-                    {a[0] = var1;
-                        a[1] = i;}
+                       {a[0] = var1;
+                        a[1] = i;
+                        return a;}
                     else{var1 = i;}
 
                 }
