@@ -24,10 +24,10 @@ public class Fiveimpl implements Five {
     public BigInteger perimeter(BigInteger n) {
         return null;
     }
-
+/*Which x for that sum?*/
     @Override
     public double solveSum(double m) {
-        return 0;
+        return (2 * m + 1 - Math.sqrt(4 * m + 1)) / (2 * m);
     }
 
     @Override
