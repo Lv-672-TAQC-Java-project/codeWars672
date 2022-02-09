@@ -2,6 +2,8 @@ package com.org.ita.kata.implementation.KaterynaMushynska;
 
 import com.org.ita.kata.Six;
 
+import java.util.ArrayList;
+
 public class SixImpl implements Six {
     @Override
     public long findNb(long m) {
@@ -15,17 +17,48 @@ public class SixImpl implements Six {
 
     @Override
     public double f(double x) {
-        return 0;
+        return x / (1 + Math.sqrt(1 + x));
     }
 
     @Override
     public double mean(String town, String strng) {
-        return 0;
+        ArrayList<Double> rainfall = new ArrayList<>();
+        for (String str : strng.split("\\n")) {
+            String[] data = str.split(":");
+            if (town.equals(data[0])) {
+                for (String s : data[1].split(",")) {
+                    String[] temp = s.split("\\s");
+                    rainfall.add(Double.parseDouble(temp[1]));
+                }
+            }
+        }
+        double averageRainfall = 0.0;
+        for (Double d : rainfall) {
+            averageRainfall += d;
+        }
+        averageRainfall /= rainfall.size();
+        return  averageRainfall;
     }
 
     @Override
     public double variance(String town, String strng) {
-        return 0;
+        ArrayList<Double> rainfall2 = new ArrayList<>();
+        for (String s : strng.split("\\n")) {
+            String[] data = s.split(":");
+            if (town.equals(data[0])) {
+                for (String str : data[1].split(",")) {
+                    String[] temp = str.split("\\s");
+                    rainfall2.add(Double.parseDouble(temp[1]));
+                }
+            }
+        }
+        double mean = mean(town, strng);
+        double varianceRainfall = 0;
+        for (Double d : rainfall2) {
+            varianceRainfall += Math.pow((d - mean), 2);
+        }
+        varianceRainfall /= rainfall2.size();
+        return varianceRainfall;
     }
 
     @Override

@@ -2,10 +2,7 @@ package com.org.ita.kata.implementation.MikeRomanyshyn;
 
 import com.org.ita.kata.Eight;
 
-import java.sql.Array;
 import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collection;
 
 public class EightImpl implements Eight {
     @Override
@@ -56,7 +53,7 @@ public class EightImpl implements Eight {
 
     @Override
     public int stringToNumber(String str) {
-        return 0;
+        return Integer.parseInt(str);
     }
 
     @Override
@@ -66,11 +63,19 @@ public class EightImpl implements Eight {
 
     @Override
     public double twoDecimalPlaces(double number) {
-        return 0;
+        return Double.parseDouble(String.format("%.2f", number));
     }
 
     @Override
     public int[] divisibleBy(int[] numbers, int divider) {
-        return new int[0];
+        ArrayList<Integer> resultArray = new ArrayList<>();
+
+        for (int i : numbers) {
+            if (i % divider == 0) {
+                resultArray.add(i);
+            }
+        }
+
+        return resultArray.stream().mapToInt(i -> i).toArray();
     }
 }
