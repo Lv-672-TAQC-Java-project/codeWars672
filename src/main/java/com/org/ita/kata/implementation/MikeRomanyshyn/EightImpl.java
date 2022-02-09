@@ -35,7 +35,13 @@ public class EightImpl implements Eight {
 
     @Override
     public boolean amIWilson(double n) {
-        return false;
+        int factorialForWilsonPrime = 1;
+
+        for (int i = 1; i <= (Math.floor(n) - 1) ; i++) {
+            factorialForWilsonPrime *= i;
+        }
+
+        if (((factorialForWilsonPrime + 1) / (n * n)) % 2 == 0) { return true; } else { return false; }
     }
 
     @Override
