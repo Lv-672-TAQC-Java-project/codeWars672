@@ -37,7 +37,7 @@ public class SixImpl implements Six {
             averageRainfall += d;
         }
         averageRainfall /= rainfall.size();
-        return  averageRainfall;
+        return averageRainfall;
     }
 
     @Override
@@ -68,6 +68,20 @@ public class SixImpl implements Six {
 
     @Override
     public String stockSummary(String[] lstOfArt, String[] lstOf1stLetter) {
-        return null;
+        if (lstOfArt.length == 0){
+            return "";
+        }
+        int[] s = new int[lstOf1stLetter.length];
+        StringBuilder str = new StringBuilder();
+
+        for (int i = 0; i < lstOf1stLetter.length; i++) {
+            for (int j = 0; j < lstOfArt.length; j++) {
+                if (lstOfArt[j].charAt(0) == lstOf1stLetter[i].charAt(0)) {
+                    s[i] += Integer.parseInt(lstOfArt[j].replaceAll("\\D{1,}", ""));
+                }
+            }
+            str.append(String.format("(%s : %d) - ", lstOf1stLetter[i], s[i]));
+        }
+        return (str.length() == 0) ? "" : str.replace(str.length() - 3, str.length(), "").toString();
     }
 }
