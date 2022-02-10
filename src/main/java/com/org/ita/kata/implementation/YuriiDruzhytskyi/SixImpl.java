@@ -2,6 +2,8 @@ package com.org.ita.kata.implementation.YuriiDruzhytskyi;
 
 import com.org.ita.kata.Six;
 
+import java.util.Arrays;
+
 public class SixImpl implements Six {
     @Override
     public long findNb(long m) {
@@ -35,6 +37,21 @@ public class SixImpl implements Six {
 
     @Override
     public String stockSummary(String[] lstOfArt, String[] lstOf1stLetter) {
-        return null;
+        String result = "";
+        int total = 0;
+
+        for (int i = 0; i < lstOf1stLetter.length; i++) {
+            String c = lstOf1stLetter[i];
+
+            int sum = Arrays.stream(lstOfArt)
+                    .filter(element -> element.startsWith(c))
+                    .mapToInt(t -> Integer.valueOf(t.substring(t.indexOf(" ") + 1))).sum();
+
+            total += sum;
+            result += "".equals(result) ? "" : " - ";
+            result += "(" + c + " : " + sum + ")";
+        }
+
+        return total == 0 ? "" : result;
     }
 }
