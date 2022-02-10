@@ -8,7 +8,17 @@ import java.util.Arrays;
 public class SixImpl implements Six {
     @Override
     public long findNb(long m) {
-        return 0;
+        long counter = 0;
+        int i = 1;
+        while (m > 0) {
+            m = m - (long) Math.pow(i, 3);
+            counter = counter + 1;
+            i++;
+        }
+        if (m != 0) {
+            return -1;
+        }
+        return counter;
     }
 
     @Override
