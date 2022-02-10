@@ -2,6 +2,9 @@ package com.org.ita.kata.implementation.PopenkoI;
 
 import com.org.ita.kata.Seven;
 
+import java.text.DecimalFormat;
+import java.text.NumberFormat;
+
 public class SevenImpl implements Seven {
     @Override
     public long newAvg(double[] arr, double navg) {
@@ -10,7 +13,13 @@ public class SevenImpl implements Seven {
 
     @Override
     public String seriesSum(int n) {
-        return null;
+        double result = 1;
+        NumberFormat formatter = new DecimalFormat("#0.00");
+
+        for (int i = 1; i < n; i++) {
+            result = Double.parseDouble(formatter.format(result + 1.0/(1 + i*3)));
+        }
+        return String.valueOf(result);
     }
 
     @Override
