@@ -28,8 +28,19 @@ public class FiveImpl implements Five {
     }
     @Override
     public BigInteger perimeter(BigInteger n) {
-        return null;
+        BigInteger first = BigInteger.ONE;
+        BigInteger second = BigInteger.ONE;
+        BigInteger sum = first.add(second);
+
+        for(BigInteger i = BigInteger.ONE; n.compareTo(i) == 1; i=i.add(BigInteger.ONE)) {
+            BigInteger next = first.add(second);
+            first = second;
+            second = next;
+            sum = sum.add(next);
+        }
+        return sum.multiply(BigInteger.valueOf(4));
     }
+
 
     @Override
     public double solveSum(double m) {
