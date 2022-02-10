@@ -46,6 +46,19 @@ public class EightImpl implements Eight {
 
     @Override
     public int[] divisibleBy(int[] numbers, int divider) {
-        return new int[0];
+        int divisibles = 0;
+        int counter = 0;
+        for (int i : numbers)
+            if (i % divider == 0) {
+                divisibles++;
+            }
+
+        int[] resultArray = new int[divisibles];
+        for (int i : numbers)
+            if (i % divider == 0) {
+                resultArray[counter] = i;
+                counter++;
+            }
+        return resultArray;
     }
 }
