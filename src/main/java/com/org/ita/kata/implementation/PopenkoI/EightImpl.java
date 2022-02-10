@@ -37,7 +37,19 @@ public class EightImpl implements Eight {
 
     @Override
     public boolean amIWilson(double n) {
-        return false;
+        if (n == 0 || n == 1) {
+            return false;
+        }
+        double numberWilson = (getFactorial(n - 1) + 1) / (n * n);
+        return numberWilson % 1.0 == 0;
+    }
+
+    private double getFactorial(double f) {
+        double result = 1;
+        for (int i = 1; i <= f; i++) {
+            result = result * i;
+        }
+        return result;
     }
 
     @Override
