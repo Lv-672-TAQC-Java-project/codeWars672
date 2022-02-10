@@ -10,7 +10,16 @@ import java.util.ArrayList;
 public class SixImpl implements Six {
     @Override
     public long findNb(long m) {
-        return 0;
+        long count = 0;
+        for (int i = 0; i < m; i++) {
+            long cubVol = (long) Math.pow((i + 1), 3);
+            m = m - cubVol;
+            count = count + 1;
+        }
+        if (m != 0) {
+            return -1;
+        }
+        return count;
     }
 
     @Override
