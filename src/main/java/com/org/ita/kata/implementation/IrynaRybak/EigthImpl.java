@@ -18,7 +18,8 @@ public class EigthImpl implements Eight {
 
     @Override
     public float mpgToKPM(float mpg) {
-        return 0;
+        double convert = 1.609344 / 4.54609188;
+        return (float) Math.round(convert*mpg*100)/100;
     }
 
     @Override
