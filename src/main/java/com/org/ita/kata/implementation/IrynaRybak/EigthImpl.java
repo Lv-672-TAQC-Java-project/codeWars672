@@ -43,7 +43,7 @@ public class EigthImpl implements Eight {
 
     @Override
     public double twoDecimalPlaces(double number) {
-        return 0;
+        return Math.ceil(number * 100) / 100;
     }
 
     @Override
