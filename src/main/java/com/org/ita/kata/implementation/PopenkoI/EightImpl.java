@@ -7,7 +7,7 @@ import java.util.ArrayList;
 public class EightImpl implements Eight {
     @Override
     public int liters(double time) {
-        return 0;
+        return (int) time / 2;
     }
 
     @Override
