@@ -8,7 +8,16 @@ import java.util.Map;
 public class SixImpl implements Six {
     @Override
     public long findNb(long m) {
-        return 0;
+        long v = 0;
+        int n = 0;
+        while (v < m) {
+            n++;
+            v += (long) n * n * n;
+        }
+        if (v == m){
+            return n;
+        }
+        return -1;
     }
 
     @Override
