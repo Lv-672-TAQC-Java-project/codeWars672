@@ -22,12 +22,31 @@ public class SixImpl implements Six {
 
     @Override
     public double mean(String town, String strng) {
-        return 0;
+        return Arrays.stream(strng.split("\n"))
+                .filter(line -> line.startsWith(town + ":"))
+                .map(String::toLowerCase)
+                .map(s -> s.replaceAll(":| |[a-z]", ""))
+                .findFirst()
+                .map(s -> Arrays.stream(s.split(","))
+                        .mapToDouble(Double::parseDouble)
+                        .sum() / 12)
+                .orElse(-1.0);
     }
 
     @Override
     public double variance(String town, String strng) {
-        return 0;
+        double average = mean(town, strng);
+
+        return Arrays.stream(strng.split("\n"))
+                .filter(line -> line.startsWith(town + ":"))
+                .map(String::toLowerCase)
+                .map(s -> s.replaceAll(":| |[a-z]", ""))
+                .findFirst()
+                .map(s -> Arrays.stream(s.split(","))
+                        .mapToDouble(Double::parseDouble)
+                        .map(x -> (x - average) * (x - average))
+                        .sum() / 12)
+                .orElse(-1.0);
     }
 
     @Override
