@@ -6,46 +6,100 @@ import com.org.ita.kata.Eight;
 public class EightImplO implements Eight {
     @Override
     public int liters(double time) {
-        return 0;
+        int litters = (int)(0.5*time);
+        return litters;
     }
 
     @Override
     public double getVolumeOfCuboid(double length, double width, double height) {
-        return 0;
+        return length*width*height;
     }
 
     @Override
     public float mpgToKPM(float mpg) {
-        return 0;
-    }
+        float convert =  (float)(mpg*1.609344/4.54609188);
+        float scale = (float)(Math.pow(10, 2));
+        float result = (float)(Math.round(convert * scale) / scale);
+
+        //BigDecimal dec = new BigDecimal(convert);
+        //dec = dec.setScale(2, ROUND_HALF_UP);
+        //return dec.floatValue();
+        return result;
+
+            }
 
     @Override
     public int[] squareOrSquareRoot(int[] array) {
-        return new int[0];
+        for(int i = 0; i < array.length; i++) {
+            if (Math.sqrt(array[i]) % 1 == 0) array[i] = (int) Math.sqrt(array[i]);
+            else array[i] = array[i] * array[i];
+        }
+        return array;
     }
 
     @Override
     public int[] countPositivesSumNegatives(int[] input) {
-        return new int[0];
+        if (input == null || input.length == 0){
+            int [] array = {};
+            return array;
+        }
+
+        int plus = 0;
+        int minuse = 0;
+
+        for (int i = 0; i < input.length; i++) {
+
+            if (input[i] > 0) {
+                plus++;
+            }
+            else {
+                minuse = minuse + input[i];
+            }
+
+
+
+        }
+        int [] array = {plus, minuse};
+        return array;
     }
 
     @Override
     public int stringToNumber(String str) {
-        return 0;
+        int number = Integer.parseInt(str);
+        return number;
     }
 
     @Override
     public boolean amIWilson(double n) {
-        return false;
+        return n == 5 || n == 13 || n == 563;
     }
 
     @Override
     public double twoDecimalPlaces(double number) {
-        return 0;
+        double scale = Math.pow(10, 2);
+        double result = Math.round(number * scale) / scale;
+        return result;
     }
 
     @Override
     public int[] divisibleBy(int[] numbers, int divider) {
-        return new int[0];
+        int count = 0;
+        int count1=0;
+
+        for (int i = 0; i < numbers.length; i++) {
+            if (numbers[i] % divider == 0) {
+                count++;
+            }
+        }
+
+        int[] array = new int[count];
+        for (int i = 0; i < numbers.length; i++) {
+            if (numbers[i] % divider == 0) {
+                array [count1] = numbers[i];
+                count1++;
+            }
+        }
+
+        return array;
     }
 }
