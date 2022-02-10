@@ -76,11 +76,30 @@ public class EightImplO implements Eight {
 
     @Override
     public double twoDecimalPlaces(double number) {
-        return 0;
+        double scale = Math.pow(10, 2);
+        double result = Math.round(number * scale) / scale;
+        return result;
     }
 
     @Override
     public int[] divisibleBy(int[] numbers, int divider) {
-        return new int[0];
+        int count = 0;
+        int count1=0;
+
+        for (int i = 0; i < numbers.length; i++) {
+            if (numbers[i] % divider == 0) {
+                count++;
+            }
+        }
+
+        int[] array = new int[count];
+        for (int i = 0; i < numbers.length; i++) {
+            if (numbers[i] % divider == 0) {
+                array [count1] = numbers[i];
+                count1++;
+            }
+        }
+
+        return array;
     }
 }
