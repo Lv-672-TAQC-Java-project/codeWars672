@@ -1,23 +1,16 @@
-package com.org.ita.kata.implementation.MikeRomanyshyn;
+package com.org.ita.kata.implementation.lhalam;
 
 import com.org.ita.kata.Seven;
 
 public class SevenImpl implements Seven {
     @Override
     public long newAvg(double[] arr, double navg) {
-
         return 0;
     }
 
     @Override
     public String seriesSum(int n) {
-        double sum = 0;
-
-        for (int i = 0; i < n; i++) {
-            sum = sum + (1 / (1 + (double)(3 * i)));
-        }
-
-        return (n <= 0) ? String.format("%.2f", 0.0) : String.format("%.2f", sum);
+        return null;
     }
 
     @Override
