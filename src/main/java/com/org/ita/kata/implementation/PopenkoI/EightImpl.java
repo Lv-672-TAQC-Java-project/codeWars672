@@ -2,6 +2,8 @@ package com.org.ita.kata.implementation.PopenkoI;
 
 import com.org.ita.kata.Eight;
 
+import java.text.DecimalFormat;
+import java.text.NumberFormat;
 import java.util.ArrayList;
 
 public class EightImpl implements Eight {
@@ -76,7 +78,8 @@ public class EightImpl implements Eight {
 
     @Override
     public double twoDecimalPlaces(double number) {
-        return 0;
+        NumberFormat formatter = new DecimalFormat("#0.00");
+        return Double.parseDouble(formatter.format(number));
     }
 
     @Override
