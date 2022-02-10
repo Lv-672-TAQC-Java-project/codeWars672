@@ -3,9 +3,11 @@ package com.org.ita.kata.implementation.YevgenAleksandrovich;
 import com.org.ita.kata.Eight;
 
 public class Eightimpl implements Eight {
+    /*Keep Hydrated!-Kata*/
     @Override
     public int liters(double time) {
-        return 0;
+        if (time<0);
+        return (int) (time / 2);
     }
 
     @Override
