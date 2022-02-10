@@ -1,0 +1,52 @@
+package com.org.ita.kata.implementation.YevgenAleksandrovich;
+
+import com.org.ita.kata.Eight;
+
+public class Eightimpl implements Eight {
+    /*Keep Hydrated!-Kata*/
+    @Override
+    public int liters(double time) {
+        if (time<0);
+        return (int) (time / 2);
+    }
+    /*Volume of a Cuboid Kata*/
+    @Override
+    public double getVolumeOfCuboid(double length, double width, double height) {
+        return length * width * height;
+    }
+
+    @Override
+    public float mpgToKPM(float mpg) {
+        return 0;
+    }
+
+    @Override
+    public int[] squareOrSquareRoot(int[] array) {
+        return new int[0];
+    }
+
+    @Override
+    public int[] countPositivesSumNegatives(int[] input) {
+        return new int[0];
+    }
+
+    @Override
+    public int stringToNumber(String str) {
+        return 0;
+    }
+
+    @Override
+    public boolean amIWilson(double n) {
+        return false;
+    }
+
+    @Override
+    public double twoDecimalPlaces(double number) {
+        return 0;
+    }
+
+    @Override
+    public int[] divisibleBy(int[] numbers, int divider) {
+        return new int[0];
+    }
+}

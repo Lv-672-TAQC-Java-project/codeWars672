@@ -1,16 +1,16 @@
-package com.org.ita.kata.YevgenAleksandrovich;
+package com.org.ita.kata.implementation.lhalam;
 
 import com.org.ita.kata.Eight;
 
-public class Eightimpl implements Eight {
+public class EightImpl implements Eight {
     @Override
     public int liters(double time) {
-        return 0;
+        return (int) (time * 0.5);
     }
-    /*Volume of a Cuboid Kata*/
+
     @Override
     public double getVolumeOfCuboid(double length, double width, double height) {
-        return length * width * height;
+        return 0;
     }
 
     @Override
