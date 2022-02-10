@@ -2,6 +2,8 @@ package com.org.ita.kata.implementation.KaterynaMushynska;
 
 import com.org.ita.kata.Eight;
 
+import java.util.NoSuchElementException;
+
 import java.math.BigDecimal;
 import java.math.RoundingMode;
 
@@ -26,7 +28,20 @@ public class EightImpl implements Eight {
 
     @Override
     public int[] squareOrSquareRoot(int[] array) {
-        return new int[0];
+        if (array != null && array.length != 0) {
+            for (int i = 0; i < array.length; i++) {
+                if (array[i] > 0) {
+                    if (Math.sqrt(array[i]) % 1 == 0) {
+                        array[i] = (int) Math.sqrt(array[i]);
+                    } else {
+                        array[i] = (int) Math.pow(array[i], 2);
+                    }
+                } else {
+                    throw new NoSuchElementException("Element is negative");
+                }
+            }
+        }
+        return array;
     }
 
     @Override
