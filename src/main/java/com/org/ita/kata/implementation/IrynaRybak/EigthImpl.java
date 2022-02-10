@@ -38,7 +38,23 @@ public class EigthImpl implements Eight {
 
     @Override
     public boolean amIWilson(double n) {
+        double result = (fastorial(n - 1) + 1);
+        if (result % (n * n) == 0 && n != 1) {
+            return true;
+        }
         return false;
+    }
+
+    public static double fastorial(double n) {
+        double result = 1;
+        if(n <= 0){
+            return 0;
+        }
+        for (int i = 2; i <= n; i++) {
+            result *= i;
+        }
+        System.out.println(result);
+        return result;
     }
 
     @Override
