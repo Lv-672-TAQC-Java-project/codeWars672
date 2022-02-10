@@ -1,22 +1,12 @@
-package com.org.ita.kata.implementation.DianaStoyko;
+package com.org.ita.kata.implementation.IrynaRybak;
 
 import com.org.ita.kata.Six;
 
 public class SixImpl implements Six {
+
     @Override
     public long findNb(long m) {
-        int i = 1;
-        long count = 0;
-
-        while (m > 0) {
-            double pow = Math.pow(i, 3);
-            m = m - (long) pow;
-            count = count + 1;
-            i++;
-        }
-
-        if (m != 0) { return -1; }
-        return count;
+        return 0;
     }
 
     @Override
@@ -26,7 +16,7 @@ public class SixImpl implements Six {
 
     @Override
     public double f(double x) {
-        return  x/(1+Math.sqrt(x+1));
+        return 0;
     }
 
     @Override
