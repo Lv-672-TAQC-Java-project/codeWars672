@@ -58,7 +58,7 @@ public enum Users { // ім'я, ід,
         return implFive;
     }
 
-    public Users getById(int id) {
+    public static Users getById(int id) {
         for (Users user : Users.values()) {
             if (user.id == id) {
                 return user;
@@ -67,7 +67,7 @@ public enum Users { // ім'я, ід,
         return null;
     }
 
-    public void printAllUserName() {
+    public static void printAllUserName() {
         for (Users user : Users.values()) {
             System.out.println(String.format("Id: %d, Name: %s", user.id, user.name));
         }
