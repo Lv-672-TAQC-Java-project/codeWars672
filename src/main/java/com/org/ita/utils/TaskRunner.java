@@ -8,8 +8,20 @@ public class TaskRunner {
         this.user = user;
         this.consoleScanner = new ConsoleScanner();
     }
+    public void runTask (int idTask) {
+        switch (idTask){
+            case 1:
+                runTaskLiters();
+                break;
+            case 2:
+                runTaskGetVolumeOfCuboid();
+                break;
+            default:
+                System.out.println("");
+        }
+    }
 
-    public void runTaskLiters (){
+    private void runTaskLiters() {
         System.out.println("Run task Liters");
         System.out.println("Enter double:");
         double input = consoleScanner.readDouble();
