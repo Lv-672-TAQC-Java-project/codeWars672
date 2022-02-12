@@ -17,6 +17,7 @@ public class Eightimpl implements Eight {
     public float mpgToKPM(float mpg) {
         return 0;
     }
+
     /*Square OrNot To Square*/
     @Override
     public int[] squareOrSquareRoot(int[] array) {
