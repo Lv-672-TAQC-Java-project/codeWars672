@@ -1,10 +1,10 @@
-package com.org.ita.kata.YevgenAleksandrovich;
+package com.org.ita.kata.implementation.IrynaRybak;
 
 import com.org.ita.kata.Five;
 
 import java.math.BigInteger;
 
-public class Fiveimpl implements Five {
+public class FiveImpl implements Five {
     @Override
     public int artificialRain(int[] v) {
         return 0;

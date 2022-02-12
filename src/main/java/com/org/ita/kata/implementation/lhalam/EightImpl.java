@@ -1,11 +1,11 @@
-package com.org.ita.kata.YevgenAleksandrovich;
+package com.org.ita.kata.implementation.lhalam;
 
 import com.org.ita.kata.Eight;
 
-public class Eightimpl implements Eight {
+public class EightImpl implements Eight {
     @Override
     public int liters(double time) {
-        return 0;
+        return (int) (time * 0.5);
     }
 
     @Override
@@ -18,23 +18,27 @@ public class Eightimpl implements Eight {
         return 0;
     }
 
-    /*Square OrNot To Square*/
     @Override
     public int[] squareOrSquareRoot(int[] array) {
-        for (int i = 0; i < array.length; i++) {
-            if (Math.sqrt(array[i]) % 1 == 0) {
-                array[i] = (int) Math.sqrt(array[i]);
-            } else {
-                array[i] = (int) Math.pow(array[i], 2);
-            }
-        }
-        return array;
-    }
-
-    @Override
-    public int[] countPositivesSumNegatives(int[] input) {
         return new int[0];
     }
+    /*Count of positives sum of negatives*/
+    @Override
+    public int[] countPositivesSumNegatives(int[] input) {
+        int[] result = new int[2];
+        result[0] = 0;
+        result[1] = 0;
+        for (int j : input) {
+            if (j > 0) {
+                result[0]++;
+            } else {
+                result[1] += j;
+            }
+        }
+        return result;
+    }
+
+
 
     @Override
     public int stringToNumber(String str) {
