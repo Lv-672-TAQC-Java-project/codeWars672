@@ -1,5 +1,6 @@
 package com.org.ita.utils;
 
+import java.math.BigInteger;
 import java.util.Arrays;
 
 public class TaskRunner {
@@ -28,6 +29,15 @@ public class TaskRunner {
         System.out.println("Enter double:");
         double input = consoleScanner.readDouble();
         int result = user.getImplEight().liters(input);
+        System.out.println(String.format("Result: %d", result));
+    }
+
+
+    public void runTaskPerimeter (){
+        System.out.println("Run task Perimeter");
+        System.out.println("Enter a big integer: ");
+        BigInteger input =  consoleScanner.readBigInteger();
+        BigInteger result = user.getImplFive().perimeter(input);
         System.out.println(String.format("Result: %d", result));
     }
 
