@@ -29,7 +29,14 @@ public class ConsoleScanner {
     }
 
     public float readFloat() {
-        return 0;
+        while (true) {
+            if (sc.hasNextFloat()) {
+                return sc.nextFloat();
+            } else {
+                System.out.println("Incorrect format float. Try again!");
+                sc.next();
+            }
+        }
     }
 
     public double readDouble() {
