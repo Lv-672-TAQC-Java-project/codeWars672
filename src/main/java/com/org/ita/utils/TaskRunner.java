@@ -16,4 +16,12 @@ public class TaskRunner {
         int result = user.getImplEight().liters(input);
         System.out.println(String.format("Result: %d", result));
     }
+
+    public void runTaskSolveSum (){
+        System.out.println("Run task 'Which x for that sum?'");
+        System.out.println("Enter double: ");
+        double input =  consoleScanner.readDouble();
+        double result = user.getImplFive().solveSum(input);
+        System.out.println(String.format("Result: %f", result));
+    }
 }
