@@ -40,4 +40,12 @@ public class TaskRunner {
         double result = user.getImplEight().getVolumeOfCuboid(length, width, height);
         System.out.println(String.format("Result: %.2f", result));
     }
+
+    public void runTaskMpgToKPM () {
+        System.out.println("Run task mpgToKPM");
+        System.out.println("Enter float:");
+        float input = consoleScanner.readFloat();
+        float result = user.getImplEight().mpgToKPM(input);
+        System.out.println(String.format("Result: %.2f", result));
+    }
 }
