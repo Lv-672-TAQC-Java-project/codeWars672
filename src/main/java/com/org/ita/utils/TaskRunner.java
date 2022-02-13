@@ -43,12 +43,16 @@ public class TaskRunner {
         System.out.println(String.format("Result: %.2f", result));
     }
 
-    public void runTaskCountPositivesSumNegatives () {
-        System.out.println("Run task countPositivesSumNegatives");
-        //System.out.println("type 'fin' to in new line to finish array creation");
-        //System.out.println("Enter array of positive and negative integers using spaces:");
-        int input[] = consoleScanner.readArrayInt();
-        int result[] = user.getImplEight().countPositivesSumNegatives(input);
-        System.out.println(Arrays.toString(result));
+    public void runTaskStringToNumber () {
+        System.out.println("Run task stringToNumber");
+        System.out.println("Enter any integer or string, containing integer:");
+        String input = consoleScanner.readString();
+        input = input.replaceAll("\\D+","");
+        try {
+            int result = user.getImplEight().stringToNumber(input);
+            System.out.println(String.format("Result: %d", result));
+        } catch (NumberFormatException e) {
+            System.out.println("Error! String must contain integers!");
+        }
     }
 }
