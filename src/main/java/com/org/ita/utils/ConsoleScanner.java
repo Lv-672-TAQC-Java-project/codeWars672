@@ -5,7 +5,7 @@ import java.util.*;
 
 public class ConsoleScanner {
     private final Scanner sc = new Scanner(System.in).useLocale(Locale.US);
-/*@Overraide*/
+
     public int readInt() {
         while (true) {
             if (sc.hasNextInt()) {
@@ -17,8 +17,7 @@ public class ConsoleScanner {
         }
 
     }
-    /*@Overraide*/
-    //for long
+   
     public long readLong() {
         while (true) {
             if (sc.hasNextLong()) {
@@ -28,10 +27,8 @@ public class ConsoleScanner {
                 sc.next();
             }
         }
-
     }
-    /*@Overraide*/
-//for Array
+    
     public int[] readArrayInt() {
 
         System.out.print("Length of the array:");
@@ -49,27 +46,24 @@ public class ConsoleScanner {
         }
         return array;
     }
-    /*@Overraide*/
+    
     public float readFloat() {
-
-        while (true) {
+       while (true) {
             if (sc.hasNextFloat()) {
                 return sc.nextFloat();
             } else {
                 System.out.println("Incorrect! Please enter float.");
                 sc.next();
             }
-         //   return  readFloat();
         }
     }
-    /*@Overraide*/
-    public double readDouble() {
 
+    public double readDouble() {
         while (true) {
             if (sc.hasNextDouble()) {
                 return sc.nextDouble();
             } else {
-                System.out.println("Incorrect! Please enter double.");
+                System.out.println("Incorrect format double. Try again!");
                 sc.next();
             }
         }
