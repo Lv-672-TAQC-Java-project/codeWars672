@@ -29,6 +29,14 @@ public class TaskRunner {
         System.out.println(String.format("Result: %d", result));
     }
 
+    public void runTaskZeros (){
+        System.out.println("Run task Zeros");
+        System.out.println("Enter integer: ");
+        int input =  consoleScanner.readInt();
+        int result = user.getImplFive().zeros(input);
+        System.out.println(String.format("Result: %d", result));
+    }
+
     public void runTaskArtificialRain (){
         System.out.println("Run task ArtificialRain");
         System.out.println("Enter array of integers");
@@ -57,4 +65,5 @@ public class TaskRunner {
         System.out.println(String.format("Result: %.2f", result));
 
     }
+
 }
