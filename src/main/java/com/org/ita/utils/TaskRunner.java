@@ -43,11 +43,12 @@ public class TaskRunner {
         System.out.println(String.format("Result: %.2f", result));
     }
 
-    
-    public void runTaskSquareOrSquareRoot () {
-        System.out.println("Run task squareOrSquareRoot");
+    public void runTaskCountPositivesSumNegatives () {
+        System.out.println("Run task countPositivesSumNegatives");
+        //System.out.println("type 'fin' to in new line to finish array creation");
+        //System.out.println("Enter array of positive and negative integers using spaces:");
         int input[] = consoleScanner.readArrayInt();
-        int result[] = user.getImplEight().squareOrSquareRoot(input);
+        int result[] = user.getImplEight().countPositivesSumNegatives(input);
         System.out.println(Arrays.toString(result));
     }
 }
