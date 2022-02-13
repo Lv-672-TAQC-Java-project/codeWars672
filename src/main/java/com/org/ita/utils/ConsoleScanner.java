@@ -28,7 +28,7 @@ public class ConsoleScanner {
             }
         }
     }
-    
+
     public int[] readArrayInt() {
 
         System.out.print("Length of the array:");
@@ -120,5 +120,16 @@ public class ConsoleScanner {
                 sc.next();
             }
         }
+    }
+
+    public long[] readArrayLong() {
+        System.out.println("Length of the array");
+        long[] array = new long[readInt()];
+        int i = 0;
+        while (i < array.length) {
+            array[i] = readLong();
+            i++;
+        }
+        return array;
     }
 }
