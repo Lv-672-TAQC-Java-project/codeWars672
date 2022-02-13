@@ -118,4 +118,15 @@ public class ConsoleScanner {
             }
         }
     }
+
+    public long[] readArrayLong() {
+        System.out.println("Length of the array");
+        long[] array = new long[readInt()];
+        int i = 0;
+        while (i < array.length) {
+            array[i] = readLong();
+            i++;
+        }
+        return array;
+    }
 }
