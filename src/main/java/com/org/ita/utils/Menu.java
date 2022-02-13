@@ -4,10 +4,10 @@ package com.org.ita.utils;
 public class Menu {
     private final ConsoleScanner consoleScanner = new ConsoleScanner();
     Users users;
+
     public void printMenu() {
 
         int choose;
-
 
         while (true) {
             System.out.println("----------------------MENU---------------------------------------------------");
@@ -31,14 +31,10 @@ public class Menu {
                     choose = consoleScanner.readInt();
                     users = Users.getById(choose);
                     System.out.println("Your user is : " + users.getName());
-
-                    System.out.println("Choose user implementation : ");
-
                     break;
                 case 4:
                     System.out.println("Please choose a task:");
                     choose = consoleScanner.readInt();
-
                 case 0:
                     return;
             }
