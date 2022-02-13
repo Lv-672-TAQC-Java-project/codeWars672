@@ -1,5 +1,7 @@
 package com.org.ita.utils;
 
+import java.util.Arrays;
+
 public class TaskRunner {
     private Users user ;
     private ConsoleScanner consoleScanner;
@@ -39,5 +41,13 @@ public class TaskRunner {
         double height = consoleScanner.readDouble();
         double result = user.getImplEight().getVolumeOfCuboid(length, width, height);
         System.out.println(String.format("Result: %.2f", result));
+    }
+
+    
+    public void runTaskSquareOrSquareRoot () {
+        System.out.println("Run task squareOrSquareRoot");
+        int input[] = consoleScanner.readArrayInt();
+        int result[] = user.getImplEight().squareOrSquareRoot(input);
+        System.out.println(Arrays.toString(result));
     }
 }
