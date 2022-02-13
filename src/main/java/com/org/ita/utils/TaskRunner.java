@@ -32,6 +32,17 @@ public class TaskRunner {
         System.out.println(String.format("Result: %d", result));
     }
 
+    public void runTaskGap (){
+        System.out.println("Run task Gap");
+        System.out.println("Enter a gap: ");
+        int input =  consoleScanner.readInt();
+        System.out.println("Enter the range \nStart: ");
+        long input2 =  consoleScanner.readLong();
+        System.out.println("End: ");
+        long input3 =  consoleScanner.readLong();
+        long[] result = user.getImplFive().gap(input,input2,input3);
+        System.out.println(String.format("Result: %s", Arrays.toString(result)));
+    }
 
     public void runTaskPerimeter (){
         System.out.println("Run task Perimeter");
@@ -93,5 +104,4 @@ public class TaskRunner {
         System.out.println(String.format("Result: %.2f", result));
 
     }
-
 }
