@@ -85,10 +85,10 @@ public class ConsoleScanner {
         }
         return array;
     }
-    /*@Overraide*/
-    public String readString() {
 
+    public String readString() {
         while (true) {
+            System.out.print("New line: ");
             if (sc.hasNext()) {
                 return sc.nextLine();
             } else {
@@ -97,19 +97,25 @@ public class ConsoleScanner {
             }
         }
     }
-    /*@Overraide*/
+
     public String[] readStringArray() {
         List<String> strings = new LinkedList<>();
         while (true) {
-            if (sc.hasNext()) {
+            System.out.print("Write one new element of the array:");
+            if (sc.hasNextLine()) {
                 String line = sc.nextLine();
-                if (line.equals("")) break;
+                System.out.println("If this is the end of the String[], write OK.");
+                if (line.equalsIgnoreCase("OK")) {
+                    String[] array = new String[strings.size()];
+                    for (int i = 0; i < strings.size(); i++) {
+                        array[i] = strings.get(i);
+                    }
+                    return array;
+                }
                 strings.add(line);
             }
         }
-        return (String[]) strings.toArray();
     }
-    /*@Overraide*/
 
     public BigInteger readBigInteger() {
         while (true) {
