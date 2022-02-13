@@ -2,7 +2,7 @@ package com.org.ita.kata.implementation.OlehPysko;
 
 import com.org.ita.kata.Seven;
 
-public class SevenImplO implements Seven {
+public class SevenImpl implements Seven {
     @Override
     public long newAvg(double[] arr, double navg) {
         double suma = 0;
