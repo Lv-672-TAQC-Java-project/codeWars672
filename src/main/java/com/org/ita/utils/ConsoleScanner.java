@@ -33,7 +33,14 @@ public class ConsoleScanner {
     }
 
     public double readDouble() {
-        return 0;
+        while (true) {
+            if (sc.hasNextDouble()) {
+                return sc.nextDouble();
+            } else {
+                System.out.println("Incorrect format double. Try again!");
+                sc.next();
+            }
+        }
     }
 
     public double[] readDoubleArray() {
