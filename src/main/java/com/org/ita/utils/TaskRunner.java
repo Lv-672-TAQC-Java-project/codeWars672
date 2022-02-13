@@ -16,4 +16,12 @@ public class TaskRunner {
         int result = user.getImplEight().liters(input);
         System.out.println(String.format("Result: %d", result));
     }
+
+    public void runTaskZeros (){
+        System.out.println("Run task Zeros");
+        System.out.println("Enter integer: ");
+        int input =  consoleScanner.readInt();
+        int result = user.getImplFive().zeros(input);
+        System.out.println(String.format("Result: %d", result));
+    }
 }
