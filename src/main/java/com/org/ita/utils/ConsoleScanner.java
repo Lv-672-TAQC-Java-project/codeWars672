@@ -48,11 +48,11 @@ public class ConsoleScanner {
     }
     
     public float readFloat() {
-       while (true) {
+        while (true) {
             if (sc.hasNextFloat()) {
                 return sc.nextFloat();
             } else {
-                System.out.println("Incorrect! Please enter float.");
+                System.out.println("Incorrect format float. Try again!");
                 sc.next();
             }
         }
