@@ -7,6 +7,7 @@ public class ConsoleScanner {
     private final Scanner sc = new Scanner(System.in).useLocale(Locale.US);
 
     public int readInt() {
+        System.out.print("Please enter a number: ");
         while (true) {
             if (sc.hasNextInt()) {
                 return sc.nextInt();
@@ -15,10 +16,10 @@ public class ConsoleScanner {
                 sc.next();
             }
         }
-
     }
-   
+
     public long readLong() {
+        System.out.print("Please enter a number: ");
         while (true) {
             if (sc.hasNextLong()) {
                 return sc.nextLong();
@@ -30,24 +31,18 @@ public class ConsoleScanner {
     }
 
     public int[] readArrayInt() {
-
-        System.out.print("Length of the array:");
+        System.out.println("Length of the array");
         int[] array = new int[readInt()];
-
         int i = 0;
         while (i < array.length) {
-            String line = sc.next();
-            if (line.matches("-?\\d+(\\.\\d+)?")) {
-                array[i] = Integer.parseInt(line);
-                i++;
-            } else {
-                System.out.println("Incorrect! Please enter integer.");
-            }
+            array[i] = readInt();
+            i++;
         }
         return array;
     }
-    
+
     public float readFloat() {
+        System.out.print("Please enter a number: ");
         while (true) {
             if (sc.hasNextFloat()) {
                 return sc.nextFloat();
@@ -59,6 +54,7 @@ public class ConsoleScanner {
     }
 
     public double readDouble() {
+        System.out.print("Please enter a number: ");
         while (true) {
             if (sc.hasNextDouble()) {
                 return sc.nextDouble();
@@ -68,20 +64,14 @@ public class ConsoleScanner {
             }
         }
     }
-    /*@Overraide*/
-    public double[] readDoubleArray() {
-        System.out.print("Length of the array:");
-        double[] array = new double[readInt()];
 
+    public double[] readDoubleArray() {
+        System.out.println("Length of the array");
+        double[] array = new double[readInt()];
         int i = 0;
         while (i < array.length) {
-            String line = sc.next();
-            if (line.matches("-?\\d+(\\.\\d+)?")) {
-                array[i] = Double.parseDouble(line);
-                i++;
-            } else {
-                System.out.println("Incorrect! Please enter double.");
-            }
+            array[i] = readDouble();
+            i++;
         }
         return array;
     }
@@ -118,6 +108,7 @@ public class ConsoleScanner {
     }
 
     public BigInteger readBigInteger() {
+        System.out.print("Please enter a number: ");
         while (true) {
             if (sc.hasNextBigInteger()) {
                 return sc.nextBigInteger();
