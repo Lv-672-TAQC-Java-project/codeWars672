@@ -5,6 +5,8 @@ import com.org.ita.kata.Five;
 import com.org.ita.kata.Seven;
 import com.org.ita.kata.Six;
 
+import java.util.NoSuchElementException;
+
 public enum Users { // ім'я, ід,
     DIANA_STOYKO(1, "Diana Stoyko",
             new com.org.ita.kata.implementation.DianaStoyko.EigthImpl(),
@@ -104,7 +106,7 @@ public enum Users { // ім'я, ід,
                 return user;
             }
         }
-        return null;
+        throw new NoSuchElementException("There is no user with this id: " + id);
     }
 
     public static void printAllUserName() {

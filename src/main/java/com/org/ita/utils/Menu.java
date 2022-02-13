@@ -3,7 +3,7 @@ package com.org.ita.utils;
 
 public class Menu {
     private final ConsoleScanner consoleScanner = new ConsoleScanner();
-    Users users;
+    Users user;
 
     public void printMenu() {
 
@@ -13,7 +13,7 @@ public class Menu {
             System.out.println("----------------------MENU---------------------------------------------------");
             System.out.println("Press 1 List of implementations");
             System.out.println("Press 2 List of tasks");
-            System.out.println("Press 3 Choose a user implementation");
+            System.out.println("Press 3 Choose a user");
             System.out.println("Press 4 Run the task");
             System.out.println("Press 0 Exit");
             System.out.println();
@@ -26,15 +26,24 @@ public class Menu {
                     Users.printAllUserName();
                     break;
                 case 2:
+                    System.out.println("List of tasks : ");
+                    Tasks.printAllTaskName();
+                    break;
                 case 3:
-                    System.out.println("Please choose a user:");
+                    System.out.println("Please choose a user by id : ");
                     choose = consoleScanner.readInt();
-                    users = Users.getById(choose);
-                    System.out.println("Your user is : " + users.getName());
+                    user = Users.getById(choose);
+                    System.out.println("Your user is : " + user.getName());
                     break;
                 case 4:
-                    System.out.println("Please choose a task:");
+                    System.out.println("Please choose a task by id : ");
                     choose = consoleScanner.readInt();
+                    if (user != null) {
+                        new TaskRunner(user).runTask(choose);
+                    } else {
+                        System.out.println("Please, firstly choose a user. Press 3 !");
+                    }
+                    break;
                 case 0:
                     return;
             }
