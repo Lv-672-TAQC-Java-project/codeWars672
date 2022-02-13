@@ -16,4 +16,12 @@ public class TaskRunner {
         int result = user.getImplEight().liters(input);
         System.out.println(String.format("Result: %d", result));
     }
+
+    public void runTaskArtificialRain (){
+        System.out.println("Run task ArtificialRain");
+        System.out.println("Enter array of integers");
+        int[] inputArray =  consoleScanner.readArrayInt();
+        int result = user.getImplFive().artificialRain(inputArray);
+        System.out.println(String.format("Result: %d", result));
+    }
 }
