@@ -2,7 +2,7 @@ package com.org.ita.kata.implementation.OlehPysko;
 
 import com.org.ita.kata.Six;
 
-public class SixImplO implements Six {
+public class SixImpl implements Six {
     @Override
     public long findNb(long m) {
         int count = 1;
@@ -70,7 +70,7 @@ public class SixImplO implements Six {
         return retr;
 
     }
-    }
+   // }
 
     @Override
     public double f(double x) {
