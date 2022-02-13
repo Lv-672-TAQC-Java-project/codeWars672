@@ -29,6 +29,14 @@ public class TaskRunner {
         System.out.println(String.format("Result: %d", result));
     }
 
+    public void runTaskSolveSum (){
+        System.out.println("Run task 'Which x for that sum?'");
+        System.out.println("Enter double: ");
+        double input =  consoleScanner.readDouble();
+        double result = user.getImplFive().solveSum(input);
+        System.out.println(String.format("Result: %f", result));
+    }
+
     public void runTaskZeros (){
         System.out.println("Run task Zeros");
         System.out.println("Enter integer: ");
