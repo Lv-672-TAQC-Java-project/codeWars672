@@ -28,4 +28,16 @@ public class TaskRunner {
         int result = user.getImplEight().liters(input);
         System.out.println(String.format("Result: %d", result));
     }
+
+    public void runTaskGetVolumeOfCuboid () {
+        System.out.println("Run task GetVolumeOfCuboid");
+        System.out.println("Please enter length (double): ");
+        double length = consoleScanner.readDouble();
+        System.out.println("Please enter width (double): ");
+        double width = consoleScanner.readDouble();
+        System.out.println("Please enter height (double): ");
+        double height = consoleScanner.readDouble();
+        double result = user.getImplEight().getVolumeOfCuboid(length, width, height);
+        System.out.println(String.format("Result: %.2f", result));
+    }
 }
