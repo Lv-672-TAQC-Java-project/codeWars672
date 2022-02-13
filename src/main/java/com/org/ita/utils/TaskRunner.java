@@ -51,4 +51,5 @@ public class TaskRunner {
         int[] result = user.getImplEight().divisibleBy(inputArr, inputDivider);
         System.out.println(Arrays.toString(result));
     }
+    
 }
