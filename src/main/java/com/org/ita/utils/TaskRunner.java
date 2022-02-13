@@ -1,5 +1,6 @@
 package com.org.ita.utils;
 
+import java.math.BigInteger;
 import java.util.Arrays;
 
 public class TaskRunner {
@@ -28,6 +29,50 @@ public class TaskRunner {
         System.out.println("Enter double:");
         double input = consoleScanner.readDouble();
         int result = user.getImplEight().liters(input);
+        System.out.println(String.format("Result: %d", result));
+    }
+
+    public void runTaskGap (){
+        System.out.println("Run task Gap");
+        System.out.println("Enter a gap: ");
+        int input =  consoleScanner.readInt();
+        System.out.println("Enter the range \nStart: ");
+        long input2 =  consoleScanner.readLong();
+        System.out.println("End: ");
+        long input3 =  consoleScanner.readLong();
+        long[] result = user.getImplFive().gap(input,input2,input3);
+        System.out.println(String.format("Result: %s", Arrays.toString(result)));
+    }
+
+    public void runTaskPerimeter (){
+        System.out.println("Run task Perimeter");
+        System.out.println("Enter a big integer: ");
+        BigInteger input =  consoleScanner.readBigInteger();
+        BigInteger result = user.getImplFive().perimeter(input);
+        System.out.println(String.format("Result: %d", result));
+    }
+
+    public void runTaskSmallest (){
+        System.out.println("Run task Smallest");
+        System.out.println("Enter a long number: ");
+        long input =  consoleScanner.readLong();
+        long[] result = user.getImplFive().smallest(input);
+        System.out.println(String.format("Result: %s", Arrays.toString(result)));
+    }
+
+    public void runTaskSolveSum (){
+        System.out.println("Run task 'Which x for that sum?'");
+        System.out.println("Enter double: ");
+        double input =  consoleScanner.readDouble();
+        double result = user.getImplFive().solveSum(input);
+        System.out.println(String.format("Result: %f", result));
+    }
+
+    public void runTaskZeros (){
+        System.out.println("Run task Zeros");
+        System.out.println("Enter integer: ");
+        int input =  consoleScanner.readInt();
+        int result = user.getImplFive().zeros(input);
         System.out.println(String.format("Result: %d", result));
     }
 
