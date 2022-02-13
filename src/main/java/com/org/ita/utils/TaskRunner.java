@@ -43,16 +43,11 @@ public class TaskRunner {
         System.out.println(String.format("Result: %.2f", result));
     }
 
-    public void runTaskStringToNumber () {
-        System.out.println("Run task stringToNumber");
-        System.out.println("Enter any integer or string, containing integer:");
-        String input = consoleScanner.readString();
-        input = input.replaceAll("\\D+","");
-        try {
-            int result = user.getImplEight().stringToNumber(input);
-            System.out.println(String.format("Result: %d", result));
-        } catch (NumberFormatException e) {
-            System.out.println("Error! String must contain integers!");
-        }
+    public void runTaskAmIWilson () {
+        System.out.println("Run task amIWilson");
+        System.out.println("Enter double to check whether it is a prime number:");
+        double input = consoleScanner.readDouble();
+        boolean result = user.getImplEight().amIWilson(input);
+        System.out.println("isPrime = " + result);
     }
 }
