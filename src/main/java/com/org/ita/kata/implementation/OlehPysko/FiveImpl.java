@@ -4,7 +4,7 @@ import com.org.ita.kata.Five;
 
 import java.math.BigInteger;
 
-public class FiveImplO implements Five {
+public class FiveImpl implements Five {
     @Override
     public int artificialRain(int[] v) {
         return 0;
