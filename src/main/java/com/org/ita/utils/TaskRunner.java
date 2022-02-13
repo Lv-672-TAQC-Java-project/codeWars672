@@ -29,6 +29,14 @@ public class TaskRunner {
         System.out.println(String.format("Result: %d", result));
     }
 
+    public void runTaskArtificialRain (){
+        System.out.println("Run task ArtificialRain");
+        System.out.println("Enter array of integers");
+        int[] inputArray =  consoleScanner.readArrayInt();
+        int result = user.getImplFive().artificialRain(inputArray);
+        System.out.println(String.format("Result: %d", result));
+    }
+  
     public void runTaskGetVolumeOfCuboid () {
         System.out.println("Run task GetVolumeOfCuboid");
         System.out.println("Please enter length (double): ");
@@ -47,5 +55,6 @@ public class TaskRunner {
         float input = consoleScanner.readFloat();
         float result = user.getImplEight().mpgToKPM(input);
         System.out.println(String.format("Result: %.2f", result));
+
     }
 }
