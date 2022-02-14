@@ -116,4 +116,12 @@ public class TaskRunner {
         }
         System.out.println(String.format("Result: %d", result));
     }
+
+    public void runTaskSeriesSum (){
+        System.out.println("Run task seriesSum");
+        System.out.println("Element number of the series");
+        int n = consoleScanner.readInt();
+        String result = user.getImplSeven().seriesSum(n);
+        System.out.println(String.format("Result: %s", result));
+    }
 }
