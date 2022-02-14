@@ -154,6 +154,14 @@ public class TaskRunner {
         System.out.println(String.format("Result: %s", result));
     }
 
+    public void runTaskF(){
+        System.out.println("Run task f");
+        System.out.println("Argument of the function");
+        double argument = consoleScanner.readDouble();
+        double result = user.getImplSix().f(argument);
+        System.out.println(String.format("Result: %f", result));
+    }
+
     private String arrayToString(String[] arr){
         String result = "";
         for(int i=0; i<arr.length; i++){
