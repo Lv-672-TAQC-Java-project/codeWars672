@@ -95,7 +95,14 @@ public class TaskRunner {
         double result = user.getImplEight().getVolumeOfCuboid(length, width, height);
         System.out.println(String.format("Result: %.2f", result));
     }
-
+  
+    public void runTaskSquareOrSquareRoot () {
+        System.out.println("Run task squareOrSquareRoot");
+        int input[] = consoleScanner.readArrayInt();
+        int result[] = user.getImplEight().squareOrSquareRoot(input);
+        System.out.println(Arrays.toString(result));
+    }
+  
     public void runTaskMpgToKPM () {
         System.out.println("Run task mpgToKPM");
         System.out.println("Enter float:");
