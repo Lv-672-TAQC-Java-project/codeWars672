@@ -3,7 +3,7 @@ package com.org.ita.kata.implementation.OlehPysko;
 import com.org.ita.kata.Eight;
 
 //test
-public class EightImplO implements Eight {
+public class EightImpl implements Eight {
     @Override
     public int liters(double time) {
         int litters = (int)(0.5*time);
