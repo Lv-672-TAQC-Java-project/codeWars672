@@ -110,4 +110,91 @@ public class TaskRunner {
         float result = user.getImplEight().mpgToKPM(input);
         System.out.println(String.format("Result: %.2f", result));
     }
+
+    public void runTaskNewAvg (){
+        System.out.println("Run task newAvg");
+        double[] arr = consoleScanner.readDoubleArray();
+        System.out.println("Enter targeted average");
+        long result = -1;
+        while(result <= 0) {
+            double navg = consoleScanner.readDouble();
+            result = user.getImplSeven().newAvg(arr, navg);
+        }
+        System.out.println(String.format("Result: %d", result));
+    }
+
+    public void runTaskSeriesSum (){
+        System.out.println("Run task seriesSum");
+        System.out.println("Element number of the series");
+        int n = consoleScanner.readInt();
+        String result = user.getImplSeven().seriesSum(n);
+        System.out.println(String.format("Result: %s", result));
+    }
+
+    public void runTaskWhereIsHe (){
+        System.out.println("Run task whereIsHe");
+        System.out.println("Total amount of people in the line");
+        int p = consoleScanner.readInt();
+        System.out.println("Number of people standing in front of him");
+        int bef = consoleScanner.readInt();
+        System.out.println("Number of people standing behind him");
+        int aft = consoleScanner.readInt();
+        int result = user.getImplSeven().whereIsHe(p, bef, aft);
+        System.out.println(String.format("Result: %d", result));
+    }
+
+    public void runTaskFindNb (){
+        System.out.println("Run task findNb");
+        System.out.println("Volume of the building");
+        long volume = consoleScanner.readLong();
+        long result = user.getImplSix().findNb(volume);
+        System.out.println(String.format("Result: %d", result));
+    }
+
+    public void runTaskBalance (){
+        System.out.println("Run task balance");
+        System.out.println("Check book");
+        String[] bookRecords = consoleScanner.readStringArray();
+        String book = arrayToString(bookRecords);
+        String result = user.getImplSix().balance(book);
+        System.out.println(String.format("Result: %s", result));
+    }
+
+    public void runTaskF(){
+        System.out.println("Run task f");
+        System.out.println("Argument of the function");
+        double argument = consoleScanner.readDouble();
+        double result = user.getImplSix().f(argument);
+        System.out.println(String.format("Result: %f", result));
+    }
+
+    public void runTaskMean(){
+        System.out.println("Run task mean");
+        System.out.println("Town");
+        String town = consoleScanner.readString();
+        System.out.println("Data");
+        String[] records = consoleScanner.readStringArray();
+        String data = arrayToString(records);
+        double result = user.getImplSix().mean(town, data);
+        System.out.println(String.format("Result: %f", result));
+    }
+
+    public void  runTaskVariance(){
+        System.out.println("Run task mean");
+        System.out.println("Town");
+        String town = consoleScanner.readString();
+        System.out.println("Data");
+        String[] records = consoleScanner.readStringArray();
+        String data = arrayToString(records);
+        double result = user.getImplSix().mean(town, data);
+        System.out.println(String.format("Result: %f", result));
+    }
+
+    private String arrayToString(String[] arr){
+        String result = "";
+        for(int i=0; i<arr.length; i++){
+            result = result + arr[i] + "\n";
+        }
+        return result;
+    }
 }
