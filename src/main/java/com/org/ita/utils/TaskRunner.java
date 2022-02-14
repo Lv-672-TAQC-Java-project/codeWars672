@@ -96,6 +96,19 @@ public class TaskRunner {
         System.out.println(String.format("Result: %.2f", result));
     }
 
+
+    public void runTaskStringToNumber () {
+        System.out.println("Run task stringToNumber");
+        System.out.println("Enter any integer or string, containing integer:");
+        String input = consoleScanner.readString();
+        input = input.replaceAll("\\D+","");
+        try {
+            int result = user.getImplEight().stringToNumber(input);
+            System.out.println(String.format("Result: %d", result));
+        } catch (NumberFormatException e) {
+            System.out.println("Error! String must contain integers!");
+        }
+      
     public void runTaskCountPositivesSumNegatives () {
         System.out.println("Run task countPositivesSumNegatives");
         int result[] = user.getImplEight().countPositivesSumNegatives(input);
@@ -108,7 +121,7 @@ public class TaskRunner {
         int result[] = user.getImplEight().squareOrSquareRoot(input);
         System.out.println(Arrays.toString(result));
     }
-  
+
     public void runTaskMpgToKPM () {
         System.out.println("Run task mpgToKPM");
         System.out.println("Enter float:");
