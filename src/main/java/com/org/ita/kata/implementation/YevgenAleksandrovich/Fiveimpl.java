@@ -14,7 +14,8 @@ public class Fiveimpl implements Five {
     public long[] gap(int g, long m, long n) {
         return new long[0];
     }
-/*Number of trailing zeros of N!*/
+
+    /*Number of trailing zeros of N!*/
     @Override
     public int zeros(int n) {
         if (n < 0)
