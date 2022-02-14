@@ -162,6 +162,17 @@ public class TaskRunner {
         System.out.println(String.format("Result: %f", result));
     }
 
+    public void runTaskMean(){
+        System.out.println("Run task mean");
+        System.out.println("Town");
+        String town = consoleScanner.readString();
+        System.out.println("Data");
+        String[] records = consoleScanner.readStringArray();
+        String data = arrayToString(records);
+        double result = user.getImplSix().mean(town, data);
+        System.out.println(String.format("Result: %f", result));
+    }
+
     private String arrayToString(String[] arr){
         String result = "";
         for(int i=0; i<arr.length; i++){
