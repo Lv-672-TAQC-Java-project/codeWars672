@@ -95,6 +95,12 @@ public class TaskRunner {
         double result = user.getImplEight().getVolumeOfCuboid(length, width, height);
         System.out.println(String.format("Result: %.2f", result));
     }
+
+    public void runTaskCountPositivesSumNegatives () {
+        System.out.println("Run task countPositivesSumNegatives");
+        int result[] = user.getImplEight().countPositivesSumNegatives(input);
+        System.out.println(Arrays.toString(result));
+}
   
     public void runTaskSquareOrSquareRoot () {
         System.out.println("Run task squareOrSquareRoot");
