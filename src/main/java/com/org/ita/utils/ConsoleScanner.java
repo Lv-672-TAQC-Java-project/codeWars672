@@ -33,6 +33,8 @@ public class ConsoleScanner {
         System.out.println("Length of the array");
         int[] array = new int[readInt()];
         int i = 0;
+        System.out.println("Enter the values of an array of length [" + array.length + "]");
+
         while (i < array.length) {
             array[i] = readInt();
             i++;
