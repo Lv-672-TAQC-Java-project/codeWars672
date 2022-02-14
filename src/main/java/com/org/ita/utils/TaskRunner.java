@@ -96,6 +96,15 @@ public class TaskRunner {
         System.out.println(String.format("Result: %.2f", result));
     }
 
+    public void runTaskDivisibleBy () {
+        System.out.println("Run task divisibleBy");
+        int[] inputArr = consoleScanner.readArrayInt();
+        System.out.println("Enter the divider(integer):");
+        int inputDivider = consoleScanner.readInt();
+        int[] result = user.getImplEight().divisibleBy(inputArr, inputDivider);
+        System.out.println(Arrays.toString(result));
+    }
+    
     public void runTaskTwoDecimalPlaces () {
         System.out.println("Run task twoDecimalPlaces");
         System.out.println("Enter double to round its fractional part to 2 digits :");
