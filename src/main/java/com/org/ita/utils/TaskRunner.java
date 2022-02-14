@@ -124,4 +124,16 @@ public class TaskRunner {
         String result = user.getImplSeven().seriesSum(n);
         System.out.println(String.format("Result: %s", result));
     }
+
+    public void runTaskWhereIsHe (){
+        System.out.println("Run task whereIsHe");
+        System.out.println("Total amount of people in the line");
+        int p = consoleScanner.readInt();
+        System.out.println("Number of people standing in front of him");
+        int bef = consoleScanner.readInt();
+        System.out.println("Number of people standing behind him");
+        int aft = consoleScanner.readInt();
+        int result = user.getImplSeven().whereIsHe(p, bef, aft);
+        System.out.println(String.format("Result: %d", result));
+    }
 }
