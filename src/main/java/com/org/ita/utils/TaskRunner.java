@@ -104,4 +104,16 @@ public class TaskRunner {
         System.out.println(String.format("Result: %.2f", result));
 
     }
+
+    public void runTaskNewAvg (){
+        System.out.println("Run task newAvg");
+        double[] arr = consoleScanner.readDoubleArray();
+        System.out.println("Enter targeted average");
+        long result = -1;
+        while(result <= 0) {
+            double navg = consoleScanner.readDouble();
+            result = user.getImplSeven().newAvg(arr, navg);
+        }
+        System.out.println(String.format("Result: %d", result));
+    }
 }
