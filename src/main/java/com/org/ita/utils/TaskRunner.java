@@ -96,6 +96,14 @@ public class TaskRunner {
         System.out.println(String.format("Result: %.2f", result));
     }
 
+    public void runTaskAmIWilson () {
+        System.out.println("Run task amIWilson");
+        System.out.println("Enter double to check whether it is a prime number:");
+        double input = consoleScanner.readDouble();
+        boolean result = user.getImplEight().amIWilson(input);
+        System.out.println("isPrime = " + result);
+    }
+  
 
     public void runTaskStringToNumber () {
         System.out.println("Run task stringToNumber");
