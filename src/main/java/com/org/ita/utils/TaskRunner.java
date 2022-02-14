@@ -144,4 +144,21 @@ public class TaskRunner {
         long result = user.getImplSix().findNb(volume);
         System.out.println(String.format("Result: %d", result));
     }
+
+    public void runTaskBalance (){
+        System.out.println("Run task balance");
+        System.out.println("Check book");
+        String[] bookRecords = consoleScanner.readStringArray();
+        String book = arrayToString(bookRecords);
+        String result = user.getImplSix().balance(book);
+        System.out.println(String.format("Result: %s", result));
+    }
+
+    private String arrayToString(String[] arr){
+        String result = "";
+        for(int i=0; i<arr.length; i++){
+            result = result + arr[i] + "\n";
+        }
+        return result;
+    }
 }
