@@ -15,7 +15,7 @@ public class Menu {
             System.out.println("Press 4 Run the task");
             System.out.println("Press 0 Exit");
             System.out.println();
-            System.out.println("Please make your choice:");
+
 
             choose = consoleScanner.readInt();
             switch (choose) {
