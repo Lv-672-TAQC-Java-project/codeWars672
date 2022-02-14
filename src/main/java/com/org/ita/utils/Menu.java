@@ -30,7 +30,10 @@ public class Menu {
                     Tasks.printAllTaskName();
                     break;
                 case 3:
-                    System.out.println("Please choose a user by id : ");
+                    System.out.println("Please choose a user id from the next list : ");
+                    Users.printAllUserName();
+                    System.out.println();
+                    System.out.println("Enter your choice here : ");
                     choose = consoleScanner.readInt();
                     user = Users.getById(choose);
                     System.out.println("Your user is : " + user.getName());
