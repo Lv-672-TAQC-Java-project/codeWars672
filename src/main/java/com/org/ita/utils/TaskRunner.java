@@ -136,4 +136,12 @@ public class TaskRunner {
         int result = user.getImplSeven().whereIsHe(p, bef, aft);
         System.out.println(String.format("Result: %d", result));
     }
+
+    public void runTaskFindNb (){
+        System.out.println("Run task findNb");
+        System.out.println("Volume of the building");
+        long volume = consoleScanner.readLong();
+        long result = user.getImplSix().findNb(volume);
+        System.out.println(String.format("Result: %d", result));
+    }
 }
