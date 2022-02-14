@@ -29,7 +29,7 @@ public enum Tasks {
     private final int idTask;
     private final String nameTask;
 
-    Tasks(int idTask, String nameTask){
+    Tasks(int idTask, String nameTask) {
         this.idTask = idTask;
         this.nameTask = nameTask;
     }
@@ -56,5 +56,4 @@ public enum Tasks {
             System.out.println(String.format("IdTask: %d, NameTask: %s", task.idTask, task.nameTask));
         }
     }
-
 }

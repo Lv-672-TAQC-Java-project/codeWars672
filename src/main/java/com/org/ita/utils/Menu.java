@@ -6,9 +6,7 @@ public class Menu {
     Users user;
 
     public void printMenu() {
-
         int choose;
-
         while (true) {
             System.out.println("----------------------MENU---------------------------------------------------");
             System.out.println("Press 1 List of implementations");

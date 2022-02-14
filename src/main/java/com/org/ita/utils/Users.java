@@ -7,7 +7,7 @@ import com.org.ita.kata.Six;
 
 import java.util.NoSuchElementException;
 
-public enum Users { // ім'я, ід,
+public enum Users {
     DIANA_STOYKO(1, "Diana Stoyko",
             new com.org.ita.kata.implementation.DianaStoyko.EigthImpl(),
             new com.org.ita.kata.implementation.DianaStoyko.SevenImpl(),
@@ -58,7 +58,6 @@ public enum Users { // ім'я, ід,
             new com.org.ita.kata.implementation.YuriiDruzhytskyi.SevenImpl(),
             new com.org.ita.kata.implementation.YuriiDruzhytskyi.SixImpl(),
             new com.org.ita.kata.implementation.YuriiDruzhytskyi.FiveImpl());
-
 
     private final int id;
     private final String name;
@@ -114,7 +113,4 @@ public enum Users { // ім'я, ід,
             System.out.println(String.format("Id: %d, Name: %s", user.id, user.name));
         }
     }
-
-
-
 }
