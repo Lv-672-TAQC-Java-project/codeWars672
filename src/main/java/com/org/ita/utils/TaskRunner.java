@@ -96,6 +96,16 @@ public class TaskRunner {
         System.out.println(String.format("Result: %.2f", result));
     }
 
+    public void runTaskTwoDecimalPlaces () {
+        System.out.println("Run task twoDecimalPlaces");
+        System.out.println("Enter double to round its fractional part to 2 digits :");
+        double input = consoleScanner.readDouble();
+        double result = user.getImplEight().twoDecimalPlaces(input);
+        System.out.println(result);
+        System.out.println(String.format("Result: %.2f", result));
+        System.out.println(result);
+    }
+  
     public void runTaskAmIWilson () {
         System.out.println("Run task amIWilson");
         System.out.println("Enter double to check whether it is a prime number:");
@@ -116,12 +126,14 @@ public class TaskRunner {
         } catch (NumberFormatException e) {
             System.out.println("Error! String must contain integers!");
         }
-      
+    }
+  
     public void runTaskCountPositivesSumNegatives () {
         System.out.println("Run task countPositivesSumNegatives");
+        int input[] = consoleScanner.readArrayInt();
         int result[] = user.getImplEight().countPositivesSumNegatives(input);
         System.out.println(Arrays.toString(result));
-}
+    }
   
     public void runTaskSquareOrSquareRoot () {
         System.out.println("Run task squareOrSquareRoot");
