@@ -20,7 +20,7 @@ public class EightImpl implements Eight {
         float x = gallonToLitres;
         float y = mileToKilometer;
 
-        return Float.parseFloat(String.format("%.2f", mpg * y / x ));
+        return mpg * y / x ;
     }
 
     @Override
