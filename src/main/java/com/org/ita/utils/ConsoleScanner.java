@@ -7,7 +7,6 @@ public class ConsoleScanner {
     private final Scanner sc = new Scanner(System.in).useLocale(Locale.US);
 
     public int readInt() {
-        System.out.print("Please enter a number: ");
         while (true) {
             if (sc.hasNextInt()) {
                 return sc.nextInt();
