@@ -102,7 +102,6 @@ public class TaskRunner {
         float input = consoleScanner.readFloat();
         float result = user.getImplEight().mpgToKPM(input);
         System.out.println(String.format("Result: %.2f", result));
-
     }
 
     public void runTaskNewAvg (){
@@ -163,6 +162,17 @@ public class TaskRunner {
     }
 
     public void runTaskMean(){
+        System.out.println("Run task mean");
+        System.out.println("Town");
+        String town = consoleScanner.readString();
+        System.out.println("Data");
+        String[] records = consoleScanner.readStringArray();
+        String data = arrayToString(records);
+        double result = user.getImplSix().mean(town, data);
+        System.out.println(String.format("Result: %f", result));
+    }
+
+    public void  runTaskVariance(){
         System.out.println("Run task mean");
         System.out.println("Town");
         String town = consoleScanner.readString();
