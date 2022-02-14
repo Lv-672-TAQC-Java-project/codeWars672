@@ -98,6 +98,16 @@ public class TaskRunner {
         System.out.println(String.format("Result: %d", result));
     }
 
+    public void runTaskNbaCup (){
+        System.out.println("Run task Ranking NBA teams");
+        System.out.println("Enter the results sheet (name1_scored_name2_scored): ");
+        String inputResultsSheet =  consoleScanner.readString();
+        System.out.println("Enter the name of a team: ");
+        String inputToFind = consoleScanner.readString();
+        String result = user.getImplSix().nbaCup(inputResultsSheet,inputToFind);
+        System.out.println(String.format("Result: %s", result));
+    }
+
     public void runTaskStockSummary (){
         System.out.println("Run task Stock Summary");
         System.out.println("Enter array of strings (X+ 0+): ");
@@ -321,4 +331,5 @@ public class TaskRunner {
         }
         return result;
     }
+
 }
