@@ -37,6 +37,9 @@ public class Menu {
                     choose = consoleScanner.readInt();
                     user = Users.getById(choose);
                     System.out.println("Your user is : " + user.getName());
+                    System.out.println();
+                    System.out.println("List of tasks " + user.getName() + ":");
+                    Tasks.printAllTaskName();
                     break;
                 case 4:
                     System.out.println("Please choose a task by id : ");
