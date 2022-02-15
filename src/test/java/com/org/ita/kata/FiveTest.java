@@ -1,8 +1,15 @@
 package com.org.ita.kata;
 
+import com.org.ita.DataProviderUserImplementation;
+
+import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
-public class FiveTest {
+import java.math.BigInteger;
+
+import static org.testng.Assert.assertEquals;
+
+public class FiveTest extends DataProviderUserImplementation {
 
     @Test
     public void testArtificialRain() {
@@ -16,8 +23,21 @@ public class FiveTest {
     public void testZeros() {
     }
 
-    @Test
-    public void testPerimeter() {
+    @DataProvider(name = "PerimeterDP")
+    public Object[][] perimeterTestData() {
+        Object[][] parameters = new Object[][]{
+                {80, 5},
+                {216, 7},
+                {14098308, 30},
+        };
+
+        return combine(implementationsFiveKataDataProvider(), parameters);
+    }
+
+    @Test(dataProvider = "PerimeterDP")
+    public void perimeterTest(Five five, int expected, int n) {
+        BigInteger actual = five.perimeter(BigInteger.valueOf(n));
+        assertEquals(actual, BigInteger.valueOf(expected));
     }
 
     @Test
