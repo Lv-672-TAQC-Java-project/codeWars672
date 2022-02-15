@@ -79,7 +79,7 @@ public class EightTest extends DataProviderUserImplementation {
     }
 
     @Test(dataProvider = "VolumeOfCuboidDP")
-    public void volumeOfCuboidTest(Eight eight, double expected, double length, double width, double height) {
+    public void testGetVolumeOfCuboid(Eight eight, double expected, double length, double width, double height) {
         double actual = eight.getVolumeOfCuboid(length, width, height);
         assertEquals(actual, expected);
     }
