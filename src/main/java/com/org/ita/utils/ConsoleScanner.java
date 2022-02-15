@@ -1,7 +1,10 @@
 package com.org.ita.utils;
 
 import java.math.BigInteger;
-import java.util.*;
+import java.util.LinkedList;
+import java.util.List;
+import java.util.Locale;
+import java.util.Scanner;
 
 public class ConsoleScanner {
     private final Scanner sc = new Scanner(System.in).useLocale(Locale.US);

@@ -15,7 +15,9 @@ public class SixImpl implements Six {
             i++;
         }
 
-        if (m != 0) { return -1; }
+        if (m != 0) {
+            return -1;
+        }
         return count;
     }
 
@@ -26,7 +28,7 @@ public class SixImpl implements Six {
 
     @Override
     public double f(double x) {
-        return  x/(1+Math.sqrt(x+1));
+        return x / (1 + Math.sqrt(x + 1));
     }
 
     @Override

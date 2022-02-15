@@ -6,6 +6,22 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class SixImpl implements Six {
+    private static Map<String, Double> createTownMeanMap(String strng) {
+        Map<String, Double> townMeanMap = new HashMap<>();
+        String[] townAndMonthRainfalls = strng.split("\n");
+        for (String townAndMonth : townAndMonthRainfalls) {
+            String targetTown = townAndMonth.split(":")[0];
+            String[] monthRainfalls = townAndMonth.split(":")[1].split(",");
+            double sumOfRecords = 0;
+
+            for (String month : monthRainfalls) {
+                sumOfRecords += Double.parseDouble(month.split(" ")[1]);
+            }
+            townMeanMap.put(targetTown, sumOfRecords / 12);
+        }
+        return townMeanMap;
+    }
+
     @Override
     public long findNb(long m) {
         long v = 0;
@@ -14,7 +30,7 @@ public class SixImpl implements Six {
             n++;
             v += (long) n * n * n;
         }
-        if (v == m){
+        if (v == m) {
             return n;
         }
         return -1;
@@ -27,7 +43,7 @@ public class SixImpl implements Six {
 
         String newBook = book.replaceAll("[^a-zA-Z0-9 .\n]", "");
         newBook = newBook.trim().replaceAll(" +", " ");
-        String [] strArr = newBook.split("[\\n]+");
+        String[] strArr = newBook.split("[\\n]+");
         double prevBalance = Double.parseDouble(strArr[0]);
         StringBuilder newBalance = new StringBuilder();
         newBalance.append("Original Balance: " + strArr[0]);
@@ -57,21 +73,6 @@ public class SixImpl implements Six {
         return townMeanMap.getOrDefault(town, -1.0);
     }
 
-    private static Map<String, Double> createTownMeanMap(String strng) {
-        Map<String, Double> townMeanMap = new HashMap<>();
-        String[] townAndMonthRainfalls = strng.split("\n");
-        for (String townAndMonth : townAndMonthRainfalls) {
-            String targetTown = townAndMonth.split(":")[0];
-            String[] monthRainfalls = townAndMonth.split(":")[1].split(",");
-            double sumOfRecords = 0;
-
-            for (String month : monthRainfalls) {
-                sumOfRecords += Double.parseDouble(month.split(" ")[1]);
-            }
-            townMeanMap.put(targetTown, sumOfRecords / 12);
-        }
-        return townMeanMap;
-    }
     @Override
     public double variance(String town, String strng) {
         Map<String, Double> townVarianceMap = createTownVarianceMap(town, strng);

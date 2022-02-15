@@ -5,7 +5,7 @@ public class Menu {
     private final ConsoleScanner consoleScanner = new ConsoleScanner();
     Users user;
 
-    public void printMenu() {
+    public void run() {
         int choose;
         while (true) {
             System.out.println();

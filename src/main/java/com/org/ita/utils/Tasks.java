@@ -34,6 +34,12 @@ public enum Tasks {
         this.nameTask = nameTask;
     }
 
+    public static void printAllTaskName() {
+        for (Tasks task : Tasks.values()) {
+            System.out.println(String.format("IdTask: %d, NameTask: %s", task.idTask, task.nameTask));
+        }
+    }
+
     public int getIdTask() {
         return idTask;
     }
@@ -49,11 +55,5 @@ public enum Tasks {
             }
         }
         return null;
-    }
-
-    public static void printAllTaskName() {
-        for (Tasks task : Tasks.values()) {
-            System.out.println(String.format("IdTask: %d, NameTask: %s", task.idTask, task.nameTask));
-        }
     }
 }

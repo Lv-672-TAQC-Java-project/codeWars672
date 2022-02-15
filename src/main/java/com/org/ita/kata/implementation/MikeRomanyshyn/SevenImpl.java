@@ -14,7 +14,7 @@ public class SevenImpl implements Seven {
         double sum = 0;
 
         for (int i = 0; i < n; i++) {
-            sum = sum + (1 / (1 + (double)(3 * i)));
+            sum = sum + (1 / (1 + (double) (3 * i)));
         }
 
         return (n <= 0) ? String.format("%.2f", 0.0) : String.format("%.2f", sum);

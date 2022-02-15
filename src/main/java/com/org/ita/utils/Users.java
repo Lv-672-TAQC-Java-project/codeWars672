@@ -75,6 +75,21 @@ public enum Users {
         this.implFive = implFive;
     }
 
+    public static Users getById(int id) {
+        for (Users user : Users.values()) {
+            if (user.id == id) {
+                return user;
+            }
+        }
+        throw new NoSuchElementException("There is no user with this id: " + id);
+    }
+
+    public static void printAllUserName() {
+        for (Users user : Users.values()) {
+            System.out.println(String.format("Id: %d, Name: %s", user.id, user.name));
+        }
+    }
+
     public int getId() {
         return id;
     }
@@ -97,20 +112,5 @@ public enum Users {
 
     public Five getImplFive() {
         return implFive;
-    }
-
-    public static Users getById(int id) {
-        for (Users user : Users.values()) {
-            if (user.id == id) {
-                return user;
-            }
-        }
-        throw new NoSuchElementException("There is no user with this id: " + id);
-    }
-
-    public static void printAllUserName() {
-        for (Users user : Users.values()) {
-            System.out.println(String.format("Id: %d, Name: %s", user.id, user.name));
-        }
     }
 }

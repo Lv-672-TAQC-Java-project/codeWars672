@@ -6,7 +6,7 @@ public class SevenImpl implements Seven {
     @Override
     public long newAvg(double[] arr, double navg) {
         double sum = 0;
-        for (double i: arr) sum += i;
+        for (double i : arr) sum += i;
         long res = (long) Math.ceil((arr.length + 1) * navg - sum);
         if (res < 0) throw new IllegalArgumentException();
         return res;
@@ -15,8 +15,8 @@ public class SevenImpl implements Seven {
     @Override
     public String seriesSum(int n) {
         double res = 0.0;
-        for(int i=0; i<n; i++) res += 1/(1+(double)i*3);
-        return String.format("%.2f",res);
+        for (int i = 0; i < n; i++) res += 1 / (1 + (double) i * 3);
+        return String.format("%.2f", res);
     }
 
     @Override

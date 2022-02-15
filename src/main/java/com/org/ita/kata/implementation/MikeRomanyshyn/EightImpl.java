@@ -7,7 +7,7 @@ import java.util.ArrayList;
 public class EightImpl implements Eight {
     @Override
     public int liters(double time) {
-        return (int)(time * 0.5);
+        return (int) (time * 0.5);
     }
 
     @Override
@@ -38,7 +38,9 @@ public class EightImpl implements Eight {
 
     @Override
     public int[] countPositivesSumNegatives(int[] input) {
-        if ((input == null) || (input.length == 0)) { return new int[0]; }
+        if ((input == null) || (input.length == 0)) {
+            return new int[0];
+        }
 
         int counter = 0;
         int negativeTemp = 0;
@@ -48,7 +50,7 @@ public class EightImpl implements Eight {
             if (i < 0) negativeTemp += i;
         }
 
-        return new int[] {counter, negativeTemp};
+        return new int[]{counter, negativeTemp};
     }
 
     @Override
@@ -60,11 +62,11 @@ public class EightImpl implements Eight {
     public boolean amIWilson(double n) {
         int factorialForWilsonPrime = 1;
 
-        for (int i = 1; i <= (Math.floor(n) - 1) ; i++) {
+        for (int i = 1; i <= (Math.floor(n) - 1); i++) {
             factorialForWilsonPrime *= i;
         }
 
-        if (((factorialForWilsonPrime + 1) / (n * n)) % 2 == 0) { return true; } else { return false; }
+        return ((factorialForWilsonPrime + 1) / (n * n)) % 2 == 0;
     }
 
     @Override
