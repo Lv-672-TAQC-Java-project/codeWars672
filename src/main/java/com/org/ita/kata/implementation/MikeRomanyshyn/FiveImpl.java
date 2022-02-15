@@ -1,6 +1,7 @@
 package com.org.ita.kata.implementation.MikeRomanyshyn;
 
 import com.org.ita.kata.Five;
+
 import java.math.BigInteger;
 
 public class FiveImpl implements Five {
