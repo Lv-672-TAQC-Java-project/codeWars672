@@ -1,12 +1,11 @@
-package com.org.ita.kata.implementation.OlehPysko;
+package com.org.ita.kata.implementation.lhalam;
 
 import com.org.ita.kata.Eight;
 
-//test
-public class EightImplO implements Eight {
+public class EightImpl implements Eight {
     @Override
     public int liters(double time) {
-        return 0;
+        return (int) (time * 0.5);
     }
 
     @Override
@@ -24,24 +23,37 @@ public class EightImplO implements Eight {
         return new int[0];
     }
 
+    /*Count of positives sum of negatives*/
     @Override
     public int[] countPositivesSumNegatives(int[] input) {
-        return new int[0];
+        int[] result = new int[2];
+        result[0] = 0;
+        result[1] = 0;
+        for (int j : input) {
+            if (j > 0) {
+                result[0]++;
+            } else {
+                result[1] += j;
+            }
+        }
+        return result;
     }
 
+    /*Convert a string to a number*/
     @Override
     public int stringToNumber(String str) {
-        return 0;
+        int number = Integer.parseInt(str);
+        return number;
     }
 
     @Override
     public boolean amIWilson(double n) {
         return false;
     }
-
+   /*Two Decimal Placec*/
     @Override
     public double twoDecimalPlaces(double number) {
-        return 0;
+        return Math.round((number * 100) / 100);
     }
 
     @Override

@@ -1,8 +1,8 @@
-package com.org.ita.kata.implementation.OlehPysko;
+package com.org.ita.kata.implementation.YevgenAleksandrovich;
 
 import com.org.ita.kata.Seven;
 
-public class SevenImplO implements Seven {
+public class Sevenimpl implements Seven {
     @Override
     public long newAvg(double[] arr, double navg) {
         return 0;
