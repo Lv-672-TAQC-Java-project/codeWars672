@@ -27,7 +27,7 @@ public class SevenTest extends DataProviderUserImplementation {
     }
 
     @Test(dataProvider = "Where is HeDP")
-    public void whereIsHeTest(Seven seven, int expected, int p, int bef, int aft) {
+    public void testWhereIsHe(Seven seven, int expected, int p, int bef, int aft) {
         int actual = seven.whereIsHe(p, bef, aft);
         assertEquals(actual, expected);
     }
