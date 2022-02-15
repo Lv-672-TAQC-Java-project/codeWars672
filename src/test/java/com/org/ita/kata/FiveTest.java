@@ -35,7 +35,7 @@ public class FiveTest extends DataProviderUserImplementation {
     }
 
     @Test(dataProvider = "PerimeterDP")
-    public void perimeterTest(Five five, int expected, int n) {
+    public void testPerimeter(Five five, int expected, int n) {
         BigInteger actual = five.perimeter(BigInteger.valueOf(n));
         assertEquals(actual, BigInteger.valueOf(expected));
     }
