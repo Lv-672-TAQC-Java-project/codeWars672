@@ -6,31 +6,31 @@ import com.org.ita.kata.Eight;
 public class EightImpl implements Eight {
     @Override
     public int liters(double time) {
-        int litters = (int)(0.5*time);
+        int litters = (int) (0.5 * time);
         return litters;
     }
 
     @Override
     public double getVolumeOfCuboid(double length, double width, double height) {
-        return length*width*height;
+        return length * width * height;
     }
 
     @Override
     public float mpgToKPM(float mpg) {
-        float convert =  (float)(mpg*1.609344/4.54609188);
-        float scale = (float)(Math.pow(10, 2));
-        float result = (float)(Math.round(convert * scale) / scale);
+        float convert = (float) (mpg * 1.609344 / 4.54609188);
+        float scale = (float) (Math.pow(10, 2));
+        float result = Math.round(convert * scale) / scale;
 
         //BigDecimal dec = new BigDecimal(convert);
         //dec = dec.setScale(2, ROUND_HALF_UP);
         //return dec.floatValue();
         return result;
 
-            }
+    }
 
     @Override
     public int[] squareOrSquareRoot(int[] array) {
-        for(int i = 0; i < array.length; i++) {
+        for (int i = 0; i < array.length; i++) {
             if (Math.sqrt(array[i]) % 1 == 0) array[i] = (int) Math.sqrt(array[i]);
             else array[i] = array[i] * array[i];
         }
@@ -39,8 +39,8 @@ public class EightImpl implements Eight {
 
     @Override
     public int[] countPositivesSumNegatives(int[] input) {
-        if (input == null || input.length == 0){
-            int [] array = {};
+        if (input == null || input.length == 0) {
+            int[] array = {};
             return array;
         }
 
@@ -51,15 +51,13 @@ public class EightImpl implements Eight {
 
             if (input[i] > 0) {
                 plus++;
-            }
-            else {
+            } else {
                 minuse = minuse + input[i];
             }
 
 
-
         }
-        int [] array = {plus, minuse};
+        int[] array = {plus, minuse};
         return array;
     }
 
@@ -84,7 +82,7 @@ public class EightImpl implements Eight {
     @Override
     public int[] divisibleBy(int[] numbers, int divider) {
         int count = 0;
-        int count1=0;
+        int count1 = 0;
 
         for (int i = 0; i < numbers.length; i++) {
             if (numbers[i] % divider == 0) {
@@ -95,7 +93,7 @@ public class EightImpl implements Eight {
         int[] array = new int[count];
         for (int i = 0; i < numbers.length; i++) {
             if (numbers[i] % divider == 0) {
-                array [count1] = numbers[i];
+                array[count1] = numbers[i];
                 count1++;
             }
         }

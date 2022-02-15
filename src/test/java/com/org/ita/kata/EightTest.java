@@ -5,21 +5,21 @@ import com.org.ita.DataProviderUserImplementation;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
-import static org.testng.Assert.*;
+import static org.testng.Assert.assertEquals;
 
 public class EightTest extends DataProviderUserImplementation {
 
     @DataProvider(name = "LitersDP")
     public Object[][] impls() {
-        Object[][] parameters =  new Object[][]{
-                { 1, 2},
-                { 0, 0.97},
-                { 7, 14.64},
-                { 800, 1600.20},
+        Object[][] parameters = new Object[][]{
+                {1, 2},
+                {0, 0.97},
+                {7, 14.64},
+                {800, 1600.20},
                 {40, 80},
         };
         return combine(implementationsEightKataDataProvider(), parameters);
-    };
+    }
 
 
     @Test(dataProvider = "LitersDP")

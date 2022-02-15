@@ -65,10 +65,7 @@ public class EightImpl implements Eight {
             factorial = factorial * i;
         }
 
-        boolean isWilsonPrime = false;
-        if (n != 1 && (n == 563 || ((factorial + 1) % Math.pow(n, 2)) == 0)) {
-            isWilsonPrime = true;
-        }
+        boolean isWilsonPrime = n != 1 && (n == 563 || ((factorial + 1) % Math.pow(n, 2)) == 0);
 
         return isWilsonPrime;
     }

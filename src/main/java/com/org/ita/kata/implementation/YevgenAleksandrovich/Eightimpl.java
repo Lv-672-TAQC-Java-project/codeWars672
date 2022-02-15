@@ -6,9 +6,10 @@ public class Eightimpl implements Eight {
     /*Keep Hydrated!-Kata*/
     @Override
     public int liters(double time) {
-        if (time<0);
+        if (time < 0) ;
         return (int) (time / 2);
     }
+
     /*Volume of a Cuboid Kata*/
     @Override
     public double getVolumeOfCuboid(double length, double width, double height) {

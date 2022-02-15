@@ -7,6 +7,15 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class FiveImpl implements Five {
+    public static boolean isSimple(long num) {
+        for (int i = 2; i < num; i++) {
+            if (num % i == 0) {
+                return false;
+            }
+        }
+        return true;
+    }
+
     @Override
     public int artificialRain(int[] v) {
         return 0;
@@ -28,15 +37,6 @@ public class FiveImpl implements Five {
 
         }
         return null;
-    }
-
-    public static boolean isSimple(long num) {
-        for (int i = 2; i < num; i++) {
-            if (num % i == 0) {
-                return false;
-            }
-        }
-        return true;
     }
 
     @Override

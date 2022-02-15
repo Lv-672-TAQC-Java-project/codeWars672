@@ -30,7 +30,7 @@ public class DataProviderUserImplementation {
     }
 
     @DataProvider
-    public Object[][] implementationsEightKataDataProvider(){
+    public Object[][] implementationsEightKataDataProvider() {
         return new Object[][]{
                 {new com.org.ita.kata.implementation.IrynaRybak.EigthImpl()},
                 {new com.org.ita.kata.implementation.DianaStoyko.EigthImpl()},

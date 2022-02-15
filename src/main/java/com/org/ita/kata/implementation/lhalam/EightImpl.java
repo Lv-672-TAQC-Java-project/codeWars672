@@ -22,6 +22,7 @@ public class EightImpl implements Eight {
     public int[] squareOrSquareRoot(int[] array) {
         return new int[0];
     }
+
     /*Count of positives sum of negatives*/
     @Override
     public int[] countPositivesSumNegatives(int[] input) {
@@ -37,6 +38,7 @@ public class EightImpl implements Eight {
         }
         return result;
     }
+
     /*Convert a string to a number*/
     @Override
     public int stringToNumber(String str) {

@@ -4,8 +4,8 @@ import java.math.BigInteger;
 import java.util.Arrays;
 
 public class TaskRunner {
-    private Users user;
-    private ConsoleScanner consoleScanner;
+    private final Users user;
+    private final ConsoleScanner consoleScanner;
 
     public TaskRunner(Users user) {
         this.user = user;
@@ -225,15 +225,15 @@ public class TaskRunner {
 
     public void runTaskCountPositivesSumNegatives() {
         System.out.println("Run task countPositivesSumNegatives");
-        int input[] = consoleScanner.readArrayInt();
-        int result[] = user.getImplEight().countPositivesSumNegatives(input);
+        int[] input = consoleScanner.readArrayInt();
+        int[] result = user.getImplEight().countPositivesSumNegatives(input);
         System.out.println(Arrays.toString(result));
     }
 
     public void runTaskSquareOrSquareRoot() {
         System.out.println("Run task squareOrSquareRoot");
-        int input[] = consoleScanner.readArrayInt();
-        int result[] = user.getImplEight().squareOrSquareRoot(input);
+        int[] input = consoleScanner.readArrayInt();
+        int[] result = user.getImplEight().squareOrSquareRoot(input);
         System.out.println(Arrays.toString(result));
     }
 

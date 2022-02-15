@@ -6,6 +6,18 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class EigthImpl implements Eight {
+    public static double fastorial(double n) {
+        double result = 1;
+        if (n <= 0) {
+            return 0;
+        }
+        for (int i = 2; i <= n; i++) {
+            result *= i;
+        }
+        System.out.println(result);
+        return result;
+    }
+
     @Override
     public int liters(double time) {
         return (int) (time / 2);
@@ -19,7 +31,7 @@ public class EigthImpl implements Eight {
     @Override
     public float mpgToKPM(float mpg) {
         double convert = 1.609344 / 4.54609188;
-        return (float) Math.round(convert*mpg*100)/100;
+        return (float) Math.round(convert * mpg * 100) / 100;
     }
 
     @Override
@@ -37,15 +49,15 @@ public class EigthImpl implements Eight {
 
     @Override
     public int[] countPositivesSumNegatives(int[] input) {
-        if(input.length == 0){
+        if (input.length == 0) {
             return new int[0];
         }
         int count = 0, sum = 0;
-        for (int number : input){
-            if(number > 0){
+        for (int number : input) {
+            if (number > 0) {
                 count++;
             }
-            if(number < 0){
+            if (number < 0) {
                 sum += number;
             }
         }
@@ -54,7 +66,7 @@ public class EigthImpl implements Eight {
 
     @Override
     public int stringToNumber(String str) {
-        if(str.length() == 0){
+        if (str.length() == 0) {
             return 0;
         }
         return Integer.parseInt(str);
@@ -63,22 +75,7 @@ public class EigthImpl implements Eight {
     @Override
     public boolean amIWilson(double n) {
         double result = (fastorial(n - 1) + 1);
-        if (result % (n * n) == 0 && n != 1) {
-            return true;
-        }
-        return false;
-    }
-
-    public static double fastorial(double n) {
-        double result = 1;
-        if(n <= 0){
-            return 0;
-        }
-        for (int i = 2; i <= n; i++) {
-            result *= i;
-        }
-        System.out.println(result);
-        return result;
+        return result % (n * n) == 0 && n != 1;
     }
 
     @Override
@@ -89,14 +86,14 @@ public class EigthImpl implements Eight {
     @Override
     public int[] divisibleBy(int[] numbers, int divider) {
         List<Integer> list = new ArrayList<>();
-        for(int number : numbers){
-            if(number % divider == 0){
+        for (int number : numbers) {
+            if (number % divider == 0) {
                 list.add(number);
             }
         }
         int[] array = new int[list.size()];
 
-        for(int i = 0; i < list.size(); i++){
+        for (int i = 0; i < list.size(); i++) {
             array[i] = list.get(i);
         }
         return array;

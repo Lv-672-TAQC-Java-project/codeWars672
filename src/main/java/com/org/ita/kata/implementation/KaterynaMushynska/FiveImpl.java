@@ -6,6 +6,15 @@ import java.math.BigInteger;
 import java.util.Arrays;
 
 public class FiveImpl implements Five {
+    public static boolean checkPrime(long i) {
+        for (int j = 2; j < Math.sqrt(i + 1); j++) {
+            if (i % j == 0) {
+                return false;
+            }
+        }
+        return true;
+    }
+
     @Override
     public int artificialRain(int[] v) {
         return 0;
@@ -17,7 +26,7 @@ public class FiveImpl implements Five {
         int num = 0;
         for (int i = (int) m; i < (int) n; i++) {
             if (checkPrime(i)) {
-                primes[num] = (long) i;
+                primes[num] = i;
                 num++;
             }
         }
@@ -27,15 +36,6 @@ public class FiveImpl implements Five {
             }
         }
         return null;
-    }
-
-    public static boolean checkPrime(long i) {
-        for (int j = 2; j < Math.sqrt(i + 1); j++) {
-            if (i % j == 0) {
-                return false;
-            }
-        }
-        return true;
     }
 
     @Override

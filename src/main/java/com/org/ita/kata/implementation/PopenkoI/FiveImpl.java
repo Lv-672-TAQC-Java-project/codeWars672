@@ -7,6 +7,12 @@ import java.util.ArrayList;
 import java.util.Arrays;
 
 public class FiveImpl implements Five {
+    private static BigInteger factorial(int n) {
+        BigInteger ret = BigInteger.ONE;
+        for (int i = 1; i <= n; ++i) ret = ret.multiply(BigInteger.valueOf(i));
+        return ret;
+    }
+
     @Override
     public int artificialRain(int[] v) {
         return 0;
@@ -58,12 +64,6 @@ public class FiveImpl implements Five {
             }
         }
         return count;
-    }
-
-    private static BigInteger factorial(int n) {
-        BigInteger ret = BigInteger.ONE;
-        for (int i = 1; i <= n; ++i) ret = ret.multiply(BigInteger.valueOf(i));
-        return ret;
     }
 
     @Override
@@ -129,7 +129,7 @@ public class FiveImpl implements Five {
                 }
             }
             String numberInStr = Long.toString(newNumber);
-            String newNumberInStr = String.join(Long.toString(min), numberInStr.substring(0,smallerPosition), numberInStr.substring(smallerPosition));
+            String newNumberInStr = String.join(Long.toString(min), numberInStr.substring(0, smallerPosition), numberInStr.substring(smallerPosition));
             newNumber = Long.parseLong(newNumberInStr);
             smallerPosition++;
             newIndex++;

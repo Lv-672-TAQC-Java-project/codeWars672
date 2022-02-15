@@ -24,13 +24,13 @@ public class SevenImpl implements Seven {
         NumberFormat formatter = new DecimalFormat("#0.00");
 
         for (int i = 1; i < n; i++) {
-            result = Double.parseDouble(formatter.format(result + 1.0/(1 + i*3)));
+            result = Double.parseDouble(formatter.format(result + 1.0 / (1 + i * 3)));
         }
         return String.valueOf(result);
     }
 
     @Override
     public int whereIsHe(int p, int bef, int aft) {
-        return (bef + aft == p) ? p-bef : aft + 1;
+        return (bef + aft == p) ? p - bef : aft + 1;
     }
 }
