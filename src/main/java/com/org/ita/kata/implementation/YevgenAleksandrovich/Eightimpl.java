@@ -9,15 +9,20 @@ public class Eightimpl implements Eight {
         if (time<0);
         return (int) (time / 2);
     }
-
+    /*Volume of a Cuboid Kata*/
     @Override
     public double getVolumeOfCuboid(double length, double width, double height) {
-        return 0;
+        return length * width * height;
     }
 
     @Override
     public float mpgToKPM(float mpg) {
-        return 0;
+        final float kilometresInMiles = 1.609344f;
+        final float litresInGallon = 4.54609188f;
+        final float coefficient = kilometresInMiles / litresInGallon;
+
+        float result = mpg * coefficient;
+        return Float.parseFloat(String.format("%.2f", result));
     }
 
     @Override
