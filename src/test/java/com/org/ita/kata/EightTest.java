@@ -68,11 +68,22 @@ public class EightTest extends DataProviderUserImplementation {
 //
 //    }
 
+    @DataProvider(name = "VolumeOfCuboidDP")
+    public Object[][] volumeOfCuboidTestData() {
+        Object[][] parameters = new Object[][]{
+                {4, 1, 2, 2},
+                {63, 6.3, 2, 5},
+        };
 
-//    @Test
-//    public void testGetVolumeOfCuboid() {
-//    }
-//
+        return combine(implementationsEightKataDataProvider(), parameters);
+    }
+
+    @Test(dataProvider = "VolumeOfCuboidDP")
+    public void volumeOfCuboidTest(Eight eight, double expected, double length, double width, double height) {
+        double actual = eight.getVolumeOfCuboid(length, width, height);
+        assertEquals(actual, expected);
+    }
+
 //    @Test
 //    public void testMpgToKPM() {
 //    }
