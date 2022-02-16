@@ -44,9 +44,29 @@ public class ConsoleScannerTest {
     public void testReadDouble() {
     }
 
-    @Test
-    public void testReadDoubleArray() {
+    @DataProvider(name = "arrayDoubleDP")
+    public Object[][] arrayDoubleDP() {
+        return new Object[][]{
+                {"4 1 2 2 6", "[1.0, 2.0, 2.0, 6.0]"},
+                {"6 1 -2 3 -3 3 0", "[1.0, -2.0, 3.0, -3.0, 3.0, 0.0]"},
+                {"5 1 -2 8 -3 7", "[1.0, -2.0, 8.0, -3.0, 7.0]"},
+                {"4 -2 8 -3 7 rtyrhhhyy", "[-2.0, 8.0, -3.0, 7.0]"},
+                {"3 asdfgh 8 -3 7", "[8.0, -3.0, 7.0]"},
+                {"5 1 -2 asd4fgh 8 -3 7", "[1.0, -2.0, 8.0, -3.0, 7.0]"},
+                {"4 1 -2 asd4fgh 8, -3 7", "[1.0, -2.0, -3.0, 7.0]"}
+        };
     }
+
+    @Test (dataProvider = "arrayDoubleDP")
+        public void testReadArrayDouble(String input, String expected) {
+            System.setIn(new ByteArrayInputStream(input.getBytes()));
+            ConsoleScanner consoleScanner = new ConsoleScanner();
+            String actual = Arrays.toString(consoleScanner.readDoubleArray());
+            //assertEquals(actual, expected);
+            assertEquals(actual, expected);
+
+        }
+
 
     @Test
     public void testReadString() {
