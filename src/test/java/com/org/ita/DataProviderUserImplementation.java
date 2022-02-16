@@ -29,22 +29,6 @@ public class DataProviderUserImplementation {
     }
 
     @DataProvider
-    public Object[][] implementationsEightKataDataProvider() {
-        return new Object[][]{
-                {new com.org.ita.kata.implementation.IrynaRybak.EigthImpl()},
-                {new com.org.ita.kata.implementation.DianaStoyko.EigthImpl()},
-                {new com.org.ita.kata.implementation.KaterynaMushynska.EightImpl()},
-                {new com.org.ita.kata.implementation.MikeRomanyshyn.EightImpl()},
-                {new com.org.ita.kata.implementation.OlehPysko.EightImpl()},
-                {new com.org.ita.kata.implementation.OliaDmytryk.EightImpl()},
-                {new com.org.ita.kata.implementation.PopenkoI.EightImpl()},
-                {new com.org.ita.kata.implementation.RomanVytrykush.EightImpl()},
-                {new com.org.ita.kata.implementation.YevgenAleksandrovich.Eightimpl()},
-                {new com.org.ita.kata.implementation.YuriiDruzhytskyi.EightImpl()}
-        };
-    }
-
-    @DataProvider
     public Object[][] implementationsFiveKataDataProvider() {
         return new Object[][]{
                 {new com.org.ita.kata.implementation.IrynaRybak.FiveImpl()},
@@ -77,5 +61,36 @@ public class DataProviderUserImplementation {
         };
     }
 
+    @DataProvider
+    public Object[][] implementationsSevenKataDataProvider() {
+        return new Object[][]{
+                {new com.org.ita.kata.implementation.IrynaRybak.SevenImpl()},
+                {new com.org.ita.kata.implementation.DianaStoyko.SevenImpl()},
+                {new com.org.ita.kata.implementation.KaterynaMushynska.SevenImpl()},
+                {new com.org.ita.kata.implementation.MikeRomanyshyn.SevenImpl()},
+                {new com.org.ita.kata.implementation.OlehPysko.SevenImpl()},
+                {new com.org.ita.kata.implementation.OliaDmytryk.SevenIml()},
+                {new com.org.ita.kata.implementation.PopenkoI.SevenImpl()},
+                {new com.org.ita.kata.implementation.RomanVytrykush.SevenImpl()},
+                {new com.org.ita.kata.implementation.YevgenAleksandrovich.Sevenimpl()},
+                {new com.org.ita.kata.implementation.YuriiDruzhytskyi.SevenImpl()},
+        };
+    }
+
+    @DataProvider
+    public Object[][] implementationsEightKataDataProvider() {
+        return new Object[][]{
+                {new com.org.ita.kata.implementation.IrynaRybak.EigthImpl()},
+                {new com.org.ita.kata.implementation.DianaStoyko.EigthImpl()},
+                {new com.org.ita.kata.implementation.KaterynaMushynska.EightImpl()},
+                {new com.org.ita.kata.implementation.MikeRomanyshyn.EightImpl()},
+                {new com.org.ita.kata.implementation.OlehPysko.EightImpl()},
+                {new com.org.ita.kata.implementation.OliaDmytryk.EightImpl()},
+                {new com.org.ita.kata.implementation.PopenkoI.EightImpl()},
+                {new com.org.ita.kata.implementation.RomanVytrykush.EightImpl()},
+                {new com.org.ita.kata.implementation.YevgenAleksandrovich.Eightimpl()},
+                {new com.org.ita.kata.implementation.YuriiDruzhytskyi.EightImpl()}
+        };
+    }
 }
 
