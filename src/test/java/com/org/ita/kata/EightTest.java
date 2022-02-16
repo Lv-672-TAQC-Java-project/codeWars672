@@ -5,6 +5,8 @@ import com.org.ita.DataProviderUserImplementation;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
+import java.util.Arrays;
+
 import static org.testng.Assert.assertEquals;
 
 public class EightTest extends DataProviderUserImplementation {
@@ -51,11 +53,34 @@ public class EightTest extends DataProviderUserImplementation {
 
     }
 
+
+    @DataProvider(name = "SquareOrSquareRootDP")
+    public Object[][] squareOrSquareRootDP() {
+        int[] input = new int[]{4, 3, 9, 7, 2, 1};
+        int[] input2 = new int[]{100, 101, 5, 5, 1, 1};
+        int[] input3 = new int[]{1, 2, 3, 4, 5, 6};
+        Object[][] parameters = new Object[][]{
+                {input, "[2, 9, 3, 49, 4, 1]"},
+                {input2, "[10, 10201, 25, 25, 1, 1]"},
+                {input3, "[1, 4, 9, 2, 25, 36]"}
+        };
+        return combine(implementationsEightKataDataProvider(), parameters);
+    }
+
+    @Test(dataProvider = "SquareOrSquareRootDP")
+    public void testSquareOrSquareRoot(Eight eight, int[] input, String expected) {
+        int[] actual = eight.squareOrSquareRoot(input);
+        assertEquals(Arrays.toString(actual), expected, Arrays.toString(input));
+    }
+
+
+
     @Test(dataProvider = "StringToNumberDP")
     public void testStringToNumber (Eight eight, String strData, int expected) {
         int actual = eight.stringToNumber(strData);
         assertEquals(actual, expected,"stringToNumber(" + strData + ")");
     }
+
 
 //    @Test(dataProvider = "userImlp")
 //    public void testLitersSampleTest1(Eight eigth) {
@@ -107,9 +132,6 @@ public class EightTest extends DataProviderUserImplementation {
         assertEquals(actual, expected, delta);
     }
 //
-//    @Test
-//    public void testSquareOrSquareRoot() {
-//    }
 //
 //    @Test
 //    public void testCountPositivesSumNegatives() {

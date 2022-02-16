@@ -73,9 +73,9 @@ public class DataProviderUserImplementation {
                 {new com.org.ita.kata.implementation.PopenkoI.SixImpl()},
                 {new com.org.ita.kata.implementation.RomanVytrykush.SixImpl()},
                 {new com.org.ita.kata.implementation.YevgenAleksandrovich.Siximpl()},
-                {new com.org.ita.kata.implementation.YuriiDruzhytskyi.SixImpl()}
-
+                {new com.org.ita.kata.implementation.YuriiDruzhytskyi.SixImpl()},
         };
     }
+
 }
 
