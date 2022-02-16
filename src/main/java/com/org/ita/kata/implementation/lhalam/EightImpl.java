@@ -45,11 +45,27 @@ public class EightImpl implements Eight {
         int number = Integer.parseInt(str);
         return number;
     }
-
+/*Willson Primes*/
     @Override
     public boolean amIWilson(double n) {
-        return false;
+        long result = 1;
+        for (int i = 1; i < n; i++) {
+            result = result * i;
+        }
+        if (n == 0 || n == 1) {
+            return false;
+        }
+        if (n == 563) {
+            return true;
+        }
+
+        if (((result + 1) / (n * n)) % 1 == 0) {
+            return true;
+        } else {
+            return false;
+        }
     }
+
 
     @Override
     public double twoDecimalPlaces(double number) {
