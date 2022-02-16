@@ -21,12 +21,30 @@ public class EightTest extends DataProviderUserImplementation {
         return combine(implementationsEightKataDataProvider(), parameters);
     }
 
+    @DataProvider(name = "StringToNumberDP")
+    public Object[][] stringToNumberImpls() {
+        Object[][] parameters = new Object[][] {
+                {"1234", 1234},
+                {"605", 605},
+                {"1405", 1405},
+                {"-7", -7},
+        };
+
+        return combine(implementationsEightKataDataProvider(), parameters);
+    }
+
 
     @Test(dataProvider = "LitersDP")
     public void testLitersSampleTest1(Eight eigth, int expected, double data) {
         int actual = eigth.liters(data);
         assertEquals(actual, expected);
 
+    }
+
+    @Test(dataProvider = "StringToNumberDP")
+    public void testStringToNumber (Eight eight, String strData, int expected) {
+        int actual = eight.stringToNumber(strData);
+        assertEquals(actual, expected,"stringToNumber(" + strData + ")");
     }
 
 //    @Test(dataProvider = "userImlp")
