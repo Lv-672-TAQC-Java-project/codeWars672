@@ -59,6 +59,18 @@ public class EightTest extends DataProviderUserImplementation {
         return combine(implementationsEightKataDataProvider(), parameters);
     }
 
+    @DataProvider(name = "twoDecimals")
+    public Object[][] twoDecimalsImpl() {
+        Object[][] parameters = new Object[][]{
+                {1.68, 1.68134525},
+                {1.44, 1.444444},
+                {7.43, 7.43253525332},
+                {800.24, 800.239321341},
+                {40.12, 40.1231512321},
+        };
+        return combine(implementationsEightKataDataProvider(), parameters);
+    }
+
     @DataProvider(name = "VolumeOfCuboidDP")
     public Object[][] volumeOfCuboidTestData() {
         Object[][] parameters = new Object[][]{
@@ -118,6 +130,12 @@ public class EightTest extends DataProviderUserImplementation {
         System.out.println(Arrays.toString(actual) + " " + Arrays.toString(expected));
         assertEquals(Arrays.toString(actual), Arrays.toString(expected));
 
+    }
+
+    @Test(dataProvider = "twoDecimals")
+    public void testTwoDecimalPlaces(Eight eight, double expected, double data) {
+        double actual = eight.twoDecimalPlaces(data);
+        assertEquals(actual, expected);
     }
 }
 
