@@ -5,6 +5,8 @@ import com.org.ita.DataProviderUserImplementation;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
+import java.util.Arrays;
+
 import static org.testng.Assert.assertEquals;
 
 public class EightTest extends DataProviderUserImplementation {
@@ -26,6 +28,24 @@ public class EightTest extends DataProviderUserImplementation {
     public void testLitersSampleTest1(Eight eigth, int expected, double data) {
         int actual = eigth.liters(data);
         assertEquals(actual, expected);
+
+    }
+
+    @DataProvider(name = "DivisibleByDP")
+    public Object[][] DivisibleByData() {
+        Object[][] parameters = new Object[][]{
+                {new int[] {2,4,6}, new int[] {1,2,3,4,5,6},2},
+                {new int[] {3,6}, new int[] {1,2,3,4,5,6},3},
+                {new int[] {0,4}, new int[] {0,1,2,3,4,5,6},4}
+        };
+        return combine(implementationsEightKataDataProvider(), parameters);
+    }
+
+    @Test(dataProvider = "DivisibleByDP")
+    public void testDivisibleBySampleTest(Eight eigth, int[] expected, int[] data, int divider) {
+        int[] actual = eigth.divisibleBy(data, divider);
+        System.out.println(Arrays.toString(actual)+ " " + Arrays.toString(expected));
+        assertEquals(Arrays.toString(actual), Arrays.toString(expected));
 
     }
 
