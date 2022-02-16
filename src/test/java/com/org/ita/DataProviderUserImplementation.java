@@ -35,6 +35,12 @@ public class DataProviderUserImplementation {
                 {new com.org.ita.kata.implementation.DianaStoyko.EigthImpl()},
                 {new com.org.ita.kata.implementation.KaterynaMushynska.EightImpl()},
                 {new com.org.ita.kata.implementation.MikeRomanyshyn.EightImpl()},
+                {new com.org.ita.kata.implementation.OlehPysko.EightImpl()},
+                {new com.org.ita.kata.implementation.OliaDmytryk.EightImpl()},
+                {new com.org.ita.kata.implementation.PopenkoI.EightImpl()},
+                {new com.org.ita.kata.implementation.RomanVytrykush.EightImpl()},
+                {new com.org.ita.kata.implementation.YevgenAleksandrovich.Eightimpl()},
+                {new com.org.ita.kata.implementation.YuriiDruzhytskyi.EightImpl()}
         };
     }
 
