@@ -1,11 +1,18 @@
-package com.org.ita.kata.YevgenAleksandrovich;
+package com.org.ita.kata.implementation.YevgenAleksandrovich;
 
 import com.org.ita.kata.Seven;
 
 public class Sevenimpl implements Seven {
+    /*Benefactor*/
     @Override
     public long newAvg(double[] arr, double navg) {
-        return 0;
+        double sum = 0;
+        for (double i:arr) {
+            sum+=i;
+        }
+        long result = (long) Math.ceil(navg*(arr.length+1)-sum);
+        if (result<0) throw new IllegalArgumentException();
+        return result;
     }
 
     @Override
