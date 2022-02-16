@@ -38,5 +38,21 @@ public class DataProviderUserImplementation {
                 {new com.org.ita.kata.implementation.MikeRomanyshyn.EightImpl()},
         };
     }
+    @DataProvider
+    public Object[][] implementationsFiveKataDataProvider() {
+        return new Object[][]{
+                {new com.org.ita.kata.implementation.IrynaRybak.FiveImpl()},
+                {new com.org.ita.kata.implementation.DianaStoyko.FiveImpl()},
+                {new com.org.ita.kata.implementation.KaterynaMushynska.FiveImpl()},
+                {new com.org.ita.kata.implementation.MikeRomanyshyn.FiveImpl()},
+                {new com.org.ita.kata.implementation.OlehPysko.FiveImpl()},
+                {new com.org.ita.kata.implementation.OliaDmytryk.FiveIml()},
+                {new com.org.ita.kata.implementation.PopenkoI.FiveImpl()},
+                {new com.org.ita.kata.implementation.RomanVytrykush.FiveImpl()},
+                {new com.org.ita.kata.implementation.YevgenAleksandrovich.Fiveimpl()},
+                {new com.org.ita.kata.implementation.YuriiDruzhytskyi.FiveImpl()}
+
+        };
+    }
 }
 
