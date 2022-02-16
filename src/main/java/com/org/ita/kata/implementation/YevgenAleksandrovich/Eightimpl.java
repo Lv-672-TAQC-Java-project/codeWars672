@@ -1,6 +1,6 @@
 package com.org.ita.kata.implementation.YevgenAleksandrovich;
 
-package com.org.ita.kata.YevgenAleksandrovich;
+
 import java.util.ArrayList;
 import java.util.List;
 import com.org.ita.kata.Eight;
