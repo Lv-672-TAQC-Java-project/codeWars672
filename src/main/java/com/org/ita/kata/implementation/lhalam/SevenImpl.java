@@ -1,8 +1,8 @@
-package com.org.ita.kata.YevgenAleksandrovich;
+package com.org.ita.kata.implementation.lhalam;
 
 import com.org.ita.kata.Seven;
 
-public class Sevenimpl implements Seven {
+public class SevenImpl implements Seven {
     @Override
     public long newAvg(double[] arr, double navg) {
         return 0;
