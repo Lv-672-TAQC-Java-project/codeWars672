@@ -24,12 +24,35 @@ public class EightTest extends DataProviderUserImplementation {
     }
 
 
+    @DataProvider(name = "MpgToKPMDP")
+    public Object[][] MpgToKPMData() {
+        Object[][] parameters = new Object[][]{
+                {3.54f, 10, 0.001f},
+                {7.08f, 20, 0.001f},
+                {10.62f, 30, 0.001f},
+        };
+        return combine(implementationsEightKataDataProvider(), parameters);
+    }
+  
+    @DataProvider(name = "StringToNumberDP")
+    public Object[][] stringToNumberImpls() {
+        Object[][] parameters = new Object[][] {
+                {"1234", 1234},
+                {"605", 605},
+                {"1405", 1405},
+                {"-7", -7},
+        };
+        return combine(implementationsEightKataDataProvider(), parameters);
+    }
+
+
     @Test(dataProvider = "LitersDP")
     public void testLitersSampleTest1(Eight eigth, int expected, double data) {
         int actual = eigth.liters(data);
         assertEquals(actual, expected);
 
     }
+
 
     @DataProvider(name = "SquareOrSquareRootDP")
     public Object[][] squareOrSquareRootDP() {
@@ -48,6 +71,14 @@ public class EightTest extends DataProviderUserImplementation {
     public void testSquareOrSquareRoot(Eight eight, int[] input, String expected) {
         int[] actual = eight.squareOrSquareRoot(input);
         assertEquals(Arrays.toString(actual), expected, Arrays.toString(input));
+    }
+
+
+
+    @Test(dataProvider = "StringToNumberDP")
+    public void testStringToNumber (Eight eight, String strData, int expected) {
+        int actual = eight.stringToNumber(strData);
+        assertEquals(actual, expected,"stringToNumber(" + strData + ")");
     }
 
 
@@ -95,18 +126,34 @@ public class EightTest extends DataProviderUserImplementation {
 //    public void testGetVolumeOfCuboid() {
 //    }
 //
-//    @Test
-//    public void testMpgToKPM() {
-//    }
+    @Test(dataProvider = "MpgToKPMDP")
+    public void testMpgToKPM(Eight eight, float expected, float data, float delta) {
+        float actual = eight.mpgToKPM(data);
+        assertEquals(actual, expected, delta);
+    }
 //
 //
 //    @Test
 //    public void testCountPositivesSumNegatives() {
 //    }
 //
-//    @Test
-//    public void testStringToNumber() {
-//    }
+@DataProvider(name = "StringToNumberDP")
+public Object[][] stringToNumberTestData() {
+    Object[][] parameters = new Object[][]{
+            {12, "12"},
+            {123, "123"},
+            {7634, "7634"},
+            {-2, "-2"}
+
+    };
+    return combine(implementationsEightKataDataProvider(), parameters);
+}
+
+    @Test(dataProvider = "StringToNumberDP")
+    public void testStringToNumber(Eight eight, int expected, String data) {
+        int actual = eight.stringToNumber(data);
+        assertEquals(actual, expected);
+    }
 //
 //    @Test
 //    public void testAmIWilson() {
