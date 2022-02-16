@@ -38,5 +38,22 @@ public class DataProviderUserImplementation {
                 {new com.org.ita.kata.implementation.MikeRomanyshyn.EightImpl()},
         };
     }
+
+    @DataProvider
+    public Object[][] implementationsSixKataDataProvider() {
+        return new Object[][]{
+                {new com.org.ita.kata.implementation.IrynaRybak.SixImpl()},
+                {new com.org.ita.kata.implementation.DianaStoyko.SixImpl()},
+                {new com.org.ita.kata.implementation.KaterynaMushynska.SixImpl()},
+                {new com.org.ita.kata.implementation.MikeRomanyshyn.SixImpl()},
+                {new com.org.ita.kata.implementation.OlehPysko.SixImpl()},
+                {new com.org.ita.kata.implementation.OliaDmytryk.SixImpl()},
+                {new com.org.ita.kata.implementation.PopenkoI.SixImpl()},
+                {new com.org.ita.kata.implementation.RomanVytrykush.SixImpl()},
+                {new com.org.ita.kata.implementation.YevgenAleksandrovich.Siximpl()},
+                {new com.org.ita.kata.implementation.YuriiDruzhytskyi.SixImpl()}
+
+        };
+    }
 }
 
