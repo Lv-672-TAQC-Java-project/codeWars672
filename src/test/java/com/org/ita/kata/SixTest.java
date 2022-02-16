@@ -9,9 +9,6 @@ import static org.testng.Assert.assertEquals;
 
 public class SixTest extends DataProviderUserImplementation {
 
-
-public class SixTest extends DataProviderUserImplementation {
-
     @DataProvider(name = "FindNbDP")
     public Object[][] FindNbData() {
         Object[][] parameters = new Object[][]{

@@ -34,7 +34,7 @@ public class FiveTest extends DataProviderUserImplementation {
     public void testPerimeter() {
     }
 
-    @Test (dataProvider = "SolveSumDP")
+    @Test(dataProvider = "SolveSumDP")
     public void testSolveSum(Five five, double expected, double data) {
         double m = 1e-12;
         System.out.println("Testing " + data);

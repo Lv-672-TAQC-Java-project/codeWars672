@@ -33,10 +33,10 @@ public class EightTest extends DataProviderUserImplementation {
         };
         return combine(implementationsEightKataDataProvider(), parameters);
     }
-  
+
     @DataProvider(name = "StringToNumberDP")
     public Object[][] stringToNumberImpls() {
-        Object[][] parameters = new Object[][] {
+        Object[][] parameters = new Object[][]{
                 {"1234", 1234},
                 {"605", 605},
                 {"1405", 1405},
@@ -74,11 +74,10 @@ public class EightTest extends DataProviderUserImplementation {
     }
 
 
-
     @Test(dataProvider = "StringToNumberDP")
-    public void testStringToNumber (Eight eight, String strData, int expected) {
+    public void testStringToNumber(Eight eight, String strData, int expected) {
         int actual = eight.stringToNumber(strData);
-        assertEquals(actual, expected,"stringToNumber(" + strData + ")");
+        assertEquals(actual, expected, "stringToNumber(" + strData + ")");
     }
 
 
@@ -122,7 +121,7 @@ public class EightTest extends DataProviderUserImplementation {
 //    }
 
 
-//    @Test
+    //    @Test
 //    public void testGetVolumeOfCuboid() {
 //    }
 //
@@ -131,23 +130,24 @@ public class EightTest extends DataProviderUserImplementation {
         float actual = eight.mpgToKPM(data);
         assertEquals(actual, expected, delta);
     }
-//
+
+    //
 //
 //    @Test
 //    public void testCountPositivesSumNegatives() {
 //    }
 //
-@DataProvider(name = "StringToNumberDP")
-public Object[][] stringToNumberTestData() {
-    Object[][] parameters = new Object[][]{
-            {12, "12"},
-            {123, "123"},
-            {7634, "7634"},
-            {-2, "-2"}
+    @DataProvider(name = "StringToNumberDP")
+    public Object[][] stringToNumberTestData() {
+        Object[][] parameters = new Object[][]{
+                {12, "12"},
+                {123, "123"},
+                {7634, "7634"},
+                {-2, "-2"}
 
-    };
-    return combine(implementationsEightKataDataProvider(), parameters);
-}
+        };
+        return combine(implementationsEightKataDataProvider(), parameters);
+    }
 
     @Test(dataProvider = "StringToNumberDP")
     public void testStringToNumber(Eight eight, int expected, String data) {
