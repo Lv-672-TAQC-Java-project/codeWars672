@@ -4,7 +4,7 @@ import com.org.ita.kata.Five;
 
 import java.math.BigInteger;
 
-public class FiveImplO implements Five {
+public class FiveImpl implements Five {
     @Override
     public int artificialRain(int[] v) {
         return 0;
@@ -14,22 +14,24 @@ public class FiveImplO implements Five {
     public long[] gap(int g, long m, long n) {
 
         long var1 = 0;
-        long [] a = {0, 0};
-         for (long i = m+1; i <= n; i++) {
+        long[] a = {0, 0};
+        for (long i = m + 1; i <= n; i++) {
             if ((i) % m == 0) {
-                for (long b = 2; b < i/2; b++) {
-                    if (i%b != 0){
+                for (long b = 2; b < i / 2; b++) {
+                    if (i % b != 0) {
                         System.out.println("Nothig");
-                    }
-                    else if (i - var1 == g)
-                       {a[0] = var1;
+                    } else if (i - var1 == g) {
+                        a[0] = var1;
                         a[1] = i;
-                        return a;}
-                    else{var1 = i;}
+                        return a;
+                    } else {
+                        var1 = i;
+                    }
 
                 }
+            } else {
+                System.out.println();
             }
-            else {System.out.println("");}
         }
 
         return null;
@@ -52,7 +54,7 @@ public class FiveImplO implements Five {
         BigInteger c = BigInteger.ONE;
         BigInteger sum = BigInteger.ZERO;
 
-        for(int i = 0; i <= n.intValue(); i++) {
+        for (int i = 0; i <= n.intValue(); i++) {
             a = b;
             b = c;
             c = a.add(b);

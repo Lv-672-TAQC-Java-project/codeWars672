@@ -4,7 +4,6 @@ import com.org.ita.kata.Six;
 
 import java.math.BigDecimal;
 import java.math.RoundingMode;
-
 import java.util.ArrayList;
 
 public class SixImpl implements Six {
@@ -99,7 +98,7 @@ public class SixImpl implements Six {
 
     @Override
     public String stockSummary(String[] lstOfArt, String[] lstOf1stLetter) {
-        if (lstOfArt.length == 0){
+        if (lstOfArt.length == 0) {
             return "";
         }
         int[] s = new int[lstOf1stLetter.length];

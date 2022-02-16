@@ -2,20 +2,19 @@ package com.org.ita.kata.implementation.KaterynaMushynska;
 
 import com.org.ita.kata.Eight;
 
-import java.util.NoSuchElementException;
-
 import java.math.BigDecimal;
 import java.math.RoundingMode;
+import java.util.NoSuchElementException;
 
 public class EightImpl implements Eight {
     @Override
     public int liters(double time) {
-        return (int)(time*0.5);
+        return (int) (time * 0.5);
     }
 
     @Override
     public double getVolumeOfCuboid(double length, double width, double height) {
-        return length*width*height;
+        return length * width * height;
     }
 
     @Override
@@ -70,16 +69,9 @@ public class EightImpl implements Eight {
     @Override
     public boolean amIWilson(double n) {
         for (int i = 2; i < n; i++) {
-            if (n % i == 0) {
-                return false;
-            } else {
-                return true;
-            }
+            return n % i != 0;
         }
-        if (n <= 1) {
-            return false;
-        }
-        return true;
+        return !(n <= 1);
     }
 
     @Override

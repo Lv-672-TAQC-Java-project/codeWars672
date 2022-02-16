@@ -20,7 +20,7 @@ public class EightImpl implements Eight {
         float x = gallonToLitres;
         float y = mileToKilometer;
 
-        return Float.parseFloat(String.format("%.2f", mpg * y / x ));
+        return mpg * y / x;
     }
 
     @Override
@@ -40,13 +40,14 @@ public class EightImpl implements Eight {
             return new int[0];
         }
         for (int i : input) {
-            if (i < 0 ) {
-                negativeSum += i; }
+            if (i < 0) {
+                negativeSum += i;
+            }
             if (i > 0) {
                 count++;
             }
         }
-        return new int[] {count, negativeSum};
+        return new int[]{count, negativeSum};
     }
 
     @Override
@@ -56,11 +57,11 @@ public class EightImpl implements Eight {
 
     @Override
     public boolean amIWilson(double n) {
-        if (n <= 1){
+        if (n <= 1) {
             return false;
         }
         for (int i = 2; i < n; i++)
-            if (n % i ==0){
+            if (n % i == 0) {
                 return false;
             }
         return true;

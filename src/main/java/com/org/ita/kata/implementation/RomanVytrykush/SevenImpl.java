@@ -11,7 +11,7 @@ public class SevenImpl implements Seven {
         }
         double result = (arr.length + 1) * navg - sum;
         if (result > 0) {
-            return  (int) (Math.ceil(result));
+            return (int) (Math.ceil(result));
         } else {
             throw new IllegalArgumentException();
         }
@@ -30,8 +30,7 @@ public class SevenImpl implements Seven {
     @Override
     public int whereIsHe(int p, int bef, int aft) {
         int v = 0;
-        for(int i = 0; i != p; i++)
-        {
+        for (int i = 0; i != p; i++) {
             if (i >= bef && (p - (i + 1)) <= aft) {
                 v++;
             }

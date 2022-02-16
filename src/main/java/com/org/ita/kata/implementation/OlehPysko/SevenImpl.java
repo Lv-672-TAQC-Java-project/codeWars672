@@ -2,7 +2,7 @@ package com.org.ita.kata.implementation.OlehPysko;
 
 import com.org.ita.kata.Seven;
 
-public class SevenImplO implements Seven {
+public class SevenImpl implements Seven {
     @Override
     public long newAvg(double[] arr, double navg) {
         double suma = 0;
@@ -21,7 +21,7 @@ public class SevenImplO implements Seven {
 
         double sum = 0.0;
 
-        for (int i=0; i<n; i++) {
+        for (int i = 0; i < n; i++) {
             sum = sum + 1.0 / (1 + 3 * i);
         }
         //double sum2 = 1.0 + sum;
