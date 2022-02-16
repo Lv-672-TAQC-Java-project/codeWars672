@@ -1,5 +1,8 @@
 package com.org.ita.kata.implementation.YevgenAleksandrovich;
 
+package com.org.ita.kata.YevgenAleksandrovich;
+import java.util.ArrayList;
+import java.util.List;
 import com.org.ita.kata.Eight;
 
 public class Eightimpl implements Eight {
@@ -58,9 +61,21 @@ public class Eightimpl implements Eight {
     public double twoDecimalPlaces(double number) {
         return 0;
     }
-
+    /*Find numbers which are divisible by given number */
     @Override
     public int[] divisibleBy(int[] numbers, int divider) {
-        return new int[0];
+        int count = 0;
+        int counter=0;
+        for (int number : numbers) {
+            if (number % divider == 0) count++;
+        }
+        int[] divisibleArray = new int[count];
+        for (int number : numbers) {
+            if (number % divider == 0) {
+                divisibleArray[counter] = number;
+                counter++;
+            }
+        }
+        return divisibleArray;
     }
 }
