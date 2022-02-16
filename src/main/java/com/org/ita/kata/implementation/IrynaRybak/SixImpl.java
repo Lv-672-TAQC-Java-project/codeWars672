@@ -1,8 +1,9 @@
-package com.org.ita.kata.implementation.OlehPysko;
+package com.org.ita.kata.implementation.IrynaRybak;
 
 import com.org.ita.kata.Six;
 
-public class SixImplO implements Six {
+public class SixImpl implements Six {
+
     @Override
     public long findNb(long m) {
         return 0;
