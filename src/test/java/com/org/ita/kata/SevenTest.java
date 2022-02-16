@@ -25,7 +25,7 @@ public class SevenTest extends DataProvaiderSevenImplNewAvg {
    // public void testNewAvg() {
    // }
     @Test (dataProvider = "NewAvgDP")
-    public void testNewAvgTest1(Seven seven, long expect, double[]data1, double data2, long expected) {
+    public void testNewAvgTest1(Seven seven, double[]data1, double data2, long expected) {
         long actual = seven.newAvg(data1,data2);
         assertEquals(actual, expected);
     }
