@@ -9,10 +9,9 @@ import java.util.List;
 
 public class DataProviderUserImplementation {
     public static Object[][] combine(Object[][] impl, Object[][] _data) {
-        Object[][] data = SerializationUtils.clone(_data);
         List<Object[]> listObjects = new ArrayList<>();
         for (Object[] obj_impl : impl) {
-
+            Object[][] data = SerializationUtils.clone(_data);
             for (Object[] obj_data : data) {
                 int totalLength = obj_data.length + obj_impl.length;
                 Object[] objArr = new Object[totalLength];
@@ -36,6 +35,45 @@ public class DataProviderUserImplementation {
                 {new com.org.ita.kata.implementation.DianaStoyko.EigthImpl()},
                 {new com.org.ita.kata.implementation.KaterynaMushynska.EightImpl()},
                 {new com.org.ita.kata.implementation.MikeRomanyshyn.EightImpl()},
+                {new com.org.ita.kata.implementation.OlehPysko.EightImpl()},
+                {new com.org.ita.kata.implementation.OliaDmytryk.EightImpl()},
+                {new com.org.ita.kata.implementation.PopenkoI.EightImpl()},
+                {new com.org.ita.kata.implementation.RomanVytrykush.EightImpl()},
+                {new com.org.ita.kata.implementation.YevgenAleksandrovich.Eightimpl()},
+                {new com.org.ita.kata.implementation.YuriiDruzhytskyi.EightImpl()}
+        };
+    }
+
+    @DataProvider
+    public Object[][] implementationsFiveKataDataProvider() {
+        return new Object[][]{
+                {new com.org.ita.kata.implementation.IrynaRybak.FiveImpl()},
+                {new com.org.ita.kata.implementation.DianaStoyko.FiveImpl()},
+                {new com.org.ita.kata.implementation.KaterynaMushynska.FiveImpl()},
+                {new com.org.ita.kata.implementation.MikeRomanyshyn.FiveImpl()},
+                {new com.org.ita.kata.implementation.OlehPysko.FiveImpl()},
+                {new com.org.ita.kata.implementation.OliaDmytryk.FiveIml()},
+                {new com.org.ita.kata.implementation.PopenkoI.FiveImpl()},
+                {new com.org.ita.kata.implementation.RomanVytrykush.FiveImpl()},
+                {new com.org.ita.kata.implementation.YevgenAleksandrovich.Fiveimpl()},
+                {new com.org.ita.kata.implementation.YuriiDruzhytskyi.FiveImpl()}
+        };
+    }
+
+
+    @DataProvider
+    public Object[][] implementationsSixKataDataProvider() {
+        return new Object[][]{
+                {new com.org.ita.kata.implementation.IrynaRybak.SixImpl()},
+                {new com.org.ita.kata.implementation.DianaStoyko.SixImpl()},
+                {new com.org.ita.kata.implementation.KaterynaMushynska.SixImpl()},
+                {new com.org.ita.kata.implementation.MikeRomanyshyn.SixImpl()},
+                {new com.org.ita.kata.implementation.OlehPysko.SixImpl()},
+                {new com.org.ita.kata.implementation.OliaDmytryk.SixImpl()},
+                {new com.org.ita.kata.implementation.PopenkoI.SixImpl()},
+                {new com.org.ita.kata.implementation.RomanVytrykush.SixImpl()},
+                {new com.org.ita.kata.implementation.YevgenAleksandrovich.Siximpl()},
+                {new com.org.ita.kata.implementation.YuriiDruzhytskyi.SixImpl()},
         };
     }
 
