@@ -21,6 +21,16 @@ public class EightTest extends DataProviderUserImplementation {
         return combine(implementationsEightKataDataProvider(), parameters);
     }
 
+    @DataProvider(name = "MpgToKPMDP")
+    public Object[][] MpgToKPMData() {
+        Object[][] parameters = new Object[][]{
+                {3.54f, 10, 0.001f},
+                {7.08f, 20, 0.001f},
+                {10.62f, 30, 0.001f},
+        };
+        return combine(implementationsEightKataDataProvider(), parameters);
+    }
+
 
     @Test(dataProvider = "LitersDP")
     public void testLitersSampleTest1(Eight eigth, int expected, double data) {
@@ -73,9 +83,11 @@ public class EightTest extends DataProviderUserImplementation {
 //    public void testGetVolumeOfCuboid() {
 //    }
 //
-//    @Test
-//    public void testMpgToKPM() {
-//    }
+    @Test(dataProvider = "MpgToKPMDP")
+    public void testMpgToKPM(Eight eight, float expected, float data, float delta) {
+        float actual = eight.mpgToKPM(data);
+        assertEquals(actual, expected, delta);
+    }
 //
 //    @Test
 //    public void testSquareOrSquareRoot() {
