@@ -21,6 +21,7 @@ public class ConsoleScannerTest {
 
     @AfterMethod
     public void afterMethod() {
+        System.setIn(in);
     }
 
     @Test
