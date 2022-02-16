@@ -131,29 +131,11 @@ public class EightTest extends DataProviderUserImplementation {
         assertEquals(actual, expected, delta);
     }
 
-    //
 //
 //    @Test
 //    public void testCountPositivesSumNegatives() {
 //    }
 //
-    @DataProvider(name = "StringToNumberDP")
-    public Object[][] stringToNumberTestData() {
-        Object[][] parameters = new Object[][]{
-                {12, "12"},
-                {123, "123"},
-                {7634, "7634"},
-                {-2, "-2"}
-
-        };
-        return combine(implementationsEightKataDataProvider(), parameters);
-    }
-
-    @Test(dataProvider = "StringToNumberDP")
-    public void testStringToNumber(Eight eight, int expected, String data) {
-        int actual = eight.stringToNumber(data);
-        assertEquals(actual, expected);
-    }
 //
 //    @Test
 //    public void testAmIWilson() {
