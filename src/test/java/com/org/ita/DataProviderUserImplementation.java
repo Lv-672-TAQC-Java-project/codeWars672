@@ -9,10 +9,9 @@ import java.util.List;
 
 public class DataProviderUserImplementation {
     public static Object[][] combine(Object[][] impl, Object[][] _data) {
-        Object[][] data = SerializationUtils.clone(_data);
         List<Object[]> listObjects = new ArrayList<>();
         for (Object[] obj_impl : impl) {
-
+            Object[][] data = SerializationUtils.clone(_data);
             for (Object[] obj_data : data) {
                 int totalLength = obj_data.length + obj_impl.length;
                 Object[] objArr = new Object[totalLength];
@@ -38,6 +37,23 @@ public class DataProviderUserImplementation {
                 {new com.org.ita.kata.implementation.MikeRomanyshyn.EightImpl()},
         };
     }
+
+    @DataProvider
+    public Object[][] implementationsFiveKataDataProvider() {
+        return new Object[][]{
+                {new com.org.ita.kata.implementation.IrynaRybak.FiveImpl()},
+                {new com.org.ita.kata.implementation.DianaStoyko.FiveImpl()},
+                {new com.org.ita.kata.implementation.KaterynaMushynska.FiveImpl()},
+                {new com.org.ita.kata.implementation.MikeRomanyshyn.FiveImpl()},
+                {new com.org.ita.kata.implementation.OlehPysko.FiveImpl()},
+                {new com.org.ita.kata.implementation.OliaDmytryk.FiveIml()},
+                {new com.org.ita.kata.implementation.PopenkoI.FiveImpl()},
+                {new com.org.ita.kata.implementation.RomanVytrykush.FiveImpl()},
+                {new com.org.ita.kata.implementation.YevgenAleksandrovich.Fiveimpl()},
+                {new com.org.ita.kata.implementation.YuriiDruzhytskyi.FiveImpl()}
+        };
+    }
+
 
     @DataProvider
     public Object[][] implementationsSixKataDataProvider() {
