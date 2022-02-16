@@ -4,6 +4,7 @@ import com.org.ita.DataProviderUserImplementation;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
+import java.util.Arrays;
 import java.math.BigInteger;
 
 import static org.testng.Assert.assertEquals;
@@ -61,7 +62,21 @@ public class FiveTest extends DataProviderUserImplementation {
         assertTrue(range);
     }
 
-    @Test
-    public void testSmallest() {
+    @DataProvider(name = "smallestDP")
+    public Object[][] smallestDP() {
+        Object[][] parameters = new Object[][]{
+                {261235, "[126235, 2, 0]"},
+                {209917, "[29917, 1, 0]"},
+                {285365, "[238565, 3, 1]"},
+                {269045, "[26945, 3, 0]"},
+                {296837, "[239687, 4, 1]"}
+        };
+        return combine(implementationsFiveKataDataProvider(), parameters);
+    }
+
+    @Test(dataProvider = "smallestDP")
+    public void testSmallest(Five five, long n, String expected) {
+        String actual = Arrays.toString(five.smallest(n));
+        assertEquals(actual, expected);
     }
 }
