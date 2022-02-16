@@ -22,12 +22,33 @@ public class FiveTest extends DataProviderUserImplementation {
         return combine(implementationsFiveKataDataProvider(), parameters);
     }
 
+
+
     @Test
     public void testArtificialRain() {
     }
 
-    @Test
-    public void testGap() {
+
+
+    @DataProvider(name = "NewGapDP12")
+    public Object[][] TestGap(){
+        long[] a1 = new long[] {101, 103};
+        long[] a2 = new long[] {103, 107};
+        long[] a3 = new long[] {359, 367};
+        long[] a4 = new long[] {337, 347};
+        Object[][] parameters = new Object[][]{
+                {2, 100, 110, a1},
+                {4, 100, 110, a2},
+                {8, 300, 400, a3},
+                {10, 300, 400, a4},
+        };
+        // return combine(implementationsFiveKataDataProvider(), parameters);
+        return combine(implementationsFiveKataDataProvider(),parameters);
+    }
+    @Test (dataProvider = "NewGapDP12")
+    public void testGapTest2(Five five, int data1, long data2, long data3, long[] expected) {
+        long[] actual = five.gap(data1, data2,data3);
+        assertEquals(actual, expected);
     }
 
     @Test
