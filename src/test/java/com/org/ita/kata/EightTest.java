@@ -46,14 +46,6 @@ public class EightTest extends DataProviderUserImplementation {
     }
 
 
-    @Test(dataProvider = "LitersDP")
-    public void testLitersSampleTest1(Eight eigth, int expected, double data) {
-        int actual = eigth.liters(data);
-        assertEquals(actual, expected);
-
-    }
-
-
     @DataProvider(name = "SquareOrSquareRootDP")
     public Object[][] squareOrSquareRootDP() {
         int[] input = new int[]{4, 3, 9, 7, 2, 1};
@@ -64,6 +56,16 @@ public class EightTest extends DataProviderUserImplementation {
                 {input2, "[10, 10201, 25, 25, 1, 1]"},
                 {input3, "[1, 4, 9, 2, 25, 36]"}
         };
+        return combine(implementationsEightKataDataProvider(), parameters);
+    }
+
+    @DataProvider(name = "VolumeOfCuboidDP")
+    public Object[][] volumeOfCuboidTestData() {
+        Object[][] parameters = new Object[][]{
+                {4, 1, 2, 2},
+                {63, 6.3, 2, 5},
+        };
+
         return combine(implementationsEightKataDataProvider(), parameters);
     }
 
@@ -81,89 +83,23 @@ public class EightTest extends DataProviderUserImplementation {
     }
 
 
-//    @Test(dataProvider = "userImlp")
-//    public void testLitersSampleTest1(Eight eigth) {
-//        int actual = eigth.liters(2);
-//        assertEquals(1, actual);
-//
-//    }
-//
-//    @Test(dataProvider = "userImlp")
-//    public void testLitersSampleTest2(Eight eigth) {
-//
-//        int actual = eigth.liters(0.97);
-//        assertEquals(0, actual);
-//
-//    }
-//
-//    @Test(dataProvider = "userImlp")
-//    public void testLitersSampleTest3(Eight eigth) {
-//
-//        int actual = eigth.liters(14.64);
-//        assertEquals(7, actual);
-//
-//    }
-//
-//    @Test(dataProvider = "userImlp")
-//    public void testLitersSampleTest4(Eight eigth) {
-//
-//        int actual = eigth.liters(1600.20);
-//        assertEquals(800, actual);
-//
-//    }
-//
-//    @Test(dataProvider = "userImlp")
-//    public void testLitersSampleTest5(Eight eigth) {
-//
-//        int actual = eigth.liters(80);
-//        assertEquals(40, actual);
-//
-//    }
+    @Test(dataProvider = "VolumeOfCuboidDP")
+    public void testGetVolumeOfCuboid(Eight eight, double expected, double length, double width, double height) {
+        double actual = eight.getVolumeOfCuboid(length, width, height);
+        assertEquals(actual, expected);
+    }
 
-
-    //    @Test
-//    public void testGetVolumeOfCuboid() {
-//    }
-//
     @Test(dataProvider = "MpgToKPMDP")
     public void testMpgToKPM(Eight eight, float expected, float data, float delta) {
         float actual = eight.mpgToKPM(data);
         assertEquals(actual, expected, delta);
     }
 
-    //
-//
-//    @Test
-//    public void testCountPositivesSumNegatives() {
-//    }
-//
-    @DataProvider(name = "StringToNumberDP")
-    public Object[][] stringToNumberTestData() {
-        Object[][] parameters = new Object[][]{
-                {12, "12"},
-                {123, "123"},
-                {7634, "7634"},
-                {-2, "-2"}
-
-        };
-        return combine(implementationsEightKataDataProvider(), parameters);
-    }
-
-    @Test(dataProvider = "StringToNumberDP")
-    public void testStringToNumber(Eight eight, int expected, String data) {
-        int actual = eight.stringToNumber(data);
+    @Test(dataProvider = "LitersDP")
+    public void testLitersSampleTest1(Eight eigth, int expected, double data) {
+        int actual = eigth.liters(data);
         assertEquals(actual, expected);
+
     }
-//
-//    @Test
-//    public void testAmIWilson() {
-//    }
-//
-//    @Test
-//    public void testTwoDecimalPlaces() {
-//    }
-//
-//    @Test
-//    public void testDivisibleBy() {
-//    }
+
 }

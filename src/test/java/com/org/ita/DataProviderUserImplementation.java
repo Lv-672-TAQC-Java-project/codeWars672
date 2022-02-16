@@ -92,5 +92,6 @@ public class DataProviderUserImplementation {
                 {new com.org.ita.kata.implementation.YuriiDruzhytskyi.EightImpl()}
         };
     }
+
 }
 
