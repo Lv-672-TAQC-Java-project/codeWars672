@@ -1,8 +1,9 @@
-package com.org.ita.kata.YevgenAleksandrovich;
+package com.org.ita.kata.implementation.IrynaRybak;
 
 import com.org.ita.kata.Six;
 
-public class Siximpl implements Six {
+public class SixImpl implements Six {
+
     @Override
     public long findNb(long m) {
         return 0;
@@ -12,11 +13,10 @@ public class Siximpl implements Six {
     public String balance(String book) {
         return null;
     }
-    /*Approximation*/
+
     @Override
     public double f(double x) {
-
-        return x / (Math.sqrt(1 + x) + 1);
+        return 0;
     }
 
     @Override

@@ -1,6 +1,7 @@
 package com.org.ita.kata.implementation.MikeRomanyshyn;
 
 import com.org.ita.kata.Five;
+
 import java.math.BigInteger;
 
 public class FiveImpl implements Five {
@@ -26,7 +27,8 @@ public class FiveImpl implements Five {
 
     @Override
     public double solveSum(double m) {
-        return 0;
+        double s = Math.sqrt((4 * m) + 1);
+        return ((1 - s) / (2 * m) + 1);
     }
 
     @Override
