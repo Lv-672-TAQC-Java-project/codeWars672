@@ -5,6 +5,8 @@ import com.org.ita.DataProviderUserImplementation;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
+import java.util.Arrays;
+
 import static org.testng.Assert.assertEquals;
 
 public class EightTest extends DataProviderUserImplementation {
@@ -22,6 +24,77 @@ public class EightTest extends DataProviderUserImplementation {
     }
 
 
+    @DataProvider(name = "MpgToKPMDP")
+    public Object[][] MpgToKPMData() {
+        Object[][] parameters = new Object[][]{
+                {3.54f, 10, 0.001f},
+                {7.08f, 20, 0.001f},
+                {10.62f, 30, 0.001f},
+        };
+        return combine(implementationsEightKataDataProvider(), parameters);
+    }
+
+    @DataProvider(name = "StringToNumberDP")
+    public Object[][] stringToNumberImpls() {
+        Object[][] parameters = new Object[][]{
+                {"1234", 1234},
+                {"605", 605},
+                {"1405", 1405},
+                {"-7", -7},
+        };
+        return combine(implementationsEightKataDataProvider(), parameters);
+    }
+
+
+    @DataProvider(name = "SquareOrSquareRootDP")
+    public Object[][] squareOrSquareRootDP() {
+        int[] input = new int[]{4, 3, 9, 7, 2, 1};
+        int[] input2 = new int[]{100, 101, 5, 5, 1, 1};
+        int[] input3 = new int[]{1, 2, 3, 4, 5, 6};
+        Object[][] parameters = new Object[][]{
+                {input, "[2, 9, 3, 49, 4, 1]"},
+                {input2, "[10, 10201, 25, 25, 1, 1]"},
+                {input3, "[1, 4, 9, 2, 25, 36]"}
+        };
+        return combine(implementationsEightKataDataProvider(), parameters);
+    }
+
+    @DataProvider(name = "VolumeOfCuboidDP")
+    public Object[][] volumeOfCuboidTestData() {
+        Object[][] parameters = new Object[][]{
+                {4, 1, 2, 2},
+                {63, 6.3, 2, 5},
+        };
+
+        return combine(implementationsEightKataDataProvider(), parameters);
+    }
+
+    @Test(dataProvider = "SquareOrSquareRootDP")
+    public void testSquareOrSquareRoot(Eight eight, int[] input, String expected) {
+        int[] actual = eight.squareOrSquareRoot(input);
+        assertEquals(Arrays.toString(actual), expected, Arrays.toString(input));
+    }
+
+
+    @Test(dataProvider = "StringToNumberDP")
+    public void testStringToNumber(Eight eight, String strData, int expected) {
+        int actual = eight.stringToNumber(strData);
+        assertEquals(actual, expected, "stringToNumber(" + strData + ")");
+    }
+
+
+    @Test(dataProvider = "VolumeOfCuboidDP")
+    public void testGetVolumeOfCuboid(Eight eight, double expected, double length, double width, double height) {
+        double actual = eight.getVolumeOfCuboid(length, width, height);
+        assertEquals(actual, expected);
+    }
+
+    @Test(dataProvider = "MpgToKPMDP")
+    public void testMpgToKPM(Eight eight, float expected, float data, float delta) {
+        float actual = eight.mpgToKPM(data);
+        assertEquals(actual, expected, delta);
+    }
+
     @Test(dataProvider = "LitersDP")
     public void testLitersSampleTest1(Eight eigth, int expected, double data) {
         int actual = eigth.liters(data);
@@ -29,75 +102,22 @@ public class EightTest extends DataProviderUserImplementation {
 
     }
 
-//    @Test(dataProvider = "userImlp")
-//    public void testLitersSampleTest1(Eight eigth) {
-//        int actual = eigth.liters(2);
-//        assertEquals(1, actual);
-//
-//    }
-//
-//    @Test(dataProvider = "userImlp")
-//    public void testLitersSampleTest2(Eight eigth) {
-//
-//        int actual = eigth.liters(0.97);
-//        assertEquals(0, actual);
-//
-//    }
-//
-//    @Test(dataProvider = "userImlp")
-//    public void testLitersSampleTest3(Eight eigth) {
-//
-//        int actual = eigth.liters(14.64);
-//        assertEquals(7, actual);
-//
-//    }
-//
-//    @Test(dataProvider = "userImlp")
-//    public void testLitersSampleTest4(Eight eigth) {
-//
-//        int actual = eigth.liters(1600.20);
-//        assertEquals(800, actual);
-//
-//    }
-//
-//    @Test(dataProvider = "userImlp")
-//    public void testLitersSampleTest5(Eight eigth) {
-//
-//        int actual = eigth.liters(80);
-//        assertEquals(40, actual);
-//
-//    }
+    @DataProvider(name = "DivisibleByDP")
+    public Object[][] DivisibleByData() {
+        Object[][] parameters = new Object[][]{
+                {new int[]{2, 4, 6}, new int[]{1, 2, 3, 4, 5, 6}, 2},
+                {new int[]{3, 6}, new int[]{1, 2, 3, 4, 5, 6}, 3},
+                {new int[]{0, 4}, new int[]{0, 1, 2, 3, 4, 5, 6}, 4}
+        };
+        return combine(implementationsEightKataDataProvider(), parameters);
+    }
 
+    @Test(dataProvider = "DivisibleByDP")
+    public void testDivisibleBySampleTest(Eight eigth, int[] expected, int[] data, int divider) {
+        int[] actual = eigth.divisibleBy(data, divider);
+        System.out.println(Arrays.toString(actual) + " " + Arrays.toString(expected));
+        assertEquals(Arrays.toString(actual), Arrays.toString(expected));
 
-//    @Test
-//    public void testGetVolumeOfCuboid() {
-//    }
-//
-//    @Test
-//    public void testMpgToKPM() {
-//    }
-//
-//    @Test
-//    public void testSquareOrSquareRoot() {
-//    }
-//
-//    @Test
-//    public void testCountPositivesSumNegatives() {
-//    }
-//
-//    @Test
-//    public void testStringToNumber() {
-//    }
-//
-//    @Test
-//    public void testAmIWilson() {
-//    }
-//
-//    @Test
-//    public void testTwoDecimalPlaces() {
-//    }
-//
-//    @Test
-//    public void testDivisibleBy() {
-//    }
+    }
 }
+
