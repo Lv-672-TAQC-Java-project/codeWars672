@@ -52,8 +52,22 @@ public class ConsoleScannerTest {
     public void testReadString() {
     }
 
-    @Test
-    public void testReadStringArray() {
+    @DataProvider(name = "stringArrayDP")
+    public Object[][] stringArrayDP() {
+        return new Object[][]{
+                {"Ukraine\nok\n", "[Ukraine]"},
+                {"Tom\nJohn\nok\n", "[Tom, John]"},
+                {"123\n345\n222\nok\n", "[123, 345, 222]"},
+                {"testStringArrayMethod\n333\n-123\n34a\n$\n$25\nseptember\nok\n", "[testStringArrayMethod, 333, -123, 34a, $, $25, september]"},
+        };
+    }
+
+    @Test(dataProvider = "stringArrayDP")
+    public void testReadStringArray(String input, String expected) {
+        System.setIn(new ByteArrayInputStream(input.getBytes()));
+        ConsoleScanner consoleScanner = new ConsoleScanner();
+        String actual = Arrays.toString(consoleScanner.readStringArray());
+        assertEquals(actual, expected);
     }
 
     @Test
