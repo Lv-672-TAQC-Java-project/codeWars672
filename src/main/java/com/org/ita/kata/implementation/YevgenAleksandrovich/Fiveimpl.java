@@ -55,7 +55,7 @@ public class Fiveimpl implements Five {
         }
         return count;
     }
-/*Gap in Primes*/
+
     @Override
     public long[] gap(int g, long m, long n) {
         long a = 0;
@@ -69,6 +69,15 @@ public class Fiveimpl implements Five {
             }
         }
         return null;
+    }
+
+    private static boolean isPrime(long i) {
+        for (long j = 2; j < i / 2; j++) {
+            if (i % j == 0) {
+                return false;
+            }
+        }
+        return true;
     }
 
     private static boolean isPrime(long i) {
