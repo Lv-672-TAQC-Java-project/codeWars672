@@ -40,8 +40,22 @@ public class ConsoleScannerTest {
     public void testReadFloat() {
     }
 
-    @Test
-    public void testReadDouble() {
+    @DataProvider(name = "readDoubleDP")
+    public Object[][] arrayDoubleDP() {
+        return new Object[][]{
+                {"9.9", 9.9},
+                {"asdf 5.6", 5.6},
+                {"4", 4.0},
+                {"aa bb 4.65", 4.65},
+        };
+    }
+
+    @Test(dataProvider = "readDoubleDP")
+    public void testReadDouble(String input, double expected) {
+        System.setIn(new ByteArrayInputStream(input.getBytes()));
+        ConsoleScanner consoleScanner = new ConsoleScanner();
+        double actual = consoleScanner.readDouble();
+        assertEquals(actual, expected);
     }
 
     @Test
