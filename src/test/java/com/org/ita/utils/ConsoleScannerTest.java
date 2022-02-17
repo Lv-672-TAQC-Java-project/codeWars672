@@ -91,6 +91,21 @@ public class ConsoleScannerTest {
         softAssert.assertAll();
     }
 
+    @DataProvider(name = "NotValidFloat")
+    public Object[][] readNotValidFloat() {
+        return new Object[][]{
+                {"two_point_zero 2.0", "Please enter a number: Incorrect format float. Try again!\n",
+                        Float.valueOf(2.0f)},
+                {"4.5", "Please enter a number: ", Float.valueOf(4.5f)},
+                {"adsabc 0.678","Please enter a number: Incorrect format float. Try again!\n",
+                        Float.valueOf(0.678f)},
+                {"3.41ada413 3.41413","Please enter a number: Incorrect format float. Try again!\n",
+                        Float.valueOf(3.41413f)},
+                {"45y6 456","Please enter a number: Incorrect format float. Try again!\n",
+                        Float.valueOf(456.0f)},
+        };
+    }
+
     @Test
     public void testReadArrayInt() {
     }
@@ -111,6 +126,19 @@ public class ConsoleScannerTest {
         ConsoleScanner consoleScanner = new ConsoleScanner();
         float actual = consoleScanner.readFloat();
         assertEquals(actual, expected);
+    }
+
+    @Test(dataProvider = "NotValidFloat")
+    public void testReadNotValidFloat(String input, String expectedOutput, float expected) {
+        System.setIn(new ByteArrayInputStream(input.getBytes()));
+        ConsoleScanner consoleScanner = new ConsoleScanner();
+        OutputStream output = new ByteArrayOutputStream();
+        System.setOut(new PrintStream(output));
+        float actual = consoleScanner.readFloat();
+        SoftAssert softAssert = new SoftAssert();
+        softAssert.assertEquals(actual, expected);
+        softAssert.assertEquals(String.valueOf(output).replace("\r", ""), expectedOutput);
+        softAssert.assertAll();
     }
 
     @DataProvider(name = "readDoubleDP")
