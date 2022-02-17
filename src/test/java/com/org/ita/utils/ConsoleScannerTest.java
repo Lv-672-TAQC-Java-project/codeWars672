@@ -4,9 +4,9 @@ import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
+import org.testng.asserts.SoftAssert;
 
-import java.io.ByteArrayInputStream;
-import java.io.InputStream;
+import java.io.*;
 import java.math.BigInteger;
 import java.util.Arrays;
 
@@ -37,8 +37,29 @@ public class ConsoleScannerTest {
         };
     }
 
-    @Test
-    public void testReadInt() {
+    @DataProvider(name = "NotValidReadIntDP")
+    public Object[][] NotValidReadIntDP() {
+        return new Object[][]{
+                {"fdj 56", "Incorrect! Try again!\n", Integer.valueOf(56)},
+                {"-2489", "", Integer.valueOf(-2489)},
+                {"2.68 947", "Incorrect! Try again!\n", Integer.valueOf(947)},
+                {"3e-15 25", "Incorrect! Try again!\n", Integer.valueOf(25)},
+                {"87", "", Integer.valueOf(87)},
+                {"1.2 126a -142 ", "Incorrect! Try again!\nIncorrect! Try again!\n", Integer.valueOf(-142)},
+        };
+    }
+
+    @Test(dataProvider = "NotValidReadIntDP")
+    public void testNotValidReadInt(String input, String outputExpected, int expected) {
+        System.setIn(new ByteArrayInputStream(input.getBytes()));
+        ConsoleScanner consoleScanner = new ConsoleScanner();
+        OutputStream output = new ByteArrayOutputStream();
+        System.setOut(new PrintStream(output));
+        int actual = consoleScanner.readInt();
+        SoftAssert softAssert = new SoftAssert();
+        softAssert.assertEquals(actual, expected, "int");
+        softAssert.assertEquals(String.valueOf(output).replace("\r", ""), outputExpected, "outputExpected");
+        softAssert.assertAll();
     }
 
     @Test
