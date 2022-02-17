@@ -3,9 +3,19 @@ package com.org.ita.kata.implementation.YevgenAleksandrovich;
 import com.org.ita.kata.Six;
 
 public class Siximpl implements Six {
+    /*Build a oile of cubes*/
     @Override
     public long findNb(long m) {
-        return 0;
+        if (m == 0) return 0;
+        long value = m;
+        long i;
+
+        for (i = 1; value > 0; i++) {
+            value -= (long) Math.pow(i, 3);
+        }
+
+        if (value == 0) return i - 1;
+        else return -1;
     }
 
     @Override
