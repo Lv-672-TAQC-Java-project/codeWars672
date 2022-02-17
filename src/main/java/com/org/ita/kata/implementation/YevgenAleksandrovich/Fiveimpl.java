@@ -83,7 +83,15 @@ public class Fiveimpl implements Five {
 
     @Override
     public int zeros(int n) {
-        return 0;
+        if (n < 0)
+            throw new IllegalArgumentException();
+
+        int trailingZeros = 0;
+
+        for (int i = 5; n / i >= 1; i *= 5)
+            trailingZeros += n / i;
+
+        return trailingZeros;
     }
 
     /*Perimeter of squares in a rectangle*/
