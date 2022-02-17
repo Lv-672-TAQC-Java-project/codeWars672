@@ -15,7 +15,25 @@ public class FiveImpl implements Five {
 
     @Override
     public int artificialRain(int[] v) {
-        return 0;
+        int counter, result = 1, currentSection = 0;
+        while (currentSection != v.length) {
+            counter = 1;
+            for (int i = currentSection + 1; i < v.length; i++) {
+                if (v[currentSection] < v[i]) {
+                    counter++;
+                }
+            }
+            for (int i = 0; i < currentSection; i++) {
+                if (v[currentSection] < v[i]) {
+                    counter++;
+                }
+            }
+            currentSection++;
+            if (counter > result) {
+                result = counter;
+            }
+        }
+        return result;
     }
 
     @Override
