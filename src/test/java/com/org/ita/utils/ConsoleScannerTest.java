@@ -36,8 +36,22 @@ public class ConsoleScannerTest {
     public void testReadArrayInt() {
     }
 
-    @Test
-    public void testReadFloat() {
+    @DataProvider(name = "readFloat")
+    public Object[][] readFloat() {
+        return new Object[][]{
+                {"2", 2.0f},
+                {"ads 0.678 abc", 0.678f},
+                {"3.41413", 3.41413f},
+                {"456", 456.0f},
+        };
+    }
+
+    @Test(dataProvider = "readFloat")
+    public void testReadFloat(String input, float expected) {
+        System.setIn(new ByteArrayInputStream(input.getBytes()));
+        ConsoleScanner consoleScanner = new ConsoleScanner();
+        float actual = consoleScanner.readFloat();
+        assertEquals(actual, expected);
     }
 
     @Test
