@@ -6,19 +6,6 @@ import java.math.BigInteger;
 
 public class Fiveimpl implements Five {
 
-    /*African Rain*/
-    @Override
-    public int artificialRain(int[] v) {
-        int[] arrRight = countRight(v);
-        int[] arrLeft = countLeft(v);
-        int count = 0;
-
-        for (int i = 0; i < arrLeft.length; i++) {
-            count = Math.max(arrLeft[i] + arrRight[i] + 1, count);
-        }
-        return count;
-    }
-
     static boolean goLeft(int[] numbers, int i) {
         if (i == 0)
             return false;
@@ -56,6 +43,37 @@ public class Fiveimpl implements Five {
         return count;
     }
 
+    private static boolean isPrime(long i) {
+        for (long j = 2; j < i / 2; j++) {
+            if (i % j == 0) {
+                return false;
+            }
+        }
+        return true;
+    }
+
+    private static long replace(long value, int i, int j) {
+        StringBuilder builder = new StringBuilder(String.valueOf(value));
+
+        char digit = builder.charAt(i);
+        builder.deleteCharAt(i);
+        builder.insert(j, digit);
+        return Long.parseLong(builder.toString());
+    }
+
+    /*African Rain*/
+    @Override
+    public int artificialRain(int[] v) {
+        int[] arrRight = countRight(v);
+        int[] arrLeft = countLeft(v);
+        int count = 0;
+
+        for (int i = 0; i < arrLeft.length; i++) {
+            count = Math.max(arrLeft[i] + arrRight[i] + 1, count);
+        }
+        return count;
+    }
+
     @Override
     public long[] gap(int g, long m, long n) {
         long a = 0;
@@ -63,32 +81,13 @@ public class Fiveimpl implements Five {
         for (long i = m; i <= n; i++) {
             if (isPrime(i)) {
                 if (i - a == g) {
-                    return new long[] { a, i };
+                    return new long[]{a, i};
                 }
                 a = i;
             }
         }
         return null;
     }
-
-    private static boolean isPrime(long i) {
-        for (long j = 2; j < i / 2; j++) {
-            if (i % j == 0) {
-                return false;
-            }
-        }
-        return true;
-    }
-
-    private static boolean isPrime(long i) {
-        for (long j = 2; j < i / 2; j++) {
-            if (i % j == 0) {
-                return false;
-            }
-        }
-        return true;
-    }
-
 
     @Override
     public int zeros(int n) {
@@ -119,12 +118,14 @@ public class Fiveimpl implements Five {
         }
         return sum.multiply(BigInteger.valueOf(4));
     }
-/*Which x for that sum?*/
+
+    /*Which x for that sum?*/
     @Override
     public double solveSum(double m) {
         return (2 * m + 1 - Math.sqrt(4 * m + 1)) / (2 * m);
     }
-/*Find the smallest */
+
+    /*Find the smallest */
     @Override
     public long[] smallest(long n) {
         long smallestValue = n;
@@ -137,7 +138,7 @@ public class Fiveimpl implements Five {
                 if (i == j) continue;
 
                 long replaced = replace(n, i, j);
-                if (replaced < smallestValue){
+                if (replaced < smallestValue) {
                     smallestValue = replaced;
                     smallestI = i;
                     smallestJ = j;
@@ -146,14 +147,5 @@ public class Fiveimpl implements Five {
         }
 
         return new long[]{smallestValue, smallestI, smallestJ};
-    }
-
-    private static long replace(long value, int i, int j) {
-        StringBuilder builder = new StringBuilder(String.valueOf(value));
-
-        char digit = builder.charAt(i);
-        builder.deleteCharAt(i);
-        builder.insert(j, digit);
-        return Long.parseLong(builder.toString());
     }
 }

@@ -4,8 +4,8 @@ import com.org.ita.DataProviderUserImplementation;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
-import java.util.Arrays;
 import java.math.BigInteger;
+import java.util.Arrays;
 
 import static org.testng.Assert.assertEquals;
 import static org.testng.Assert.assertTrue;
@@ -23,31 +23,30 @@ public class FiveTest extends DataProviderUserImplementation {
     }
 
 
-
     @Test
     public void testArtificialRain() {
     }
 
 
-
     @DataProvider(name = "NewGapDP12")
-    public Object[][] TestGap(){
-       // long[] a1 = new long[] {101, 103};
+    public Object[][] TestGap() {
+        // long[] a1 = new long[] {101, 103};
         //long[] a2 = new long[] {103, 107};
         //long[] a3 = new long[] {359, 367};
         //long[] a4 = new long[] {337, 347};
         Object[][] parameters = new Object[][]{
-                {2, 100, 110, new long[] {101, 103}},
-                {4, 100, 110, new long[] {103, 107}},
-                {8, 300, 400, new long[] {359, 367}},
-                {10, 300, 400, new long[] {337, 374}},
+                {2, 100, 110, new long[]{101, 103}},
+                {4, 100, 110, new long[]{103, 107}},
+                {8, 300, 400, new long[]{359, 367}},
+                {10, 300, 400, new long[]{337, 374}},
         };
         // return combine(implementationsFiveKataDataProvider(), parameters);
-        return combine(implementationsFiveKataDataProvider(),parameters);
+        return combine(implementationsFiveKataDataProvider(), parameters);
     }
-    @Test (dataProvider = "NewGapDP12")
+
+    @Test(dataProvider = "NewGapDP12")
     public void testGapTest2(Five five, int data1, long data2, long data3, long[] expected) {
-        long[] actual = five.gap(data1, data2,data3);
+        long[] actual = five.gap(data1, data2, data3);
         assertEquals(actual, expected);
     }
 

@@ -72,6 +72,7 @@ public class FiveImpl implements Five {
     public BigInteger perimeter(BigInteger n) {
         return Fibonacci(n).multiply(BigInteger.valueOf(4));
     }
+
     public BigInteger Fibonacci(BigInteger i) {
         BigInteger current = BigInteger.ONE;
         BigInteger previous = BigInteger.ZERO;
@@ -93,7 +94,7 @@ public class FiveImpl implements Five {
     @Override
     public long[] smallest(long n) {
         String[] strArr = Long.toString(n).split("");
-        int numArr[] = new int[strArr.length];
+        int[] numArr = new int[strArr.length];
         for (int i = 0; i < strArr.length; i++) {
             numArr[i] = Integer.parseInt(strArr[i]);
         }

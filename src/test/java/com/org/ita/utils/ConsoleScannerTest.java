@@ -68,7 +68,7 @@ public class ConsoleScannerTest {
     }
 
     @DataProvider(name = "readDoubleDP")
-    public Object[][] arrayDoubleDP() {
+    public Object[][] readDoubleDP() {
         return new Object[][]{
                 {"9.9", 9.9},
                 {"asdf 5.6", 5.6},
@@ -98,15 +98,15 @@ public class ConsoleScannerTest {
         };
     }
 
-    @Test (dataProvider = "arrayDoubleDP")
-        public void testReadArrayDouble(String input, String expected) {
-            System.setIn(new ByteArrayInputStream(input.getBytes()));
-            ConsoleScanner consoleScanner = new ConsoleScanner();
-            String actual = Arrays.toString(consoleScanner.readDoubleArray());
-            //assertEquals(actual, expected);
-            assertEquals(actual, expected);
+    @Test(dataProvider = "arrayDoubleDP")
+    public void testReadArrayDouble(String input, String expected) {
+        System.setIn(new ByteArrayInputStream(input.getBytes()));
+        ConsoleScanner consoleScanner = new ConsoleScanner();
+        String actual = Arrays.toString(consoleScanner.readDoubleArray());
+        //assertEquals(actual, expected);
+        assertEquals(actual, expected);
 
-        }
+    }
 
 
     @Test

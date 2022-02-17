@@ -17,7 +17,8 @@ public class Siximpl implements Six {
         if (value == 0) return i - 1;
         else return -1;
     }
-/*Easy balance Checking*/
+
+    /*Easy balance Checking*/
     @Override
     public String balance(String book) {
         String redactedBook = book.replaceAll("[^a-zA-Z0-9 .\n]", "");
@@ -50,6 +51,7 @@ public class Siximpl implements Six {
 
         return x / (Math.sqrt(1 + x) + 1);
     }
+
     /*Rainfall*/
     @Override
     public double mean(String town, String strng) {
@@ -59,25 +61,26 @@ public class Siximpl implements Six {
         String[] splitStrng = strng.split("\n");
         String line = "";
         String temp = "";
-        for (String s: splitStrng){
+        for (String s : splitStrng) {
             temp = s;
-            if (town.equals(temp.split(":")[0])){
+            if (town.equals(temp.split(":")[0])) {
                 line = s;
                 System.out.println(line);
                 break;
             }
         }
-        if (line.length() == 0){
+        if (line.length() == 0) {
             return -1;
         }
         String[] arrOfLine = line.replaceAll("[^0-9.0-9 ]", "").trim().split(" ");
         double sum = 0;
-        for (String s: arrOfLine){
+        for (String s : arrOfLine) {
             sum += Double.parseDouble(s);
         }
-        return sum /(double)(arrOfLine.length);
+        return sum / (double) (arrOfLine.length);
     }
-/*Rainfall*/
+
+    /*Rainfall*/
     @Override
     public double variance(String town, String strng) {
         double meanValue = mean(town, strng);
@@ -107,7 +110,8 @@ public class Siximpl implements Six {
     public String nbaCup(String resultSheet, String toFind) {
         return null;
     }
-/*Help the Bookseller*/
+
+    /*Help the Bookseller*/
     @Override
     public String stockSummary(String[] lstOfArt, String[] lstOf1stLetter) {
         if (lstOfArt.length == 0 || lstOf1stLetter.length == 0) {
@@ -126,5 +130,5 @@ public class Siximpl implements Six {
         }
         return returnString.substring(0, returnString.length() - 3);
     }
-    }
+}
 
