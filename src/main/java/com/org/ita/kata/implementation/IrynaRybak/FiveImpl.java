@@ -72,7 +72,7 @@ public class FiveImpl implements Five {
     public BigInteger perimeter(BigInteger n) {
         return Fibonacci(n).multiply(BigInteger.valueOf(4));
     }
-    public static BigInteger Fibonacci(BigInteger i) {
+    public BigInteger Fibonacci(BigInteger i) {
         BigInteger current = BigInteger.ONE;
         BigInteger previous = BigInteger.ZERO;
         BigInteger sum = BigInteger.ONE;
