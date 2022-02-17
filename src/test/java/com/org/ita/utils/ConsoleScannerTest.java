@@ -7,6 +7,7 @@ import org.testng.annotations.Test;
 
 import java.io.ByteArrayInputStream;
 import java.io.InputStream;
+import java.math.BigInteger;
 import java.util.Arrays;
 
 import static org.testng.Assert.assertEquals;
@@ -22,6 +23,18 @@ public class ConsoleScannerTest {
     @AfterMethod
     public void afterMethod() {
         System.setIn(in);
+    }
+
+    @DataProvider(name = "ReadBigIntegerDP")
+    public Object[][] ReadBigIntegerDP() {
+        return new Object[][]{
+                {"fdj 56   ", BigInteger.valueOf(56)},
+                {"-2489", BigInteger.valueOf(-2489)},
+                {"2.68 947", BigInteger.valueOf(947)},
+                {"3e-15 jlm 25", BigInteger.valueOf(25)},
+                {"87 klhn", BigInteger.valueOf(87)},
+                {"-142 1.2 126", BigInteger.valueOf(-142)},
+        };
     }
 
     @Test
@@ -90,8 +103,12 @@ public class ConsoleScannerTest {
     public void testReadStringArray() {
     }
 
-    @Test
-    public void testReadBigInteger() {
+    @Test(dataProvider = "ReadBigIntegerDP")
+    public void testReadBigInteger(String input, BigInteger expected) {
+        System.setIn(new ByteArrayInputStream(input.getBytes()));
+        ConsoleScanner consoleScanner = new ConsoleScanner();
+        BigInteger actual = consoleScanner.readBigInteger();
+        assertEquals(actual, expected);
     }
 
     @DataProvider(name = "arrayLongDP")
