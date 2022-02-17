@@ -8,6 +8,7 @@ import org.testng.asserts.SoftAssert;
 
 import java.io.*;
 import java.math.BigInteger;
+import java.nio.charset.StandardCharsets;
 import java.util.Arrays;
 
 import static org.testng.Assert.assertEquals;
@@ -49,6 +50,20 @@ public class ConsoleScannerTest {
         };
     }
 
+    @DataProvider(name = "ReadLongDP")
+    public Object[][] ReadLongDP() {
+        return new Object[][] {
+                {"7", "Please enter a number: ", Long.valueOf(7)},
+                {"-9223372036854775808", "Please enter a number: ", Long.MIN_VALUE},
+                {"9223372036854775807", "Please enter a number: ", Long.MAX_VALUE},
+                {"-9223372036854775809 0", "Please enter a number: Incorrect! Please enter long.\n", Long.valueOf(0)},
+                {"9223372036854775808 -1", "Please enter a number: Incorrect! Please enter long.\n", Long.valueOf(-1)},
+                {"3.14 255", "Please enter a number: Incorrect! Please enter long.\n", Long.valueOf(255)},
+                {"qwerty null -256", "Please enter a number: Incorrect! Please enter long.\n" +
+                        "Incorrect! Please enter long.\n", Long.valueOf(-256)}
+        };
+    }
+
     @Test(dataProvider = "NotValidReadIntDP")
     public void testNotValidReadInt(String input, String outputExpected, int expected) {
         System.setIn(new ByteArrayInputStream(input.getBytes()));
@@ -62,8 +77,18 @@ public class ConsoleScannerTest {
         softAssert.assertAll();
     }
 
-    @Test
-    public void testReadLong() {
+    @Test(dataProvider = "ReadLongDP")
+    public void testReadLong(String input, String outputExpected, long expected) {
+        System.setIn(new ByteArrayInputStream(input.getBytes()));
+        ConsoleScanner consoleScanner = new ConsoleScanner();
+        OutputStream output = new ByteArrayOutputStream();
+        System.setOut(new PrintStream(output));
+        long actual = consoleScanner.readLong();
+        SoftAssert softAssert = new SoftAssert();
+        softAssert.assertEquals(actual, expected,"testReadLong");
+        softAssert.assertEquals(String.valueOf(output).replace("\r", ""),
+                outputExpected, "outputExpected");
+        softAssert.assertAll();
     }
 
     @Test
