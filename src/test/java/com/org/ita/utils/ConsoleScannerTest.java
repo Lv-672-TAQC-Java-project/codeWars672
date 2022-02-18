@@ -161,10 +161,12 @@ public class ConsoleScannerTest {
     @DataProvider(name = "stringArrayDP")
     public Object[][] stringArrayDP() {
         return new Object[][]{
-                {"Ukraine\nok\n", "[Ukraine]"},
-                {"Tom\nJohn\nok\n", "[Tom, John]"},
-                {"123\n345\n222\nok\n", "[123, 345, 222]"},
-                {"testStringArrayMethod\n333\n-123\n34a\n$\n$25\nseptember\nok\n", "[testStringArrayMethod, 333, -123, 34a, $, $25, september]"},
+                {"1\nUkraine\n", "[Ukraine]"},
+                {"3\nTom\nJohn\nok\n", "[Tom, John, ok]"},
+                {"3\n123\n345\n222\n", "[123, 345, 222]"},
+                {"5\nABAR 200\nCDXE 500\nBKWR 250\nBTSQ 890\nDRTY 600\n", "[ABAR 200, CDXE 500, BKWR 250, BTSQ 890, DRTY 600]"},
+                {"2\nA\nB\n", "[A, B]"},
+                {"7s\n7\ntestStringArrayMethod\n333\n-123\n34a\n$\n$25\nseptember\n", "[testStringArrayMethod, 333, -123, 34a, $, $25, september]"},
         };
     }
 
