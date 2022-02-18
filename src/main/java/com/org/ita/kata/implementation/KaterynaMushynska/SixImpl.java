@@ -1,12 +1,13 @@
 package com.org.ita.kata.implementation.KaterynaMushynska;
 
+import com.org.ita.kata.Base;
 import com.org.ita.kata.Six;
 
 import java.math.BigDecimal;
 import java.math.RoundingMode;
 import java.util.ArrayList;
 
-public class SixImpl implements Six {
+public class SixImpl extends Base implements Six {
     @Override
     public long findNb(long m) {
         long count = 0;

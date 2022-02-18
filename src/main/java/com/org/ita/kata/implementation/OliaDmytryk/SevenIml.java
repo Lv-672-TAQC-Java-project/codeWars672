@@ -1,8 +1,9 @@
 package com.org.ita.kata.implementation.OliaDmytryk;
 
+import com.org.ita.kata.Base;
 import com.org.ita.kata.Seven;
 
-public class SevenIml implements Seven {
+public class SevenIml extends Base implements Seven {
     @Override
     public long newAvg(double[] arr, double navg) {
         return 0;

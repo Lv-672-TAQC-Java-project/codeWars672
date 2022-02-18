@@ -8,7 +8,6 @@ import org.testng.asserts.SoftAssert;
 
 import java.io.*;
 import java.math.BigInteger;
-import java.nio.charset.StandardCharsets;
 import java.util.Arrays;
 
 import static org.testng.Assert.assertEquals;
@@ -52,7 +51,7 @@ public class ConsoleScannerTest {
 
     @DataProvider(name = "ReadLongDP")
     public Object[][] ReadLongDP() {
-        return new Object[][] {
+        return new Object[][]{
                 {"7", "Please enter a number: ", Long.valueOf(7)},
                 {"-9223372036854775808", "Please enter a number: ", Long.MIN_VALUE},
                 {"9223372036854775807", "Please enter a number: ", Long.MAX_VALUE},
@@ -85,7 +84,7 @@ public class ConsoleScannerTest {
         System.setOut(new PrintStream(output));
         long actual = consoleScanner.readLong();
         SoftAssert softAssert = new SoftAssert();
-        softAssert.assertEquals(actual, expected,"testReadLong");
+        softAssert.assertEquals(actual, expected, "testReadLong");
         softAssert.assertEquals(String.valueOf(output).replace("\r", ""),
                 outputExpected, "outputExpected");
         softAssert.assertAll();

@@ -1,9 +1,10 @@
 package com.org.ita.kata.implementation.OlehPysko;
 
+import com.org.ita.kata.Base;
 import com.org.ita.kata.Eight;
 
 //test
-public class EightImpl implements Eight {
+public class EightImpl extends Base implements Eight {
     @Override
     public int liters(double time) {
         int litters = (int) (0.5 * time);

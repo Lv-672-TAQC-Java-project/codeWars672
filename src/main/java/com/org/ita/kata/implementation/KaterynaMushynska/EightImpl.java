@@ -1,12 +1,12 @@
 package com.org.ita.kata.implementation.KaterynaMushynska;
 
+import com.org.ita.kata.Base;
 import com.org.ita.kata.Eight;
 
 import java.math.BigDecimal;
 import java.math.RoundingMode;
-import java.util.NoSuchElementException;
 
-public class EightImpl implements Eight {
+public class EightImpl extends Base implements Eight {
     @Override
     public int liters(double time) {
         return (int) (time * 0.5);

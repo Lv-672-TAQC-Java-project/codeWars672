@@ -1,11 +1,12 @@
 package com.org.ita.kata.implementation.RomanVytrykush;
 
+import com.org.ita.kata.Base;
 import com.org.ita.kata.Six;
 
 import java.util.HashMap;
 import java.util.Map;
 
-public class SixImpl implements Six {
+public class SixImpl extends Base implements Six {
     private static Map<String, Double> createTownMeanMap(String strng) {
         Map<String, Double> townMeanMap = new HashMap<>();
         String[] townAndMonthRainfalls = strng.split("\n");

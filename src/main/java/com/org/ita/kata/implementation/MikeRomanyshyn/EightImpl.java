@@ -1,10 +1,11 @@
 package com.org.ita.kata.implementation.MikeRomanyshyn;
 
+import com.org.ita.kata.Base;
 import com.org.ita.kata.Eight;
 
 import java.util.ArrayList;
 
-public class EightImpl implements Eight {
+public class EightImpl extends Base implements Eight {
     @Override
     public int liters(double time) {
         return (int) (time * 0.5);

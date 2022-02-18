@@ -1,11 +1,12 @@
 package com.org.ita.kata.implementation.KaterynaMushynska;
 
+import com.org.ita.kata.Base;
 import com.org.ita.kata.Five;
 
 import java.math.BigInteger;
 import java.util.Arrays;
 
-public class FiveImpl implements Five {
+public class FiveImpl extends Base implements Five {
     public static boolean checkPrime(long i) {
         for (int j = 2; j < Math.sqrt(i + 1); j++) {
             if (i % j == 0) {

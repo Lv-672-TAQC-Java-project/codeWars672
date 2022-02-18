@@ -83,9 +83,9 @@ public class EightTest extends DataProviderUserImplementation {
 
     @DataProvider(name = "AmIWilsonDP")
     public Object[][] AmIWilsonTestData() {
-        Object[][] parameters = new Object[][] {
-                {5.0,true},
-                {13.0,true},
+        Object[][] parameters = new Object[][]{
+                {5.0, true},
+                {13.0, true},
                 {563.0, true},
                 {1.0, false}
         };
@@ -150,7 +150,7 @@ public class EightTest extends DataProviderUserImplementation {
     }
 
     @Test(dataProvider = "AmIWilsonDP")
-    public void testAmIWilson(Eight eight, double n, boolean expected){
+    public void testAmIWilson(Eight eight, double n, boolean expected) {
         boolean actual = eight.amIWilson(n);
         assertEquals(actual, expected);
     }

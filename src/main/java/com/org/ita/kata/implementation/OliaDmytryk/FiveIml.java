@@ -1,10 +1,11 @@
 package com.org.ita.kata.implementation.OliaDmytryk;
 
+import com.org.ita.kata.Base;
 import com.org.ita.kata.Five;
 
 import java.math.BigInteger;
 
-public class FiveIml implements Five {
+public class FiveIml extends Base implements Five {
     @Override
     public int artificialRain(int[] v) {
         return 0;

@@ -1,8 +1,9 @@
 package com.org.ita.kata.implementation.YuriiDruzhytskyi;
 
+import com.org.ita.kata.Base;
 import com.org.ita.kata.Eight;
 
-public class EightImpl implements Eight {
+public class EightImpl extends Base implements Eight {
     @Override
     public int liters(double time) {
         return (int) (time * 0.5);
