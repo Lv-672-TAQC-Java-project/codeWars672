@@ -5,7 +5,6 @@ import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
 import static org.testng.Assert.assertEquals;
-import static org.testng.Assert.assertTrue;
 
 
 public class SixTest extends DataProviderUserImplementation {
@@ -102,16 +101,31 @@ public class SixTest extends DataProviderUserImplementation {
                 {new String[]{"ALAR 400", "ZXCV 300", "LKMN 250", "TYRM 650", "TVPE 400"},
                         new String[]{"A", "T"},
                         "(A : 400) - (T : 1050)"},
-                {new String[0], new String[0], ""}
         };
         return combine(implementationsSixKataDataProvider(), parameters);
     }
 
     @Test(dataProvider = "Bookseller")
     public void testStockSummary(Six six, String[] art, String[] cd, String expected) {
-        if(art.equals("") || cd.equals("")) {
-            assertEquals("", expected);
-        } else
+        assertEquals(six.stockSummary(art, cd), expected);
+    }
+
+    @DataProvider(name = "BooksellerEmpty")
+    public Object[][] BooksellerEmptyStockSummaryImpl() {
+        Object[][] parameters = new Object[][]{
+                {new String[] {"ABAR 200", "CDXE 500", "BKWR 250", "BTSQ 890", "DRTY 600"},
+                        new String[0],
+                        ""},
+                {new String[0],
+                        new String[] {"A", "T"},
+                        ""},
+                {new String[0], new String[0], ""}
+        };
+        return combine(implementationsSixKataDataProvider(), parameters);
+    }
+
+    @Test(dataProvider = "BooksellerEmpty")
+    public void testEmptyStockSummary(Six six, String[] art, String[] cd, String expected) {
         assertEquals(six.stockSummary(art, cd), expected);
     }
 }
