@@ -35,8 +35,6 @@ public class EightImpl implements Eight {
                     } else {
                         array[i] = (int) Math.pow(array[i], 2);
                     }
-                } else {
-                    throw new NoSuchElementException("Element is negative");
                 }
             }
         }
