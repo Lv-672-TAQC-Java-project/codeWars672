@@ -132,6 +132,6 @@ public class SixImpl implements Six {
                 }
             }
         }
-        return String.format("(A : %d) - (B : %d)", quantityOfBooks[0], quantityOfBooks[1]);
+        return String.format("(%s : %d) - (%s : %d)",lstOf1stLetter[0], quantityOfBooks[0],lstOf1stLetter[1], quantityOfBooks[1]);
     }
 }
