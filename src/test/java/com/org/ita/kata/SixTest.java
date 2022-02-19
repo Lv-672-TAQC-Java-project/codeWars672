@@ -9,6 +9,20 @@ import static org.testng.Assert.assertEquals;
 
 public class SixTest extends DataProviderUserImplementation {
 
+    @DataProvider(name = "RainfallDP")
+    public Object[][] RainfallDP() {
+        Object[][] parameters = new Object[][] {
+                {"London", "London:Jan 48.0,Feb 38.9,Mar 39.9,Apr 42.2,May 47.3,Jun 52.1,Jul 59.5," +
+                        "Aug 57.2,Sep 55.4,Oct 62.0,Nov 59.0,Dec 52.9" + "\n", 51.199999999999996},
+                {"Beijing", "Beijing:Jan 3.9,Feb 4.7,Mar 8.2,Apr 18.4,May 33.0,Jun 78.1,Jul 224.3," +
+                        "Aug 170.0,Sep 58.4,Oct 18.0,Nov 9.3,Dec 2.7" + "\n", 52.416666666666664},
+                {"Madrid", "" + "\n", -1.0},
+                {"Berlin", "" + "\n", -1.0}
+        };
+
+        return combine(implementationsSixKataDataProvider(), parameters);
+    }
+
     @DataProvider(name = "FindNbDP")
     public Object[][] FindNbData() {
         Object[][] parameters = new Object[][]{
@@ -47,12 +61,16 @@ public class SixTest extends DataProviderUserImplementation {
     public void testF() {
     }
 
-    @Test
-    public void testMean() {
+    @Test(dataProvider = "RainfallDP")
+    public void testMean(Six six, String town, String data, double expected) {
+        double actual = six.mean(town, data);
+        assertEquals(actual, expected);
     }
 
-    @Test
-    public void testVariance() {
+    @Test(dataProvider = "RainfallDP")
+    public void testVariance(Six six, String town, String data, double expected) {
+        double actual = six.mean(town, data);
+        assertEquals(actual, expected);
     }
 
     @DataProvider(name = "NbaCupDP")
