@@ -94,18 +94,18 @@ public class ConsoleScannerTest {
     @DataProvider(name = "ReadArrayIntDP")
     public Object[][] ReadArrayIntData(){
         return new Object[][] {
-                {"4 1 2 3 4", "[1, 2, 3, 4]"},
-                {"6 1 10 22 5 9 dff 11", "[1, 10, 22, 5, 9, 11]"},
-                {"5 530 bcd -3  41 365 -40 abc", "[530, -3, 41, 365, -40]"},
-                {"2 3.12 false 1 3.12 0", "[1, 0]"}
+                {"4 1 2 3 4", new int[]{1, 2, 3, 4}},
+                {"6 1 10 22 5 9 dff 11", new int[]{1, 10, 22, 5, 9, 11}},
+                {"5 530 bcd -3  41 365 -40 abc", new int[]{530, -3, 41, 365, -40}},
+                {"2 3.12 false 1 3.12 0", new int[]{1, 0}}
         };
     }
 
     @Test(dataProvider = "ReadArrayIntDP")
-    public void testReadArrayInt(String input, String expected) {
+    public void testReadArrayInt(String input, int[] expected) {
         System.setIn(new ByteArrayInputStream(input.getBytes()));
         ConsoleScanner consoleScanner = new ConsoleScanner();
-        String actual = Arrays.toString(consoleScanner.readArrayInt());
+        int[] actual = consoleScanner.readArrayInt();
         assertEquals(actual, expected);
     }
 
