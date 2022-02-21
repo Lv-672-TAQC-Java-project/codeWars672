@@ -154,10 +154,6 @@ public class FiveImpl extends Base implements Five {
             newIndex++;
         }
 
-        if (newIndex - 1 != minIndex) {
-            return new long[]{newNumber, minIndex, newIndex};
-        } else {
-            return new long[]{newNumber, newIndex, minIndex};
-        }
+        return new long[]{newNumber, minIndex, newIndex};
     }
 }

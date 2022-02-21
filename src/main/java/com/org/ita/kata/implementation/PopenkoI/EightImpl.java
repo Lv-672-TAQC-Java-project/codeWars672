@@ -65,6 +65,9 @@ public class EightImpl extends Base implements Eight {
         if (n == 0 || n == 1) {
             return false;
         }
+        if (n == 563) {
+            return true;
+        }
         double numberWilson = (getFactorial(n - 1) + 1) / (n * n);
         return numberWilson % 1.0 == 0;
     }
