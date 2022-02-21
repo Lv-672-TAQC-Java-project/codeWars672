@@ -109,4 +109,23 @@ public class SixTest extends DataProviderUserImplementation {
     public void testStockSummary(Six six, String[] art, String[] cd, String expected) {
         assertEquals(six.stockSummary(art, cd), expected);
     }
+
+    @DataProvider(name = "BooksellerEmpty")
+    public Object[][] BooksellerEmptyStockSummaryImpl() {
+        Object[][] parameters = new Object[][]{
+                {new String[] {"ABAR 200", "CDXE 500", "BKWR 250", "BTSQ 890", "DRTY 600"},
+                        new String[0],
+                        ""},
+                {new String[0],
+                        new String[] {"A", "T"},
+                        ""},
+                {new String[0], new String[0], ""}
+        };
+        return combine(implementationsSixKataDataProvider(), parameters);
+    }
+
+    @Test(dataProvider = "BooksellerEmpty")
+    public void testEmptyStockSummary(Six six, String[] art, String[] cd, String expected) {
+        assertEquals(six.stockSummary(art, cd), expected);
+    }
 }
