@@ -1,8 +1,9 @@
 package com.org.ita.kata.implementation.DianaStoyko;
 
+import com.org.ita.kata.Base;
 import com.org.ita.kata.Eight;
 
-public class EigthImpl implements Eight {
+public class EigthImpl extends Base implements Eight {
     @Override
     public int liters(double time) {
         return (int) (time * 0.5);

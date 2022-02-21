@@ -8,7 +8,6 @@ import org.testng.asserts.SoftAssert;
 
 import java.io.*;
 import java.math.BigInteger;
-import java.nio.charset.StandardCharsets;
 import java.util.Arrays;
 
 import static org.testng.Assert.assertEquals;
@@ -52,7 +51,7 @@ public class ConsoleScannerTest {
 
     @DataProvider(name = "ReadLongDP")
     public Object[][] ReadLongDP() {
-        return new Object[][] {
+        return new Object[][]{
                 {"7", "Please enter a number: ", Long.valueOf(7)},
                 {"-9223372036854775808", "Please enter a number: ", Long.MIN_VALUE},
                 {"9223372036854775807", "Please enter a number: ", Long.MAX_VALUE},
@@ -85,7 +84,7 @@ public class ConsoleScannerTest {
         System.setOut(new PrintStream(output));
         long actual = consoleScanner.readLong();
         SoftAssert softAssert = new SoftAssert();
-        softAssert.assertEquals(actual, expected,"testReadLong");
+        softAssert.assertEquals(actual, expected, "testReadLong");
         softAssert.assertEquals(String.valueOf(output).replace("\r", ""),
                 outputExpected, "outputExpected");
         softAssert.assertAll();
@@ -106,8 +105,23 @@ public class ConsoleScannerTest {
         };
     }
 
-    @Test
-    public void testReadArrayInt() {
+    @DataProvider(name = "ReadArrayIntDP")
+    public Object[][] ReadArrayIntData(){
+        return new Object[][] {
+                {"4 1 2 3 4", new int[]{1, 2, 3, 4}},
+                {"6 1 10 22 5 9 dff 11", new int[]{1, 10, 22, 5, 9, 11}},
+                {"5 530 bcd -3  41 365 -40 abc", new int[]{530, -3, 41, 365, -40}},
+                {"2 3.12 false 1 3.12 0", new int[]{1, 0}}
+        };
+    }
+
+    @Test(dataProvider = "ReadArrayIntDP")
+    public void testReadArrayInt(String input, int[] expected) {
+        System.setIn(new ByteArrayInputStream(input.getBytes()));
+        ConsoleScanner consoleScanner = new ConsoleScanner();
+        int[] actual = consoleScanner.readArrayInt();
+        assertEquals(actual, expected);
+
     }
 
     @DataProvider(name = "readFloat")
@@ -187,8 +201,24 @@ public class ConsoleScannerTest {
     public void testReadString() {
     }
 
-    @Test
-    public void testReadStringArray() {
+    @DataProvider(name = "stringArrayDP")
+    public Object[][] stringArrayDP() {
+        return new Object[][]{
+                {"1\nUkraine\n", "[Ukraine]"},
+                {"3\nTom\nJohn\nok\n", "[Tom, John, ok]"},
+                {"3\n123\n345\n222\n", "[123, 345, 222]"},
+                {"5\nABAR 200\nCDXE 500\nBKWR 250\nBTSQ 890\nDRTY 600\n", "[ABAR 200, CDXE 500, BKWR 250, BTSQ 890, DRTY 600]"},
+                {"2\nA\nB\n", "[A, B]"},
+                {"7s\n7\ntestStringArrayMethod\n333\n-123\n34a\n$\n$25\nseptember\n", "[testStringArrayMethod, 333, -123, 34a, $, $25, september]"},
+        };
+    }
+
+    @Test(dataProvider = "stringArrayDP")
+    public void testReadStringArray(String input, String expected) {
+        System.setIn(new ByteArrayInputStream(input.getBytes()));
+        ConsoleScanner consoleScanner = new ConsoleScanner();
+        String actual = Arrays.toString(consoleScanner.readStringArray());
+        assertEquals(actual, expected);
     }
 
     @Test(dataProvider = "ReadBigIntegerDP")

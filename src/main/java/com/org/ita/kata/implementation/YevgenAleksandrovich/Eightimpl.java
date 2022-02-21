@@ -1,9 +1,10 @@
 package com.org.ita.kata.implementation.YevgenAleksandrovich;
 
 
+import com.org.ita.kata.Base;
 import com.org.ita.kata.Eight;
 
-public class Eightimpl implements Eight {
+public class Eightimpl extends Base implements Eight {
     /*Keep Hydrated!-Kata*/
     @Override
     public int liters(double time) {

@@ -1,8 +1,9 @@
 package com.org.ita.kata.implementation.YevgenAleksandrovich;
 
+import com.org.ita.kata.Base;
 import com.org.ita.kata.Six;
 
-public class Siximpl implements Six {
+public class Siximpl extends Base implements Six {
     /*Build a oile of cubes*/
     @Override
     public long findNb(long m) {

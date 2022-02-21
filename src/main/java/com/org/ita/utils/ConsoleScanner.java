@@ -6,6 +6,8 @@ import java.util.List;
 import java.util.Locale;
 import java.util.Scanner;
 
+import static org.apache.commons.lang3.StringUtils.isNumeric;
+
 public class ConsoleScanner {
     private final Scanner sc = new Scanner(System.in).useLocale(Locale.US);
 
@@ -93,20 +95,21 @@ public class ConsoleScanner {
     }
 
     public String[] readStringArray() {
-        List<String> strings = new LinkedList<>();
+        String[] array;
         while (true) {
-            System.out.print("Write one new element of the array:");
-            if (sc.hasNextLine()) {
-                String line = sc.nextLine();
-                System.out.println("If this is the end of the String[], write OK.");
-                if (line.equalsIgnoreCase("OK")) {
-                    String[] array = new String[strings.size()];
-                    for (int i = 0; i < strings.size(); i++) {
-                        array[i] = strings.get(i);
-                    }
-                    return array;
+            System.out.println("Length of the array");
+            String length = sc.nextLine();
+            System.out.println(length);
+            if (isNumeric(length)) {
+                array = new String[Integer.parseInt(length)];
+                int i = 0;
+                while (i < array.length) {
+                    array[i] = sc.nextLine();
+                    i++;
                 }
-                strings.add(line);
+                return array;
+            } else {
+                System.out.println("Incorrect format int. Try again!");
             }
         }
     }

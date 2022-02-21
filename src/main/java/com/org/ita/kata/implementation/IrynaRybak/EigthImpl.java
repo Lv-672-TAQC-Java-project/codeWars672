@@ -1,11 +1,12 @@
 package com.org.ita.kata.implementation.IrynaRybak;
 
+import com.org.ita.kata.Base;
 import com.org.ita.kata.Eight;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class EigthImpl implements Eight {
+public class EigthImpl extends Base implements Eight {
     public static double fastorial(double n) {
         double result = 1;
         if (n <= 0) {

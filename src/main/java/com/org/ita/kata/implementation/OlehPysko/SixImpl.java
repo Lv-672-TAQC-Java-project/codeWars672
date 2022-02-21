@@ -1,8 +1,9 @@
 package com.org.ita.kata.implementation.OlehPysko;
 
+import com.org.ita.kata.Base;
 import com.org.ita.kata.Six;
 
-public class SixImpl implements Six {
+public class SixImpl extends Base implements Six {
     @Override
     public long findNb(long m) {
         int count = 1;

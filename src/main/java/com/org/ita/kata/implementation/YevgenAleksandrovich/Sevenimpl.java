@@ -1,8 +1,9 @@
 package com.org.ita.kata.implementation.YevgenAleksandrovich;
 
+import com.org.ita.kata.Base;
 import com.org.ita.kata.Seven;
 
-public class Sevenimpl implements Seven {
+public class Sevenimpl extends Base implements Seven {
     /*Benefactor*/
     @Override
     public long newAvg(double[] arr, double navg) {

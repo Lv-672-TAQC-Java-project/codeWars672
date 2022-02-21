@@ -1,12 +1,13 @@
 package com.org.ita.kata.implementation.PopenkoI;
 
+import com.org.ita.kata.Base;
 import com.org.ita.kata.Five;
 
 import java.math.BigInteger;
 import java.util.ArrayList;
 import java.util.Arrays;
 
-public class FiveImpl implements Five {
+public class FiveImpl extends Base implements Five {
     private static BigInteger factorial(int n) {
         BigInteger ret = BigInteger.ONE;
         for (int i = 1; i <= n; ++i) ret = ret.multiply(BigInteger.valueOf(i));
@@ -153,10 +154,6 @@ public class FiveImpl implements Five {
             newIndex++;
         }
 
-        if (newIndex - 1 != minIndex) {
-            return new long[]{newNumber, minIndex, newIndex};
-        } else {
-            return new long[]{newNumber, newIndex, minIndex};
-        }
+        return new long[]{newNumber, minIndex, newIndex};
     }
 }

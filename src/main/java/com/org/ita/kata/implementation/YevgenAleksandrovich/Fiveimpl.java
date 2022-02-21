@@ -1,10 +1,11 @@
 package com.org.ita.kata.implementation.YevgenAleksandrovich;
 
+import com.org.ita.kata.Base;
 import com.org.ita.kata.Five;
 
 import java.math.BigInteger;
 
-public class Fiveimpl implements Five {
+public class Fiveimpl extends Base implements Five {
 
     static boolean goLeft(int[] numbers, int i) {
         if (i == 0)
