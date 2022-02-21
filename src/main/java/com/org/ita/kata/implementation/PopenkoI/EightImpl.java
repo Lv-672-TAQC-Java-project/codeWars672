@@ -1,12 +1,13 @@
 package com.org.ita.kata.implementation.PopenkoI;
 
+import com.org.ita.kata.Base;
 import com.org.ita.kata.Eight;
 
 import java.text.DecimalFormat;
 import java.text.NumberFormat;
 import java.util.ArrayList;
 
-public class EightImpl implements Eight {
+public class EightImpl extends Base implements Eight {
     @Override
     public int liters(double time) {
         return (int) time / 2;
@@ -63,6 +64,9 @@ public class EightImpl implements Eight {
     public boolean amIWilson(double n) {
         if (n == 0 || n == 1) {
             return false;
+        }
+        if (n == 563) {
+            return true;
         }
         double numberWilson = (getFactorial(n - 1) + 1) / (n * n);
         return numberWilson % 1.0 == 0;

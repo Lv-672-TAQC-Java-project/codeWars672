@@ -81,6 +81,17 @@ public class EightTest extends DataProviderUserImplementation {
         return combine(implementationsEightKataDataProvider(), parameters);
     }
 
+    @DataProvider(name = "AmIWilsonDP")
+    public Object[][] AmIWilsonTestData() {
+        Object[][] parameters = new Object[][]{
+                {5.0, true},
+                {13.0, true},
+                {563.0, true},
+                {1.0, false}
+        };
+        return combine(implementationsEightKataDataProvider(), parameters);
+    }
+
     @Test(dataProvider = "SquareOrSquareRootDP")
     public void testSquareOrSquareRoot(Eight eight, int[] input, String expected) {
         int[] actual = eight.squareOrSquareRoot(input);
@@ -135,6 +146,12 @@ public class EightTest extends DataProviderUserImplementation {
     @Test(dataProvider = "twoDecimals")
     public void testTwoDecimalPlaces(Eight eight, double expected, double data) {
         double actual = eight.twoDecimalPlaces(data);
+        assertEquals(actual, expected);
+    }
+
+    @Test(dataProvider = "AmIWilsonDP")
+    public void testAmIWilson(Eight eight, double n, boolean expected) {
+        boolean actual = eight.amIWilson(n);
         assertEquals(actual, expected);
     }
 }

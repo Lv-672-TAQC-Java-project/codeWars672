@@ -1,11 +1,12 @@
 package com.org.ita.kata.implementation.KaterynaMushynska;
 
+import com.org.ita.kata.Base;
 import com.org.ita.kata.Five;
 
 import java.math.BigInteger;
 import java.util.Arrays;
 
-public class FiveImpl implements Five {
+public class FiveImpl extends Base implements Five {
     public static boolean checkPrime(long i) {
         for (int j = 2; j < Math.sqrt(i + 1); j++) {
             if (i % j == 0) {
@@ -17,7 +18,32 @@ public class FiveImpl implements Five {
 
     @Override
     public int artificialRain(int[] v) {
-        return 0;
+        int[] resultLeft = new int[v.length];
+        int[] resultRight = new int[v.length];
+        int maxNumberOfSections = 0;
+
+        for (int i = 0; i < v.length; i++) {
+            if (i != 0) {
+                if (v[i - 1] <= v[i]) {
+                    resultLeft[i] = resultLeft[i - 1] + 1;
+                } else {
+                    resultLeft[i] = 0;
+                }
+            }
+        }
+        for (int i = v.length - 1; i >= 0; i--) {
+            if (v.length - 1 != i) {
+                if (v[i + 1] <= v[i]) {
+                    resultRight[i] = resultRight[i + 1] + 1;
+                } else {
+                    resultRight[i] = 0;
+                }
+            }
+        }
+        for (int i = 0; i < resultLeft.length; i++) {
+            maxNumberOfSections = Math.max(resultLeft[i] + resultRight[i] + 1, maxNumberOfSections);
+        }
+        return maxNumberOfSections;
     }
 
     @Override

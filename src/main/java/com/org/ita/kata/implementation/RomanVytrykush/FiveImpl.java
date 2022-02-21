@@ -1,10 +1,11 @@
 package com.org.ita.kata.implementation.RomanVytrykush;
 
+import com.org.ita.kata.Base;
 import com.org.ita.kata.Five;
 
 import java.math.BigInteger;
 
-public class FiveImpl implements Five {
+public class FiveImpl extends Base implements Five {
 
     public static boolean findPrime(long i) {
         for (int y = 2; y < i / 2; y++) {

@@ -1,12 +1,13 @@
 package com.org.ita.kata.implementation.IrynaRybak;
 
+import com.org.ita.kata.Base;
 import com.org.ita.kata.Five;
 
 import java.math.BigInteger;
 import java.util.ArrayList;
 import java.util.List;
 
-public class FiveImpl implements Five {
+public class FiveImpl extends Base implements Five {
     public static boolean isSimple(long num) {
         for (int i = 2; i < num; i++) {
             if (num % i == 0) {

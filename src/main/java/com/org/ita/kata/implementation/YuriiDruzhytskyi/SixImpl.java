@@ -1,10 +1,11 @@
 package com.org.ita.kata.implementation.YuriiDruzhytskyi;
 
+import com.org.ita.kata.Base;
 import com.org.ita.kata.Six;
 
 import java.util.Arrays;
 
-public class SixImpl implements Six {
+public class SixImpl extends Base implements Six {
     @Override
     public long findNb(long m) {
         long n = 0;

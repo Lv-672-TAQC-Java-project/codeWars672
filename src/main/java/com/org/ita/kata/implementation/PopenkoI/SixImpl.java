@@ -1,11 +1,12 @@
 package com.org.ita.kata.implementation.PopenkoI;
 
+import com.org.ita.kata.Base;
 import com.org.ita.kata.Six;
 
 import java.util.ArrayList;
 import java.util.Arrays;
 
-public class SixImpl implements Six {
+public class SixImpl extends Base implements Six {
     @Override
     public long findNb(long m) {
         long counter = 0;
@@ -132,6 +133,6 @@ public class SixImpl implements Six {
                 }
             }
         }
-        return String.format("(A : %d) - (B : %d)", quantityOfBooks[0], quantityOfBooks[1]);
+        return String.format("(%s : %d) - (%s : %d)",lstOf1stLetter[0], quantityOfBooks[0],lstOf1stLetter[1], quantityOfBooks[1]);
     }
 }
