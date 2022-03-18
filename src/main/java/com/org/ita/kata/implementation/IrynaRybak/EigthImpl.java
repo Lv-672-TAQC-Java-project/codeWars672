@@ -67,10 +67,11 @@ public class EigthImpl extends Base implements Eight {
 
     @Override
     public int stringToNumber(String str) {
-        if (str.length() == 0) {
-            return 0;
+        try {
+            return Integer.parseInt(str);
+        }catch (NumberFormatException e){
+            return -1;
         }
-        return Integer.parseInt(str);
     }
 
     @Override
