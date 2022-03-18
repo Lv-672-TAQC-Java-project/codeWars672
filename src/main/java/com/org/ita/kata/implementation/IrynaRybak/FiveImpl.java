@@ -8,7 +8,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class FiveImpl extends Base implements Five {
-    public static boolean isSimple(long num) {
+    public static boolean isPrime(long num) {
         for (int i = 2; i < num; i++) {
             if (num % i == 0) {
                 return false;
@@ -35,7 +35,7 @@ public class FiveImpl extends Base implements Five {
     public long[] gap(int g, long m, long n) {
         List<Long> listNumbers = new ArrayList<>();
         for (long i = m; i <= n; i++) {
-            if (isSimple(i)) {
+            if (isPrime(i)) {
                 listNumbers.add(i);
             }
         }
