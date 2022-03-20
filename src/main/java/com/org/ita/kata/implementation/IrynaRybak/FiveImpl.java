@@ -5,6 +5,7 @@ import com.org.ita.kata.Five;
 
 import java.math.BigInteger;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 public class FiveImpl extends Base implements Five {
@@ -28,7 +29,52 @@ public class FiveImpl extends Base implements Five {
 
     @Override
     public int artificialRain(int[] v) {
-        return 0;
+        int[] rightResult = rightFlow(v);
+        int[] leftResult = leftFlow(v);
+
+        System.out.println(Arrays.toString(rightResult));
+        System.out.println(Arrays.toString(leftResult));
+
+        int maxSections = 0;
+        for (int i = 0; i < v.length - 1; i++) {
+            maxSections = Math.max(rightResult[i] + leftResult[i] + 1, maxSections);
+        }
+        return maxSections;
+    }
+
+    private static int[] rightFlow(int[] numbers){
+        int[] rightArray = new int[numbers.length];
+
+        int rightCount = 0;
+        for (int i = 0; i <= numbers.length - 1; i++) {
+            for (int j = i; j <= numbers.length - 1; j++) {
+                if (j < numbers.length - 1 && numbers[j] >= numbers[j + 1]) {
+                    rightCount++;
+                } else {
+                    break;
+                }
+            }
+            rightArray[i] = rightCount;
+            rightCount = 0;
+        }
+        return rightArray;
+    }
+
+    private static int[] leftFlow(int[] numbers){
+        int[] leftArray = new int[numbers.length];
+        int leftCount = 0;
+        for (int i = numbers.length - 1; i >= 0; i--) {
+            for (int j = i; j >= 0; j--) {
+                if (j > 0 && numbers[j] >= numbers[j - 1]) {
+                    leftCount++;
+                } else {
+                    break;
+                }
+            }
+            leftArray[i] = leftCount;
+            leftCount = 0;
+        }
+        return leftArray;
     }
 
     @Override
