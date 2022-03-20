@@ -3,6 +3,12 @@ package com.org.ita.kata.implementation.IrynaRybak;
 import com.org.ita.kata.Base;
 import com.org.ita.kata.Six;
 
+import java.math.BigDecimal;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
+import static java.math.RoundingMode.HALF_UP;
+
 public class SixImpl extends Base implements Six {
 
     @Override
@@ -20,7 +26,26 @@ public class SixImpl extends Base implements Six {
 
     @Override
     public String balance(String book) {
-        return null;
+        String[] str = book.replaceAll("[^a-zA-Z0-9.\\s]", "").split("\\r?\\n");
+
+        double total = Double.parseDouble(str[0]);
+        String result = String.format("Original Balance: %s\\r\\n", new BigDecimal(total).setScale(2, HALF_UP));
+
+        double tmp = total;
+        for (int index = 1; index < str.length; index++) {
+            Pattern pattern = Pattern.compile("\\d+\\.*\\d+$");
+            Matcher matcher = pattern.matcher(str[index]);
+            while (matcher.find()) {
+                double balance = tmp - Double.parseDouble(matcher.group());
+                tmp = balance;
+                result += String.format("%s Balance %s\\r\\n", str[index], new BigDecimal(balance).setScale(2, HALF_UP));
+            }
+        }
+        double totalExpense = total - tmp;
+        double averageExpense = (total - tmp) / (str.length - 1);
+        result += String.format("Total expense  %s\\r\\nAverage expense  %s", new BigDecimal(totalExpense).setScale(2, HALF_UP),
+                new BigDecimal(averageExpense).setScale(2, HALF_UP));
+        return result;
     }
 
     @Override
