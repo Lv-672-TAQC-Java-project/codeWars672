@@ -70,6 +70,23 @@ public class SixImpl extends Base implements Six {
 
     @Override
     public String stockSummary(String[] lstOfArt, String[] lstOf1stLetter) {
-        return null;
+        String result = "";
+        int sum = 0, count = 0;
+        if (lstOfArt.length != 0 && lstOf1stLetter.length != 0) {
+            for (String letter : lstOf1stLetter) {
+                for (String art : lstOfArt) {
+                    if (art.split("")[0].equalsIgnoreCase(letter)) {
+                        String number = art.replaceAll("\\D", "");
+                        sum += art.isEmpty() ? 0 : Integer.parseInt(number);
+                    }
+                }
+                count++;
+                result += count != lstOf1stLetter.length ?
+                        String.format("(%s : %d) - ", letter, sum) :
+                        String.format("(%s : %d)", letter, sum);
+                sum = 0;
+            }
+        }
+        return result;
     }
 }
