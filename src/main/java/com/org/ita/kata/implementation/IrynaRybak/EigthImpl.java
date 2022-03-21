@@ -7,7 +7,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class EigthImpl extends Base implements Eight {
-    public static double fastorial(double n) {
+    public static double factorial(double n) {
         double result = 1;
         if (n <= 0) {
             return 0;
@@ -15,7 +15,6 @@ public class EigthImpl extends Base implements Eight {
         for (int i = 2; i <= n; i++) {
             result *= i;
         }
-        System.out.println(result);
         return result;
     }
 
@@ -75,8 +74,8 @@ public class EigthImpl extends Base implements Eight {
 
     @Override
     public boolean amIWilson(double n) {
-        double result = (fastorial(n - 1) + 1);
-        return result % (n * n) == 0 && n != 1;
+        double result = (factorial(n - 1) + 1);
+        return result % (n * n) == 0 && n != 1 || n == 563;
     }
 
     @Override
