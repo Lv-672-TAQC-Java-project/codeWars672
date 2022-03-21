@@ -40,7 +40,42 @@ public class SixImpl extends Base implements Six {
 
     @Override
     public String nbaCup(String resultSheet, String toFind) {
-        return null;
+        String[] strArray = resultSheet.replaceAll("76ers","").split(",");
+        int count = 0, win = 0, draw = 0, loss = 0, scored = 0, conceded = 0, points = 3;
+        String res = String.format("%s", toFind);
+        if (!toFind.isEmpty()) {
+            for (String str : strArray) {
+                if (str.contains(toFind)) {
+                    String[] teams = str.replaceFirst("[0-9]+", ", ").trim().split(", ");
+                    String[] nums = str.replaceAll("[^0-9]+", " ").trim().split("\\s+");
+                    if (teams.length != 2 || nums.length != 2) {
+                        return null;
+                    }
+                    for (int i = 0; i < teams.length; i++) {
+                        if (toFind.trim().equalsIgnoreCase(teams[i].replaceAll("[0-9]+", "").trim())) {
+                            int tmp = i == 0 ? Integer.parseInt(nums[i]) - Integer.parseInt(nums[i + 1])
+                                    : Integer.parseInt(nums[i]) - Integer.parseInt(nums[i - 1]);
+                            if (tmp > 0) {
+                                win += 1;
+                            }
+                            if (tmp < 0) {
+                                loss += 1;
+                            }
+                            if (tmp == 0) {
+                                draw += 1;
+                            }
+                            scored += Integer.parseInt(nums[i]);
+                            conceded += i == 0 ? Integer.parseInt(nums[i + 1]) : Integer.parseInt(nums[i - 1]);
+                            count++;
+                        } else if (i == teams.length - 1 && count == 0) {
+                            return String.format("%s:This team didn't play!", toFind);
+                        }
+                    }
+                }
+            }
+            res += String.format(":W=%d;D=%d;L=%d;Scored=%d;Conceded=%d;Points=%d", win, draw, loss, scored, conceded, points * win);
+        }
+        return res;
     }
 
     @Override
