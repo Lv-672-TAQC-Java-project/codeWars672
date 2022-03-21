@@ -55,12 +55,49 @@ public class SixImpl extends Base implements Six {
 
     @Override
     public double mean(String town, String strng) {
-        return 0;
+        double sum = 0, count = 0;
+        if (!strng.isEmpty() && !town.isEmpty()) {
+            String[] str = strng.split("\\n");
+            for (int i = 0; i < str.length; i++) {
+                String[] arr = str[i].split("\\:");
+                for (String string : arr) {
+                    if (town.equalsIgnoreCase(string)) {
+                        Pattern pattern = Pattern.compile("\\d+\\.*\\d+");
+                        String number = arr[1].replaceAll("[a-zA-Z]", "");
+                        Matcher matcher = pattern.matcher(number);
+                        while (matcher.find()) {
+                            sum += Double.parseDouble(number.substring(matcher.start(), matcher.end()));
+                            count++;
+                        }
+                    }
+                }
+            }
+        }
+        return count > 0 ? (sum / count) : -1;
     }
 
     @Override
     public double variance(String town, String strng) {
-        return 0;
+        double variance = 0;
+        if (!strng.isEmpty() && !town.isEmpty()) {
+            String[] str = strng.split("\\n");
+            for (int i = 0; i < str.length; i++) {
+                String[] arr = str[i].split("\\:");
+                for (String string : arr) {
+                    if (town.equalsIgnoreCase(string)) {
+                        double means = mean(town, strng);
+                        Pattern pattern = Pattern.compile("\\d+\\.*\\d+");
+                        String number = arr[1].replaceAll("[a-zA-Z]", "");
+                        Matcher matcher = pattern.matcher(number);
+                        while (matcher.find()) {
+                            double tmpNum = Double.parseDouble(number.substring(matcher.start(), matcher.end()));
+                            variance += Math.pow(tmpNum - means, 2);
+                        }
+                    }
+                }
+            }
+        }
+        return variance == 0 ? -1 : variance;
     }
 
     @Override
