@@ -22,9 +22,18 @@ public class FiveTest extends DataProviderUserImplementation {
         return combine(implementationsFiveKataDataProvider(), parameters);
     }
 
-
-    @Test
-    public void testArtificialRain() {
+    @DataProvider(name = "ArtificialRainDP")
+    public Object[][] ArtificialRainData() {
+        Object[][] parameters = new Object[][]{
+                {new int[]{7, 10, 8, 7, 4, 4, 6, 6, 5, 8, 1, 6}, 6},
+                {new int[]{4, 2, 3, 3, 2}, 4},
+        };
+        return combine(implementationsFiveKataDataProvider(), parameters);
+    }
+    @Test(dataProvider = "ArtificialRainDP")
+    public void testArtificialRain(Five five, int[] data, int expected) {
+        int actual = five.artificialRain(data);
+        assertEquals(actual, expected);
     }
 
 
