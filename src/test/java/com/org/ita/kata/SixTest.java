@@ -69,7 +69,7 @@ public class SixTest extends DataProviderUserImplementation {
 
     @Test(dataProvider = "RainfallDP")
     public void testVariance(Six six, String town, String data, double expected) {
-        double actual = six.mean(town, data);
+        double actual = six.variance(town, data);
         assertEquals(actual, expected);
     }
 
